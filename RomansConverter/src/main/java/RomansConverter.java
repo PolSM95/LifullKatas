@@ -1,7 +1,14 @@
+import java.util.HashMap;
+
 public class RomansConverter {
+
+    HashMap <String , Integer > romanValues = new HashMap < String , Integer >();
+
     public String romanConversion(int number) {
 
         String romanNumber = "";
+
+
 
         if (number == 5){
             romanNumber = "V";
@@ -20,4 +27,6 @@ public class RomansConverter {
         }
         return romanNumber;
     }
+
+
 }
