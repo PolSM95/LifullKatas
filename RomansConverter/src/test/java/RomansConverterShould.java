@@ -9,7 +9,9 @@ public class RomansConverterShould {
     @CsvSource({
             "1,I",
             "2,II",
-            "3,III"
+            "3,III",
+            "5,V",
+            "10,X"
     })
     public void convert_arabic_numbers_to_roman_numbers(int arabic, String roman){
         RomansConverter romansConverter = new RomansConverter();
