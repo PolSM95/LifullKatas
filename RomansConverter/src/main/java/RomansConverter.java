@@ -17,6 +17,9 @@ public class RomansConverter {
 
         String romanNumber = "";
         int restNumber = number;
+        int countRepeatNum = 0;
+        Map.Entry <String, Integer> lastEntry;
+
 
         for (Map.Entry<String, Integer> entryRomanValues : romanValues.entrySet()) {
             String keyRomanChar = entryRomanValues.getKey();
@@ -24,25 +27,21 @@ public class RomansConverter {
 
 
             while(restNumber >= valueRomanNumber){
-                restNumber -= valueRomanNumber;
-                romanNumber += keyRomanChar;
+                if(countRepeatNum > 3){
+
+
+                }else{
+                    restNumber -= valueRomanNumber;
+                    romanNumber += keyRomanChar;
+                }
+                countRepeatNum++;
             }
+
+            countRepeatNum = 0;
+            lastEntry = entryRomanValues;
         }
 
-//
-//        if (number == 5){
-//            romanNumber = "V";
-//            return romanNumber;
-//        }
-//        if (number == 10){
-//            romanNumber = "X";
-//            return romanNumber;
-//        }
-//        for(int i = 1 ; i <= number;  i++){
-//            romanNumber += "I";
-//        }
        return romanNumber;
     }
-
 
 }
