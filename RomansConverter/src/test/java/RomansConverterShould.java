@@ -1,12 +1,15 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RomansConverterShould {
-    @Test
-    public void convert_arabic_numbers_to_roman_numbers(){
+    @ParameterizedTest
+    @CsvSource({"1,I"})
+    public void convert_arabic_numbers_to_roman_numbers(int arabic, String roman){
         RomansConverter romansConverter = new RomansConverter();
-        assertEquals("I",romansConverter.romanConversion(1));
+        assertEquals(roman,romansConverter.romanConversion(arabic));
     }
 
 }
