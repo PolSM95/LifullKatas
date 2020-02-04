@@ -22,5 +22,12 @@ public class TicTacToeShould {
             tictactoe.makeMove("x");
         });
     }
+    @Test
+    public void return_ok_when_x_is_followed_by_o(){
+        TicTacToe tictactoe = new TicTacToe();
+        assertEquals("ok",tictactoe.makeMove("x"));
+        assertEquals("ok",tictactoe.makeMove("o"));
+
+    }
 
 }
