@@ -9,11 +9,15 @@ public class RomansConverterTPP {
     public RomansConverterTPP() {
         romanNumbers.put(1, "I");
         romanNumbers.put(4, "IV");
+        romanNumbers.put(5, "V");
     }
 
     public String romanConversion(int number) {
         if (romanNumbers.containsKey(number)){
             return romanNumbers.get(number);
+        }
+        if (number > 5){
+            return "V" + romanConversion(number - 5);
         }
         return "I" + romanConversion(number - 1);
     }
