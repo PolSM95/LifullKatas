@@ -1,6 +1,9 @@
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.lang.reflect.Array;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FibonacciShould {
@@ -16,8 +19,8 @@ public class FibonacciShould {
             "6, 8",
             "9, 34"
     })
-    public void test(int position, int expectedValue){
-        assertEquals(expectedValue, Fibonacci.calculate(position));
+    public void validate_fibonacci_serie(int position, int expectedValue){
+        assertEquals(expectedValue, Fibonacci.calculateIterative(position));
     }
 
 
@@ -29,5 +32,20 @@ public class FibonacciShould {
             }
            return calculate(position - 1) + calculate(position - 2);
         }
+
+        public static int calculateIterative (int position){
+            if (position < 2){
+                return position;
+            }
+            Integer[] fibonacciSerie = {0,1,0};
+            for (int i = 2; i <= position; i++){
+                fibonacciSerie[2] = fibonacciSerie[0] + fibonacciSerie[1];
+                fibonacciSerie[0] = fibonacciSerie[1];
+                fibonacciSerie[1] = fibonacciSerie[2];
+            }
+            return fibonacciSerie[1];
+        }
     }
+
+
 }
