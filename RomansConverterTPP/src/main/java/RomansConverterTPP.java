@@ -2,15 +2,20 @@ import java.util.*;
 
 public class RomansConverterTPP {
     HashMap <Integer, String > romanNumbers = new LinkedHashMap<>();
-    Iterator iteratorRomanNumbers;
+
     public RomansConverterTPP() {
+        romanNumbers.put(1000, "M");
+        romanNumbers.put(900, "CM");
+        romanNumbers.put(400, "CD");
+        romanNumbers.put(100, "C");
+        romanNumbers.put(90, "XC");
+        romanNumbers.put(50, "L");
         romanNumbers.put(40, "XL");
         romanNumbers.put(10, "X");
         romanNumbers.put(9, "IX");
         romanNumbers.put(5, "V");
         romanNumbers.put(4, "IV");
         romanNumbers.put(1, "I");
-        iteratorRomanNumbers = romanNumbers.entrySet().iterator();
 
     }
 
@@ -18,15 +23,13 @@ public class RomansConverterTPP {
         if (romanNumbers.containsKey(number)){
             return romanNumbers.get(number);
         }
-        if (number > 40){
-            return "XL" + romanConversion(number - 40);
+
+        for (Integer arabic : romanNumbers.keySet()) {
+            if (number > arabic){
+                return romanNumbers.get(arabic) + romanConversion(number - arabic);
+            }
+
         }
-        if (number > 10){
-            return "X" + romanConversion(number - 10);
-        }
-        if (number > 5){
-            return "V" + romanConversion(number - 5);
-        }
-        return "I" + romanConversion(number - 1);
+        return "";
     }
 }

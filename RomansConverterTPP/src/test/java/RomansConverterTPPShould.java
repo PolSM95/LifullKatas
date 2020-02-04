@@ -17,7 +17,8 @@ public class RomansConverterTPPShould {
             "10, X",
             "11, XI",
             "40, XL",
-            "41, XLI"
+            "41, XLI",
+            "3000, MMM"
     })
     public void convert_arabic_numbers_to_roman_numbers(int arabic, String roman){
         RomansConverterTPP romansConverter = new RomansConverterTPP();
