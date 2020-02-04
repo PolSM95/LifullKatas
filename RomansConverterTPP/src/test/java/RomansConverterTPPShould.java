@@ -8,7 +8,8 @@ public class RomansConverterTPPShould {
     @CsvSource({
             "1,I",
             "2,II",
-            "3,III"
+            "3,III",
+            "4, IV"
     })
     public void convert_arabic_numbers_to_roman_numbers(int arabic, String roman){
         RomansConverterTPP romansConverter = new RomansConverterTPP();
