@@ -15,9 +15,12 @@ public class TicTacToeShould {
     }
 
     @Test
-    public void test(){
-
-
+    public void return_exception_when_the_following_symbol_is_equal(){
+        TicTacToe tictactoe = new TicTacToe();
+        assertThrows(RuntimeException.class, () ->{
+            tictactoe.makeMove("x");
+            tictactoe.makeMove("x");
+        });
     }
 
 }
