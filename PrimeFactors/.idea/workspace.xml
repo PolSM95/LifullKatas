@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="88818dbd-2c85-4145-8301-5c6cb092171d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PrimeFactors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrimeFactors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PrimeFactors.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PrimeFactors.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1X6iDREhP6JUMWjZDSQG4P5GbFQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Pol Sanchez\IdeaProjects\PrimeNumbers\src\test\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PrimeFactorsShould" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PrimeFactors" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PrimeFactorsShould" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PrimeFactorsShould" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="88818dbd-2c85-4145-8301-5c6cb092171d" name="Default Changelist" comment="" />
+      <created>1580372825458</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580372825458</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="372" y="118" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1580385196776">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="372" y="118" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1580385196776" />
+    <state x="421" y="84" key="FileChooserDialogImpl" timestamp="1580384452184">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="84" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1580384452184" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1580467430772">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1580467430772" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1580467430772">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1580467430772" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1580467430771">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1580467430771" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1580467430772">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1580467430772" />
+    <state x="343" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1580372833724">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="343" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1580372833724" />
+    <state x="348" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1580460390058">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="348" y="0" key="refactoring.ChangeSignatureDialog/0.0.1280.680@0.0.1280.680" timestamp="1580460390058" />
+  </component>
+</project>
