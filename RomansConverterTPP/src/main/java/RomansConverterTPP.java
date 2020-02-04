@@ -1,26 +1,20 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class RomansConverterTPP {
-    List<String> romanNumbers = new ArrayList<>();
+    HashMap <Integer, String > romanNumbers = new LinkedHashMap<>();
+
     public RomansConverterTPP() {
-        romanNumbers.add("I");
-        romanNumbers.add("II");
-        romanNumbers.add("III");
-        romanNumbers.add("IV");
+        romanNumbers.put(1, "I");
+        romanNumbers.put(4, "IV");
     }
 
     public String romanConversion(int number) {
-
-        if (number == 1){
-            return romanNumbers.get(number - 1);
+        if (romanNumbers.containsKey(number)){
+            return romanNumbers.get(number);
         }
-
-        if (number == 4){
-            return romanNumbers.get(number - 1);
-        }
-
         return "I" + romanConversion(number - 1);
-
     }
 }
