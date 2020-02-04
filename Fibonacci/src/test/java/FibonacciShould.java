@@ -13,7 +13,8 @@ public class FibonacciShould {
             "3, 2",
             "4, 3",
             "5, 5",
-            "6, 8"
+            "6, 8",
+            "9, 34"
     })
     public void test(int position, int expectedValue){
         assertEquals(expectedValue, Fibonacci.calculate(position));
@@ -22,9 +23,11 @@ public class FibonacciShould {
 
 
     private static class Fibonacci {
-        static Integer[] fibonacciList = {0,1,1,2,3,5,8};
         public static int calculate(int position) {
-           return fibonacciList[position];
+            if (position < 2){
+                return position;
+            }
+           return calculate(position - 1) + calculate(position - 2);
         }
     }
 }
