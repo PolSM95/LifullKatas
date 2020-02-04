@@ -29,14 +29,10 @@ public class RomansConverter {
             Integer valueRomanNumber = entryRomanValues.getValue();
 
             while(restNumber >= valueRomanNumber){
-
                 restNumber -= valueRomanNumber;
                 romanNumber += keyRomanChar;
-
-
             }
         }
-
        return romanNumber;
     }
 
