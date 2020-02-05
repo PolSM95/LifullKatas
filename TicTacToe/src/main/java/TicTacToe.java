@@ -12,4 +12,8 @@ public class TicTacToe {
         lastMove = symbol;
         return "ok";
     }
+
+    public String positionOnBoard(String x, int[] ints) {
+        return "ok";
+    }
 }

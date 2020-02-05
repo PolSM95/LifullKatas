@@ -29,5 +29,11 @@ public class TicTacToeShould {
         assertEquals("ok",tictactoe.makeMove("o"));
 
     }
+    @Test
+    public void return_ok_when_symbol_x_is_in_position_zero_zero(){
+        TicTacToe tictactoe = new TicTacToe();
+        assertEquals("ok",tictactoe.positionOnBoard("x", new int[]{0, 0}));
+    }
+
 
 }
