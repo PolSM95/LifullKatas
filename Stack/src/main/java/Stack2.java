@@ -1,9 +1,25 @@
+import java.util.ArrayList;
+
 public class Stack2 {
+
+    public int length = 0;
+    private ArrayList<String> arraystack = new ArrayList<>();
+
     public String pop() {
-        String stackString="";
-        if(stackString.isEmpty()){
+
+        if(arraystack.isEmpty()){
             throw new RuntimeException("Stack is empty.");
         }
-    return null;
+        length--;
+        return arraystack.get(length);
+
+
+    }
+
+    public void push(String element) {
+
+        arraystack.add(element);
+
+        length = arraystack.size();
     }
 }
