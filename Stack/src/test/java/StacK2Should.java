@@ -33,6 +33,15 @@ public class StacK2Should {
         stack2.pop();
         assertEquals(1, stack2.length);
     }
-
+    @Test
+    public void remove_element_when_pop(){
+        Stack2 stack2 = new Stack2();
+        stack2.push("One");
+        stack2.push("Two");
+        stack2.push("Three");
+        stack2.pop();
+        stack2.push("Four");
+        assertEquals(3,stack2.length);
+    }
 
 }

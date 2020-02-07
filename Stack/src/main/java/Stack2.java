@@ -11,7 +11,9 @@ public class Stack2 {
             throw new RuntimeException("Stack is empty.");
         }
         length--;
-        return arraystack.get(length);
+        String elementToReturn = arraystack.get(length);
+        arraystack.remove(length);
+        return elementToReturn;
 
 
     }
