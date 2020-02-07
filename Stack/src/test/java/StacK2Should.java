@@ -42,6 +42,7 @@ public class StacK2Should {
         stack2.pop();
         stack2.push("Four");
         assertEquals(3,stack2.length);
+
     }
 
 }
