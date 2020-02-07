@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3041adf1-f25b-4676-b6e0-f53c0dca27fe" name="Default Changelist" comment="" />
+    <list default="true" id="3041adf1-f25b-4676-b6e0-f53c0dca27fe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +11,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1XIoqtvlKT09cPzA2vTYIApiktF" />
   <component name="ProjectViewState">
@@ -18,7 +21,52 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/RomansConverter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Stack" />
+  </component>
+  <component name="RunManager">
+    <configuration name="StackKata" type="JUnit" factoryName="JUnit">
+      <module name="LifullKatas" />
+      <option name="MAIN_CLASS_NAME" value="Stack2Should" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <module name="LifullKatas" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="true" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/Stack" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -34,13 +82,47 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="422" y="97" key="FileChooserDialogImpl" timestamp="1580743220009">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="941" y="222" width="903" height="703" key="#StackKata" timestamp="1581068308553">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="941" y="222" width="903" height="703" key="#StackKata/70.27.1850.1053@70.27.1850.1053" timestamp="1581068308553" />
+    <state x="418" y="166" width="1076" height="790" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581068349460">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="418" y="166" width="1076" height="790" key="#com.intellij.execution.impl.EditConfigurationsDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1581068349460" />
+    <state x="839" y="444" width="307" height="229" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1581065979580">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="839" y="444" width="307" height="229" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1581065979580" />
+    <state x="653" y="178" width="424" height="497" key="FileChooserDialogImpl" timestamp="1581068072483">
+      <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="422" y="97" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1580743220009" />
-    <state x="338" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1580743167120">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="653" y="178" width="424" height="497" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1581068072483" />
+    <state width="1804" height="275" key="GridCell.Tab.0.bottom" timestamp="1581068357703">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="275" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1581068357703" />
+    <state width="1804" height="275" key="GridCell.Tab.0.center" timestamp="1581068357702">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="275" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1581068357702" />
+    <state width="1804" height="275" key="GridCell.Tab.0.left" timestamp="1581068357700">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="275" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1581068357700" />
+    <state width="1804" height="275" key="GridCell.Tab.0.right" timestamp="1581068357702">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state width="1804" height="275" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1581068357702" />
+    <state x="559" y="278" key="com.intellij.ide.util.TipDialog" timestamp="1581067241754">
+      <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="338" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1580743167120" />
+    <state x="559" y="278" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1581067241754" />
+    <state x="765" y="454" width="459" height="173" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581068089308">
+      <screen x="70" y="27" width="1850" height="1053" />
+    </state>
+    <state x="765" y="454" width="459" height="173" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/70.27.1850.1053@70.27.1850.1053" timestamp="1581068089308" />
   </component>
 </project>
