@@ -1,26 +1,26 @@
 public class Tictactoe {
 
-    String lastMove = "o";
+    char lastMove = 'o';
     char[][] board = {{' ', ' ',' '} , {' ', ' ',' '} , {' ', ' ',' '}};
 
 
-    public String makeMove() {
-        if (lastMove.equals("o")){
-            lastMove = "x";
+    public char alternateMove() {
+        if (lastMove == 'o'){
+            lastMove = 'x';
         } else {
-            lastMove = "o";
+            lastMove = 'o';
         }
         return lastMove;
     }
 
 
-    public boolean checkPosition(int[] position) {
+    public boolean makeMove(int[] position) {
         int row = position[0];
         int column = position[1];
 
         if ((board[row][column]) == ' '){
-            makeMove();
-            board[row][column] = lastMove.charAt(0);
+            alternateMove();
+            board[row][column] = lastMove;
             return true;
         }
         return false;
