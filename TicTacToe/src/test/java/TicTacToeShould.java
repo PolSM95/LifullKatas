@@ -20,6 +20,13 @@ public class TicTacToeShould {
         assertEquals("x", tictactoe.makeMove());
     }
 
+    @Test
+    public void return_true_when_position_is_zero_zero(){
+        Tictactoe tictactoe = new Tictactoe();
+        int[] position = {0,0};
+        assertEquals(true, tictactoe.checkPosition(position));
+    }
+
 
 
 }

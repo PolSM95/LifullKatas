@@ -10,4 +10,10 @@ public class Tictactoe {
         }
         return lastMove;
     }
+
+
+    public boolean checkPosition(int[] position) {
+
+        return true;
+    }
 }
