@@ -5,35 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TicTacToeShould {
 
+    @Test
+    public void return_o_for_the_second_move(){
 
-    @Test
-    public void return_exception_when_symbol_is_different_from_x(){
-        TicTacToe tictactoe = new TicTacToe();
-        assertThrows(RuntimeException.class, () ->{
-            tictactoe.makeMove("o");
-        });
+        Tictactoe tictactoe = new Tictactoe();
+        tictactoe.makeMove();
+        assertEquals("o", tictactoe.makeMove());
     }
 
-    @Test
-    public void return_exception_when_the_following_symbol_is_equal(){
-        TicTacToe tictactoe = new TicTacToe();
-        assertThrows(RuntimeException.class, () ->{
-            tictactoe.makeMove("x");
-            tictactoe.makeMove("x");
-        });
-    }
-    @Test
-    public void return_ok_when_x_is_followed_by_o(){
-        TicTacToe tictactoe = new TicTacToe();
-        assertEquals("ok",tictactoe.makeMove("x"));
-        assertEquals("ok",tictactoe.makeMove("o"));
-
-    }
-    @Test
-    public void return_ok_when_symbol_x_is_in_position_zero_zero(){
-        TicTacToe tictactoe = new TicTacToe();
-        assertEquals("ok",tictactoe.positionOnBoard("x", new int[]{0, 0}));
-    }
 
 
 }
