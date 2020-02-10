@@ -24,7 +24,7 @@ public class TicTacToeShould {
     public void return_true_when_position_is_zero_zero(){
         Tictactoe tictactoe = new Tictactoe();
         int[] position = {0,0};
-        assertEquals(true, tictactoe.makeMove(position));
+        assertEquals("true", tictactoe.makeMove(position));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class TicTacToeShould {
         Tictactoe tictactoe = new Tictactoe();
         int[] position ={0, 0};
         tictactoe.makeMove(position);
-        assertEquals(false, tictactoe.makeMove(position));
+        assertEquals("false", tictactoe.makeMove(position));
     }
 
     @Test
@@ -52,10 +52,13 @@ public class TicTacToeShould {
     }
 
     @Test
-    public void test(){
+    public void check_if_the_game_is_a_draw(){
         Tictactoe tictactoe = new Tictactoe();
-
-        assertEquals(true, tictactoe.check_if_board_is_full());
+        char[][] boardTest = {{'o', 'x','o'} , {'x', 'o','x'} , {' ', 'o','x'}};
+        tictactoe.board = new char[3][3];
+        tictactoe.board = boardTest;
+        int[] position ={2, 0};
+        assertEquals("DRAW",tictactoe.makeMove(position));
     }
 
 
