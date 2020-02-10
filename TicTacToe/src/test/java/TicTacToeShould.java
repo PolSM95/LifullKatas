@@ -46,11 +46,17 @@ public class TicTacToeShould {
         assertEquals('o', tictactoe.board[0][1]);
     }
     @Test
-    public void check_if_board_is_full(){
+    public void check_if_board_is_not_full(){
         Tictactoe tictactoe = new Tictactoe();
-        assertEquals(false,tictactoe.checkBoard());
+        assertEquals(false,tictactoe.check_if_board_is_full());
     }
 
+    @Test
+    public void test(){
+        Tictactoe tictactoe = new Tictactoe();
+
+        assertEquals(true, tictactoe.check_if_board_is_full());
+    }
 
 
 }
