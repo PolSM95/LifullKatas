@@ -19,6 +19,7 @@ public class Tictactoe {
         int column = position[1];
 
         if ((board[row][column]) == ' '){
+            board[row][column] = 'x';
             return true;
         }
         return false;

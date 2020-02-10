@@ -26,14 +26,14 @@ public class TicTacToeShould {
         int[] position = {0,0};
         assertEquals(true, tictactoe.checkPosition(position));
     }
-    /*
+
     @Test
-    public void test(){
+    public void return_false_if_position_is_not_available(){
         Tictactoe tictactoe = new Tictactoe();
         int[] position ={0, 0};
         tictactoe.checkPosition(position);
         assertEquals(false, tictactoe.checkPosition(position));
-    }*/
+    }
 
 
 
