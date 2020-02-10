@@ -61,5 +61,15 @@ public class TicTacToeShould {
         assertEquals("DRAW",tictactoe.makeMove(position));
     }
 
+    @Test
+    public void return_win_when_we_have_three_equals_symbols_in_the_same_row(){
+        Tictactoe tictactoe = new Tictactoe();
+        char[][] boardTest = {{'o', 'x','o'} , {'x', 'o','x'} , {' ', 'x','x'}};
+        tictactoe.board = new char[3][3];
+        tictactoe.board = boardTest;
+        int[] position ={2, 0};
+        assertEquals("WIN", tictactoe.makeMove(position));
+    }
+
 
 }

@@ -23,6 +23,9 @@ public class Tictactoe {
             alternateMove();
             board[row][column] = lastMove;
             printBoard();
+            if (board[row][0] == lastMove && board[row][1] == lastMove && board[row][2] == lastMove ){
+                return "WIN";
+            }
             if(check_if_board_is_full()){
                 return "DRAW";
             }
