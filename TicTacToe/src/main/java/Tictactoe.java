@@ -19,7 +19,8 @@ public class Tictactoe {
         int column = position[1];
 
         if ((board[row][column]) == ' '){
-            board[row][column] = 'x';
+            makeMove();
+            board[row][column] = lastMove.charAt(0);
             return true;
         }
         return false;

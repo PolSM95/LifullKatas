@@ -35,6 +35,17 @@ public class TicTacToeShould {
         assertEquals(false, tictactoe.checkPosition(position));
     }
 
+    @Test
+    public void return_o_for_the_second_move_if_position_is_available(){
+        Tictactoe tictactoe = new Tictactoe();
+        int[] position ={0, 0};
+        tictactoe.checkPosition(position);
+        position[0] = 0;
+        position[1] = 1;
+        tictactoe.checkPosition(position);
+        assertEquals('o', tictactoe.board[0][1]);
+    }
+
 
 
 }
