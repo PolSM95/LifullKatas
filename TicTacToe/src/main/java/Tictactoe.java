@@ -5,9 +5,9 @@ public class Tictactoe {
     public String makeMove() {
         if (lastMove.equals("o")){
             lastMove = "x";
-            return "x";
+        } else {
+            lastMove = "o";
         }
-        lastMove = "o";
-        return "o";
+        return lastMove;
     }
 }
