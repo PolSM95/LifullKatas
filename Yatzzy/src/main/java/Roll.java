@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Roll {
+public abstract class Roll {
 
     List <Dice> diceList = new ArrayList<>();
 
@@ -13,15 +13,8 @@ public class Roll {
         diceList.add(dice5);
     }
 
-    public int chance (){
+    public abstract int calculateScore();
 
-        int score = 0;
-
-        for (Dice diceNumber: diceList) {
-            score += diceNumber.valueDice;
-        }
-        return score;
-    }
     public int yatzy (){
         if(diceList.stream().distinct().count() == 1){
             return 50;
