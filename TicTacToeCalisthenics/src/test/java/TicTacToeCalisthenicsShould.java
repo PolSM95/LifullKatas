@@ -19,10 +19,24 @@ public class TicTacToeCalisthenicsShould {
         assertEquals(OutputMessage.turnX, tictactoe.putPosition(Position.POSITION01));
     }
     @Test
-    public void test(){
+    public void check_if_position_is_taken(){
         TicTacToe tictactoe = new TicTacToe();
         tictactoe.putPosition(Position.POSITION00);
         assertEquals(OutputMessage.taken,tictactoe.putPosition(Position.POSITION00));
+    }
+
+    @Test
+    public void test(){
+        TicTacToe tictactoe = new TicTacToe();
+        tictactoe.putPosition(Position.POSITION01);
+        tictactoe.putPosition(Position.POSITION02);
+        tictactoe.putPosition(Position.POSITION10);
+        tictactoe.putPosition(Position.POSITION11);
+        tictactoe.putPosition(Position.POSITION12);
+        tictactoe.putPosition(Position.POSITION20);
+        tictactoe.putPosition(Position.POSITION21);
+        tictactoe.putPosition(Position.POSITION22);
+        assertEquals(OutputMessage.draw, tictactoe.putPosition(Position.POSITION00));
     }
 
 

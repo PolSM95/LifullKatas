@@ -10,9 +10,19 @@ public class Board {
     }
 
     private OutputMessage messageTurn(char lastMove) {
+        if(isFull()){
+            return OutputMessage.draw;
+        }
         if(lastMove == 'o'){
             return OutputMessage.turnX;
         }
         return OutputMessage.turnO;
+    }
+
+    private boolean isFull() {
+        for(int indexRow = 0; indexRow < 3; indexRow++){
+            if(board[indexRow][0] == ' ' || board[indexRow][1] == ' ' || board[indexRow][2] == ' ') return false;
+        }
+        return true;
     }
 }
