@@ -1,19 +1,17 @@
 
 public class TicTacToe {
 
-    private char lastMove = 'o';
+    private Player lastMove = Player.charO;
     private Board board = new Board();
 
-
     public OutputMessage putPosition(Position position) {
-        if(lastMove == 'o'){
-            lastMove = 'x';
+        if(lastMove == Player.charO){
+            lastMove = Player.charX;
             OutputMessage message = board.addMove(position, lastMove);
             return message;
         }
-        lastMove = 'o';
+        lastMove = Player.charO;
         OutputMessage message = board.addMove(position, lastMove);
         return message;
     }
-
 }
