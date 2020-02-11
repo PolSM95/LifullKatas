@@ -1,4 +1,6 @@
 public enum Category {
-    ;
-    public static Object chance;
+    CHANCE,
+    YATZY
+
+
 }
