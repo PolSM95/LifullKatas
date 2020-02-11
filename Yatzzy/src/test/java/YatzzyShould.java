@@ -25,4 +25,16 @@ public class YatzzyShould {
         Roll roll = new Roll(Dice.ONE, Dice.TWO, Dice.ONE, Dice.ONE, Dice.ONE);
         assertEquals(0,game.totalScore(roll, Category.YATZY));
     }
+    @Test
+    public void return_sum_of_the_total_of_ones_in_one_category(){
+        Game game = new Game();
+        Roll roll = new Roll(Dice.ONE, Dice.ONE, Dice.TWO, Dice.FOUR, Dice.FOUR);
+        assertEquals(2,game.totalScore(roll, Category.ONES));
+    }
+    @Test
+    public void test(){
+        Game game = new Game();
+        Roll roll = new Roll(Dice.ONE, Dice.ONE, Dice.TWO, Dice.FOUR, Dice.FOUR);
+        assertEquals(2,game.totalScore(roll, Category.ONES));
+    }
 }

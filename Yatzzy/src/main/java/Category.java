@@ -1,6 +1,7 @@
 public enum Category {
     CHANCE,
-    YATZY
+    YATZY,
+    ONES
 
 
 }

@@ -28,4 +28,7 @@ public class Roll {
         }
         return 0;
     }
+    public int ones(){
+       return (int)diceList.stream().filter(dice -> Dice.ONE.equals(dice)).count();
+    }
 }

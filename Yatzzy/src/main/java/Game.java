@@ -6,6 +6,9 @@ public class Game {
         if(category == Category.CHANCE){
             return roll.chance();
         }
-        return roll.yatzy();
+        if(category == Category.YATZY){
+            return roll.yatzy();
+        }
+        return roll.ones();
     }
 }
