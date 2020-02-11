@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Game {
     public int totalScore(Roll roll,Object chance) {
-        return 14;
+
+        return roll.chance();
     }
 }

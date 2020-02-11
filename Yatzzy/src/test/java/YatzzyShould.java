@@ -5,11 +5,13 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class YatzyShould {
+public class YatzzyShould {
+
     @Test
     public void return_score_for_chance_category(){
         Game game = new Game();
-        Roll roll = new Roll(Dice.ONE, Dice.ONE, Dice.THREE,Dice.THREE, Dice.SIX);
-        assertEquals(14,game.totalScore(roll,Category.chance));
+        Roll roll = new Roll(Dice.FOUR, Dice.FIVE, Dice.FIVE, Dice.SIX, Dice.ONE);
+        assertEquals(21,game.totalScore(roll, Category.chance));
+
     }
 }
