@@ -18,6 +18,12 @@ public class TicTacToeCalisthenicsShould {
         tictactoe.putPosition(Position.POSITION00);
         assertEquals(OutputMessage.turnX, tictactoe.putPosition(Position.POSITION01));
     }
+    @Test
+    public void test(){
+        TicTacToe tictactoe = new TicTacToe();
+        tictactoe.putPosition(Position.POSITION00);
+        assertEquals(OutputMessage.taken,tictactoe.putPosition(Position.POSITION00));
+    }
 
 
 }
