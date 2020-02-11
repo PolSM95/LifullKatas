@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
     char[][] board = {{' ', ' ',' '} , {' ', ' ',' '} , {' ', ' ',' '}};
+
 
     public OutputMessage addMove(Position position, char lastMove) {
         if(board[position.row][position.column] == ' '){
@@ -20,9 +24,13 @@ public class Board {
     }
 
     private boolean isFull() {
+
+        List <Character> listBoard = new ArrayList<>();
         for(int indexRow = 0; indexRow < 3; indexRow++){
-            if(board[indexRow][0] == ' ' || board[indexRow][1] == ' ' || board[indexRow][2] == ' ') return false;
+            listBoard.add(board[indexRow][0]);
+            listBoard.add(board[indexRow][1]);
+            listBoard.add(board[indexRow][2]);
         }
-        return true;
+        return !listBoard.contains(' ');
     }
 }

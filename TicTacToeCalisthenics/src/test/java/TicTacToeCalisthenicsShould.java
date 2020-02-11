@@ -26,7 +26,7 @@ public class TicTacToeCalisthenicsShould {
     }
 
     @Test
-    public void test(){
+    public void check_if_board_is_full(){
         TicTacToe tictactoe = new TicTacToe();
         tictactoe.putPosition(Position.POSITION01);
         tictactoe.putPosition(Position.POSITION02);
