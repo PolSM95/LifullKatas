@@ -46,9 +46,18 @@ public class TicTacToeCalisthenicsShould {
        tictactoe.putPosition(Position.POSITION10);
        tictactoe.putPosition(Position.POSITION02);
        tictactoe.putPosition(Position.POSITION11);
-        assertEquals(OutputMessage.win, tictactoe.putPosition(Position.POSITION00));
+       assertEquals(OutputMessage.win, tictactoe.putPosition(Position.POSITION00));
    }
 
+    @Test
+    public void check_if_vertical_move_wins(){
+        TicTacToe tictactoe = new TicTacToe();
+        tictactoe.putPosition(Position.POSITION01);
+        tictactoe.putPosition(Position.POSITION10);
+        tictactoe.putPosition(Position.POSITION02);
+        tictactoe.putPosition(Position.POSITION20);
+        assertEquals(OutputMessage.win, tictactoe.putPosition(Position.POSITION00));
+    }
 
 }
 
