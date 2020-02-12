@@ -8,21 +8,41 @@ public class GameOfLifeShould {
 
     @Test
     public void return_array_empty_if_only_one_seed(){
-        GameOfLife gameOfLife = new GameOfLife();
+        GameOfLife gameOfLifeActual = new GameOfLife();
+        GameOfLife gameOfLifeANext = new GameOfLife();
         Seed seed = new Seed(0,0);
         ArrayList<Seed> actual = new ArrayList<>();
         actual.add(seed);
-        assertEquals(true,gameOfLife.life(actual).isEmpty());
+        assertEquals(gameOfLifeANext,gameOfLifeActual);
     }
+
     @Test
     public void return_array_empty_if_only_two_seed(){
-        GameOfLife gameOfLife = new GameOfLife();
+        GameOfLife gameOfLifeActual = new GameOfLife();
+        GameOfLife gameOfLifeANext = new GameOfLife();
         Seed seed1 = new Seed(0,0);
         Seed seed2 = new Seed(1,0);
         ArrayList<Seed> actual = new ArrayList<>();
         actual.add(seed1);
         actual.add(seed2);
-        assertEquals(true,gameOfLife.life(actual).isEmpty());
+        assertEquals(gameOfLifeANext,gameOfLifeActual);
+    }
+
+    @Test
+    public void test(){
+        GameOfLife gameOfLifeActual = new GameOfLife();
+        GameOfLife gameOfLifeANext = new GameOfLife();
+        Seed seed1 = new Seed(0,0);
+        Seed seed2 = new Seed(1,0);
+        Seed seed3 = new Seed(1,1);
+        ArrayList<Seed> actual = new ArrayList<>();
+        actual.add(seed1);
+        actual.add(seed2);
+        actual.add(seed3);
+        ArrayList<Seed> next = new ArrayList<>();
+        next.addAll(actual);
+        next.add(new Seed(0,1));
+        assertEquals(gameOfLifeANext,gameOfLifeActual);
     }
 
 }
