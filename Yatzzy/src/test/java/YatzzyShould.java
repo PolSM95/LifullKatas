@@ -13,19 +13,19 @@ public class YatzzyShould {
         Chance roll = new Chance(Dice.FOUR, Dice.FIVE, Dice.FIVE, Dice.SIX, Dice.ONE);
         assertEquals(21,game.totalScore(roll, Category.CHANCE));
     }
-    /*@Test
+    @Test
     public void return_max_score_for_yatzy_category(){
         Game game = new Game();
-        Roll roll = new Roll(Dice.ONE, Dice.ONE, Dice.ONE, Dice.ONE, Dice.ONE);
-        assertEquals(50,game.totalScore(roll, Category.YATZY));
+        Yatzy yatzy = new Yatzy(Dice.ONE, Dice.ONE, Dice.ONE, Dice.ONE, Dice.ONE);
+        assertEquals(50,game.totalScore(yatzy, Category.YATZY));
     }
     @Test
     public void return_min_score_for_yatzy_category(){
         Game game = new Game();
-        Roll roll = new Roll(Dice.ONE, Dice.TWO, Dice.ONE, Dice.ONE, Dice.ONE);
-        assertEquals(0,game.totalScore(roll, Category.YATZY));
+        Yatzy yatzy = new Yatzy(Dice.ONE, Dice.TWO, Dice.ONE, Dice.ONE, Dice.ONE);
+        assertEquals(0,game.totalScore(yatzy, Category.YATZY));
     }
-    */
+    /*
     @Test
     public void return_sum_of_the_total_of_ones_in_one_category(){
         Game game = new Game();
