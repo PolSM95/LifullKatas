@@ -26,6 +26,7 @@ public class YatzzyShould {
         assertEquals(0,game.totalScore(yatzy, Category.YATZY));
     }
 
+
     @Test
     public void return_sum_of_the_total_of_ones_in_one_category(){
         Game game = new Game();
