@@ -40,4 +40,11 @@ public class YatzzyShould {
         Pair pair = new Pair(Dice.FOUR, Dice.FOUR, Dice.ONE,Dice.FOUR, Dice.ONE);
         assertEquals(8,game.totalScore(pair, Category.ONES));
     }
+
+    @Test
+    public void return_score_when_there_are_two_pairs_in_the_roll(){
+        Game game = new Game();
+        TwoPair twopair = new TwoPair(Dice.FOUR, Dice.FOUR, Dice.ONE,Dice.FOUR, Dice.ONE);
+        assertEquals(10,game.totalScore(twopair, Category.ONES));
+    }
 }
