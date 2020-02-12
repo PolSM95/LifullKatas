@@ -1,24 +1,29 @@
-import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Pair extends Roll{
+public class TwoPair extends Roll {
 
-    public Pair(Dice dice1, Dice dice2, Dice dice3, Dice dice4, Dice dice5) {
+    public TwoPair(Dice dice1, Dice dice2, Dice dice3, Dice dice4, Dice dice5) {
         super(dice1, dice2, dice3, dice4, dice5);
     }
 
     @Override
     public int calculateScore() {
-        Dice max = diceList.stream().max(Dice::compareTo).get();
 
         Map<Dice, Long> counted = diceList.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         counted.values().removeIf(item -> item == 1);
-        Dice targetDice = counted.keySet().stream().max(Dice::compareTo).get();
 
-        return targetDice.valueDice*2;
+        if(counted.size() == 2){
+
+            Dice targetDice1 = (Dice) counted.keySet().toArray()[0];
+            Dice targetDice2= (Dice) counted.keySet().toArray()[1];
+
+            return ((targetDice1.valueDice * 2) + (targetDice2.valueDice * 2));
+        }
+
+        return 0;
     }
 }
