@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="GameOfLife_Marc_Jordi" />
         <module name="GameOfLife_Marc_jordi" />
       </profile>
     </annotationProcessing>

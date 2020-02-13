@@ -34,16 +34,8 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String checkScoreBelowFortyIncluded() {
-        int tempScore;
         String[] scoreList = {"Love", "Fifteen","Thirty", "Forty"};
-        String score = "";
-        for (int i = 1; i<3; i++)
-        {
-            if (i==1) tempScore = scorePlayer1;
-            else { score+="-"; tempScore = scorePlayer2;}
-            score += scoreList[tempScore];
-        }
-        return score;
+        return scoreList[scorePlayer1]+"-"+scoreList[scorePlayer2];
     }
 
     private String checkScoreWhenIsMoreThanFortyPoints() {
@@ -57,23 +49,8 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String checkDrawType() {
-        String score;
-        switch (scorePlayer1)
-        {
-            case 0:
-                    score = "Love-All";
-                break;
-            case 1:
-                    score = "Fifteen-All";
-                break;
-            case 2:
-                    score = "Thirty-All";
-                break;
-            default:
-                    score = "Deuce";
-                break;
-
-        }
-        return score;
+        if(scorePlayer1>2) return "Deuce";
+        String[] scoreList = {"Love-All", "Fifteen-All","Thirty-All"};
+        return scoreList[scorePlayer1];
     }
 }
