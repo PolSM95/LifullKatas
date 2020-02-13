@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class TennisGame1 implements TennisGame {
     
     private int scorePlayer1 = 0;
