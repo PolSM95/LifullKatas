@@ -22,15 +22,7 @@ public class TennisGame2 implements TennisGame
         score = checkWhenOnlyPlayerTwoHasNotScored(score);
         if (player2Score > 0 && player1Score ==0)
         {
-            if (player2Score ==1)
-                player2ScoreMessage = "Fifteen";
-            if (player2Score ==2)
-                player2ScoreMessage = "Thirty";
-            if (player2Score ==3)
-                player2ScoreMessage = "Forty";
-            
-            player1ScoreMessage = "Love";
-            score = player1ScoreMessage + "-" + player2ScoreMessage;
+            score = checkForPlayerTwoScore();
         }
         
         if (player1Score > player2Score && player1Score < 4)
@@ -76,6 +68,20 @@ public class TennisGame2 implements TennisGame
         {
             score = "Win for player2";
         }
+        return score;
+    }
+
+    private String checkForPlayerTwoScore() {
+        String score;
+        if (player2Score ==1)
+        player2ScoreMessage = "Fifteen";
+        if (player2Score ==2)
+            player2ScoreMessage = "Thirty";
+        if (player2Score ==3)
+            player2ScoreMessage = "Forty";
+
+        player1ScoreMessage = "Love";
+        score = player1ScoreMessage + "-" + player2ScoreMessage;
         return score;
     }
 
