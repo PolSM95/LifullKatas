@@ -6,6 +6,7 @@ public class Yatzy extends Roll{
 
     @Override
     public int calculateScore() {
+
         if(diceList.stream().distinct().count() == 1){
             return 50;
         }
