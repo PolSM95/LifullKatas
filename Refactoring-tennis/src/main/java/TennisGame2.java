@@ -18,19 +18,8 @@ public class TennisGame2 implements TennisGame
         }
         if (player1Score == player2Score && player1Score >=3)
             score = "Deuce";
-        
-        if (player1Score > 0 && player2Score ==0)
-        {
-            if (player1Score ==1)
-                player1ScoreMessage = "Fifteen";
-            if (player1Score ==2)
-                player1ScoreMessage = "Thirty";
-            if (player1Score ==3)
-                player1ScoreMessage = "Forty";
-            
-            player2ScoreMessage = "Love";
-            score = player1ScoreMessage + "-" + player2ScoreMessage;
-        }
+
+        score = checkWhenOnlyPlayerTwoHasNotScored(score);
         if (player2Score > 0 && player1Score ==0)
         {
             if (player2Score ==1)
@@ -86,6 +75,22 @@ public class TennisGame2 implements TennisGame
         if (player2Score >=4 && player1Score >=0 && (player2Score - player1Score)>=2)
         {
             score = "Win for player2";
+        }
+        return score;
+    }
+
+    private String checkWhenOnlyPlayerTwoHasNotScored(String score) {
+        if (player1Score > 0 && player2Score ==0)
+        {
+            if (player1Score ==1)
+                player1ScoreMessage = "Fifteen";
+            if (player1Score ==2)
+                player1ScoreMessage = "Thirty";
+            if (player1Score ==3)
+                player1ScoreMessage = "Forty";
+
+            player2ScoreMessage = "Love";
+            score = player1ScoreMessage + "-" + player2ScoreMessage;
         }
         return score;
     }
