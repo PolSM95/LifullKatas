@@ -14,13 +14,7 @@ public class TennisGame2 implements TennisGame
         String score = "";
         if (isTieAndBelowForty())
         {
-            if (player1Score ==0)
-                score = "Love";
-            if (player1Score ==1)
-                score = "Fifteen";
-            if (player1Score ==2)
-                score = "Thirty";
-            score += "-All";
+            score = checkTieAndBelowForty();
         }
         if (player1Score == player2Score && player1Score >=3)
             score = "Deuce";
@@ -93,6 +87,18 @@ public class TennisGame2 implements TennisGame
         {
             score = "Win for player2";
         }
+        return score;
+    }
+
+    private String checkTieAndBelowForty() {
+        String score = "";
+        if (player1Score ==0)
+            score = "Love";
+        if (player1Score ==1)
+            score = "Fifteen";
+        if (player1Score ==2)
+            score = "Thirty";
+        score += "-All";
         return score;
     }
 
