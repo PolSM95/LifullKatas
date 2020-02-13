@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class TennisGame1 implements TennisGame {
     
@@ -34,26 +35,13 @@ public class TennisGame1 implements TennisGame {
 
     private String checkScoreBelowFortyIncluded() {
         int tempScore;
+        String[] scoreList = {"Love", "Fifteen","Thirty", "Forty"};
         String score = "";
         for (int i = 1; i<3; i++)
         {
             if (i==1) tempScore = scorePlayer1;
             else { score+="-"; tempScore = scorePlayer2;}
-            switch(tempScore)
-            {
-                case 0:
-                    score+="Love";
-                    break;
-                case 1:
-                    score+="Fifteen";
-                    break;
-                case 2:
-                    score+="Thirty";
-                    break;
-                case 3:
-                    score+="Forty";
-                    break;
-            }
+            score += scoreList[tempScore];
         }
         return score;
     }
