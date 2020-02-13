@@ -19,30 +19,11 @@ public class TennisGame1 implements TennisGame {
         int tempScore=0;
         if (scorePlayer1 == scorePlayer2)
         {
-            switch (scorePlayer1)
-            {
-                case 0:
-                        score = "Love-All";
-                    break;
-                case 1:
-                        score = "Fifteen-All";
-                    break;
-                case 2:
-                        score = "Thirty-All";
-                    break;
-                default:
-                        score = "Deuce";
-                    break;
-                
-            }
+            score = checkDrawType();
         }
         else if (scorePlayer1 >=4 || scorePlayer2 >=4)
         {
-            int minusResult = scorePlayer1 - scorePlayer2;
-            if (minusResult==1) score ="Advantage player1";
-            else if (minusResult ==-1) score ="Advantage player2";
-            else if (minusResult>=2) score = "Win for player1";
-            else score ="Win for player2";
+            score = checkScoreWhenIsMoreThanFourtyPoints();
         }
         else
         {
@@ -66,6 +47,37 @@ public class TennisGame1 implements TennisGame {
                         break;
                 }
             }
+        }
+        return score;
+    }
+
+    private String checkScoreWhenIsMoreThanFourtyPoints() {
+        String score;
+        int minusResult = scorePlayer1 - scorePlayer2;
+        if (minusResult==1) score ="Advantage player1";
+        else if (minusResult ==-1) score ="Advantage player2";
+        else if (minusResult>=2) score = "Win for player1";
+        else score ="Win for player2";
+        return score;
+    }
+
+    private String checkDrawType() {
+        String score;
+        switch (scorePlayer1)
+        {
+            case 0:
+                    score = "Love-All";
+                break;
+            case 1:
+                    score = "Fifteen-All";
+                break;
+            case 2:
+                    score = "Thirty-All";
+                break;
+            default:
+                    score = "Deuce";
+                break;
+
         }
         return score;
     }
