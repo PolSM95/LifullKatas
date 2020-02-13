@@ -15,43 +15,50 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
+        if (isSameScore()) {
+            return checkDrawType();
+        }
+        if (isAboveForty()) {
+            return checkScoreWhenIsMoreThanFortyPoints();
+        }
+        return checkScoreBelowFortyIncluded();
+    }
+
+    private boolean isAboveForty() {
+        return scorePlayer1 >= 4 || scorePlayer2 >= 4;
+    }
+
+    private boolean isSameScore() {
+        return scorePlayer1 == scorePlayer2;
+    }
+
+    private String checkScoreBelowFortyIncluded() {
+        int tempScore;
         String score = "";
-        int tempScore=0;
-        if (scorePlayer1 == scorePlayer2)
+        for (int i = 1; i<3; i++)
         {
-            score = checkDrawType();
-        }
-        else if (scorePlayer1 >=4 || scorePlayer2 >=4)
-        {
-            score = checkScoreWhenIsMoreThanFourtyPoints();
-        }
-        else
-        {
-            for (int i=1; i<3; i++)
+            if (i==1) tempScore = scorePlayer1;
+            else { score+="-"; tempScore = scorePlayer2;}
+            switch(tempScore)
             {
-                if (i==1) tempScore = scorePlayer1;
-                else { score+="-"; tempScore = scorePlayer2;}
-                switch(tempScore)
-                {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
-                }
+                case 0:
+                    score+="Love";
+                    break;
+                case 1:
+                    score+="Fifteen";
+                    break;
+                case 2:
+                    score+="Thirty";
+                    break;
+                case 3:
+                    score+="Forty";
+                    break;
             }
         }
         return score;
     }
 
-    private String checkScoreWhenIsMoreThanFourtyPoints() {
+    private String checkScoreWhenIsMoreThanFortyPoints() {
         String score;
         int minusResult = scorePlayer1 - scorePlayer2;
         if (minusResult==1) score ="Advantage player1";
