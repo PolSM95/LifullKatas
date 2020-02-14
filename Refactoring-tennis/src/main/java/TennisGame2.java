@@ -51,7 +51,6 @@ public class TennisGame2 implements TennisGame {
         if (player1Score > 0 && player2Score ==0) {
             score = checkWhenOnlyPlayerTwoHasNotScored(score);
         }
-
         if (player2Score > 0 && player1Score == 0) {
             score = checkScoreForPlayerTwoWhenPlayerOneHasNotScored();
         }
