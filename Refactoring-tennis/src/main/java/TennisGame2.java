@@ -17,20 +17,8 @@ public class TennisGame2 implements TennisGame {
         if (player1Score == player2Score && player1Score >= 3)
             score = "Deuce";
 
-        if (player1Score > 0 && player2Score ==0) {
-            score = checkWhenOnlyPlayerTwoHasNotScored(score);
-        }
-
-        if (player2Score > 0 && player1Score == 0) {
-            score = checkScoreForPlayerTwoWhenPlayerOneHasNotScored();
-        }
-
-        if (player1Score > player2Score && player1Score < 4) {
-            score = checkScoreWhenPlayerOneIsLeadingAndBelowFourty();
-        }
-        if (player2Score > player1Score && player2Score < 4) {
-            score = checkScoreWhenPlayerTwoIsLeadingAndBelowFourty();
-        }
+        score = checkWhenOnlyOnePlayerHasNotScored(score);
+        score = checkWhenAPlayerIsLeadingAndBelowFourty(score);
 
         if (checkAdvantagePlayerOne()) {
             score = "Advantage player1";
@@ -45,6 +33,27 @@ public class TennisGame2 implements TennisGame {
         }
         if (checkIfPlayerTwoWins()) {
             score = "Win for player2";
+        }
+        return score;
+    }
+
+    private String checkWhenAPlayerIsLeadingAndBelowFourty(String score) {
+        if (player1Score > player2Score && player1Score < 4) {
+            score = checkScoreWhenPlayerOneIsLeadingAndBelowFourty();
+        }
+        if (player2Score > player1Score && player2Score < 4) {
+            score = checkScoreWhenPlayerTwoIsLeadingAndBelowFourty();
+        }
+        return score;
+    }
+
+    private String checkWhenOnlyOnePlayerHasNotScored(String score) {
+        if (player1Score > 0 && player2Score ==0) {
+            score = checkWhenOnlyPlayerTwoHasNotScored(score);
+        }
+
+        if (player2Score > 0 && player1Score == 0) {
+            score = checkScoreForPlayerTwoWhenPlayerOneHasNotScored();
         }
         return score;
     }
