@@ -117,8 +117,6 @@ public class TennisGame2 implements TennisGame {
     }
 
     private String checkWhenOnlyPlayerTwoHasNotScored(String score) {
-
-
         if (player1Score == 1)
             player1ScoreMessage = "Fifteen";
         if (player1Score == 2)
@@ -148,36 +146,10 @@ public class TennisGame2 implements TennisGame {
         return player1Score == player2Score && player1Score < 4;
     }
 
-    public void SetP1Score(int number){
-        
-        for (int i = 0; i < number; i++)
-        {
-            P1Score();
-        }
-            
-    }
-    
-    public void SetP2Score(int number){
-        
-        for (int i = 0; i < number; i++)
-        {
-            P2Score();
-        }
-            
-    }
-    
-    public void P1Score(){
-        player1Score++;
-    }
-    
-    public void P2Score(){
-        player2Score++;
-    }
-
     public void wonPoint(String player) {
         if (player == "player1")
-            P1Score();
+            player1Score++;
         else
-            P2Score();
+            player2Score++;
     }
 }
