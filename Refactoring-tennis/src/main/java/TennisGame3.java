@@ -34,10 +34,11 @@ public class TennisGame3 implements TennisGame {
     public String getScore() {
         String resultMessage;
         if (player1Score < 4 && player2Score < 4 && !(player1Score + player2Score == 6)) {
+
             Messages[] enumList = new Messages[]{Messages.LOVE,Messages.FIFTEEN,Messages.THIRTY,Messages.FORTY};
             String[] scoreList = new String[]{enumList[0].message, enumList[1].message, enumList[2].message,enumList[3].message};
-            resultMessage = scoreList[player1Score];
-            return (player1Score == player2Score) ? resultMessage + "-All" : resultMessage + "-" + scoreList[player2Score];
+
+            return returnMessageWhileNotDeuceAdvantageOrWin(scoreList);
         } else {
             if (player1Score == player2Score)
                 return "Deuce";
@@ -45,7 +46,11 @@ public class TennisGame3 implements TennisGame {
             return ((player1Score - player2Score)*(player1Score - player2Score) == 1) ? "Advantage " + resultMessage : "Win for " + resultMessage;
         }
     }
-    
+
+    private String returnMessageWhileNotDeuceAdvantageOrWin(String[] scoreList) {
+        return (player1Score == player2Score) ? scoreList[player1Score] + "-All" : scoreList[player1Score] + "-" + scoreList[player2Score];
+    }
+
     public void wonPoint(String playerName) {
         if (playerName == "player1")
             this.player1Score += 1;
