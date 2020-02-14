@@ -17,11 +17,9 @@ public class TennisGame3 implements TennisGame {
         THIRTY ("Thirty"),
         FORTY ("Forty"),
         ALL ("All"),
-        WIN ("Win for"),
+        WIN ("Win for "),
         DEUCE ("Deuce"),
-        ADVANTAGE ("Advantage"),
-        PLAYER1 (" Player 1"),
-        PLAYER2 (" Player 2"),
+        ADVANTAGE ("Advantage "),
         DASH ("-");
 
         String message;
@@ -33,17 +31,22 @@ public class TennisGame3 implements TennisGame {
 
     public String getScore() {
         String resultMessage;
-        Messages[] enumList = new Messages[]{Messages.LOVE, Messages.FIFTEEN, Messages.THIRTY, Messages.FORTY};
+        Messages[] enumList = new Messages[]{Messages.LOVE, Messages.FIFTEEN, Messages.THIRTY, Messages.FORTY, Messages.DEUCE, Messages.ADVANTAGE, Messages.WIN};
         if (checkWhenNotDeuceAdvantageOrWin()) {
             String[] scoreList = new String[]{enumList[0].message, enumList[1].message, enumList[2].message, enumList[3].message};
             return returnMessageWhileNotDeuceAdvantageOrWin(scoreList);
         }
-        if (player1Score == player2Score)
-            return "Deuce";
+        if (player1Score == player2Score) {
+            return enumList[4].message;
+        }
         resultMessage = player1ScoreMessage;
-        if (player1Score < player2Score) resultMessage = player2ScoreMessage;
-        if(checkIfAdvantageOrWin()) return "Advantage " + resultMessage;
-        return "Win for " + resultMessage;
+        if (player1Score < player2Score) {
+            resultMessage = player2ScoreMessage;
+        }
+        if(checkIfAdvantageOrWin()) {
+            return enumList[5].message + resultMessage;
+        }
+        return enumList[6].message + resultMessage;
     }
 
     private boolean checkIfAdvantageOrWin() {
@@ -55,7 +58,10 @@ public class TennisGame3 implements TennisGame {
     }
 
     private String returnMessageWhileNotDeuceAdvantageOrWin(String[] scoreList) {
-        return (player1Score == player2Score) ? scoreList[player1Score] + "-All" : scoreList[player1Score] + "-" + scoreList[player2Score];
+        if (player1Score == player2Score) {
+            return scoreList[player1Score]+"-All";
+        }
+        return scoreList[player1Score]+"-"+scoreList[player2Score];
     }
 
     public void wonPoint(String playerName) {
