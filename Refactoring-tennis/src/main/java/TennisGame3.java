@@ -16,11 +16,9 @@ public class TennisGame3 implements TennisGame {
         FIFTEEN ("Fifteen"),
         THIRTY ("Thirty"),
         FORTY ("Forty"),
-        ALL ("All"),
         WIN ("Win for "),
         DEUCE ("Deuce"),
-        ADVANTAGE ("Advantage "),
-        DASH ("-");
+        ADVANTAGE ("Advantage ");
 
         String message;
         private Messages(String message){
