@@ -1,83 +1,105 @@
 
-public class TennisGame2 implements TennisGame
-{
+public class TennisGame2 implements TennisGame {
     public int player1Score = 0;
     public int player2Score = 0;
-    
+
     public String player1ScoreMessage = "";
     public String player2ScoreMessage = "";
 
     public TennisGame2() {
     }
 
-    public String getScore(){
+    public String getScore() {
         String score = "";
-        if (isTieAndBelowForty())
-        {
+        if (isTieAndBelowForty()) {
             score = checkTieAndBelowForty();
         }
-        if (player1Score == player2Score && player1Score >=3)
+        if (player1Score == player2Score && player1Score >= 3)
             score = "Deuce";
 
-        score = checkWhenOnlyPlayerTwoHasNotScored(score);
-        if (player2Score > 0 && player1Score ==0)
-        {
-            score = checkForPlayerTwoScore();
+        if (player1Score > 0 && player2Score ==0) {
+            score = checkWhenOnlyPlayerTwoHasNotScored(score);
         }
-        
-        if (player1Score > player2Score && player1Score < 4)
-        {
-            if (player1Score ==2)
-                player1ScoreMessage ="Thirty";
-            if (player1Score ==3)
-                player1ScoreMessage ="Forty";
-            if (player2Score ==1)
-                player2ScoreMessage ="Fifteen";
-            if (player2Score ==2)
-                player2ScoreMessage ="Thirty";
-            score = player1ScoreMessage + "-" + player2ScoreMessage;
+
+        if (player2Score > 0 && player1Score == 0) {
+            score = checkScoreForPlayerTwoWhenPlayerOneHasNotScored();
         }
-        if (player2Score > player1Score && player2Score < 4)
-        {
-            if (player2Score ==2)
-                player2ScoreMessage ="Thirty";
-            if (player2Score ==3)
-                player2ScoreMessage ="Forty";
-            if (player1Score ==1)
-                player1ScoreMessage ="Fifteen";
-            if (player1Score ==2)
-                player1ScoreMessage ="Thirty";
-            score = player1ScoreMessage + "-" + player2ScoreMessage;
+
+        if (player1Score > player2Score && player1Score < 4) {
+            score = checkScoreWhenPlayerOneIsLeadingAndBelowFourty();
         }
-        
-        if (player1Score > player2Score && player2Score >= 3)
-        {
+        if (player2Score > player1Score && player2Score < 4) {
+            score = checkScoreWhenPlayerTwoIsLeadingAndBelowFourty();
+        }
+
+        if (checkAdvantagePlayerOne()) {
             score = "Advantage player1";
         }
-        
-        if (player2Score > player1Score && player1Score >= 3)
-        {
+
+        if (checkAdvantagePlayerTwo()) {
             score = "Advantage player2";
         }
-        
-        if (player1Score >=4 && player2Score >=0 && (player1Score - player2Score)>=2)
-        {
+
+        if (checkIfPlayerOneWins()) {
             score = "Win for player1";
         }
-        if (player2Score >=4 && player1Score >=0 && (player2Score - player1Score)>=2)
-        {
+        if (checkIfPlayerTwoWins()) {
             score = "Win for player2";
         }
         return score;
     }
 
-    private String checkForPlayerTwoScore() {
+    private boolean checkAdvantagePlayerTwo() {
+        return player2Score > player1Score && player1Score >= 3;
+    }
+
+    private boolean checkAdvantagePlayerOne() {
+        return player1Score > player2Score && player2Score >= 3;
+    }
+
+    private boolean checkIfPlayerOneWins() {
+        return player1Score >= 4 && player2Score >= 0 && (player1Score - player2Score) >= 2;
+    }
+
+    private boolean checkIfPlayerTwoWins() {
+        return player2Score >= 4 && player1Score >= 0 && (player2Score - player1Score) >= 2;
+    }
+
+    private String checkScoreWhenPlayerTwoIsLeadingAndBelowFourty() {
         String score;
-        if (player2Score ==1)
-        player2ScoreMessage = "Fifteen";
-        if (player2Score ==2)
+        if (player2Score == 2)
             player2ScoreMessage = "Thirty";
-        if (player2Score ==3)
+        if (player2Score == 3)
+            player2ScoreMessage = "Forty";
+        if (player1Score == 1)
+            player1ScoreMessage = "Fifteen";
+        if (player1Score == 2)
+            player1ScoreMessage = "Thirty";
+        score = player1ScoreMessage + "-" + player2ScoreMessage;
+        return score;
+    }
+
+    private String checkScoreWhenPlayerOneIsLeadingAndBelowFourty() {
+        String score;
+        if (player1Score == 2)
+            player1ScoreMessage = "Thirty";
+        if (player1Score == 3)
+            player1ScoreMessage = "Forty";
+        if (player2Score == 1)
+            player2ScoreMessage = "Fifteen";
+        if (player2Score == 2)
+            player2ScoreMessage = "Thirty";
+        score = player1ScoreMessage + "-" + player2ScoreMessage;
+        return score;
+    }
+
+    private String checkScoreForPlayerTwoWhenPlayerOneHasNotScored() {
+        String score;
+        if (player2Score == 1)
+            player2ScoreMessage = "Fifteen";
+        if (player2Score == 2)
+            player2ScoreMessage = "Thirty";
+        if (player2Score == 3)
             player2ScoreMessage = "Forty";
 
         player1ScoreMessage = "Love";
@@ -86,18 +108,18 @@ public class TennisGame2 implements TennisGame
     }
 
     private String checkWhenOnlyPlayerTwoHasNotScored(String score) {
-        if (player1Score > 0 && player2Score ==0)
-        {
-            if (player1Score ==1)
-                player1ScoreMessage = "Fifteen";
-            if (player1Score ==2)
-                player1ScoreMessage = "Thirty";
-            if (player1Score ==3)
-                player1ScoreMessage = "Forty";
 
-            player2ScoreMessage = "Love";
-            score = player1ScoreMessage + "-" + player2ScoreMessage;
-        }
+
+        if (player1Score == 1)
+            player1ScoreMessage = "Fifteen";
+        if (player1Score == 2)
+            player1ScoreMessage = "Thirty";
+        if (player1Score == 3)
+            player1ScoreMessage = "Forty";
+
+        player2ScoreMessage = "Love";
+        score = player1ScoreMessage + "-" + player2ScoreMessage;
+
         return score;
     }
 
