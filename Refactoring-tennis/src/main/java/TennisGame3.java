@@ -33,18 +33,25 @@ public class TennisGame3 implements TennisGame {
 
     public String getScore() {
         String resultMessage;
-        if (player1Score < 4 && player2Score < 4 && !(player1Score + player2Score == 6)) {
-
-            Messages[] enumList = new Messages[]{Messages.LOVE,Messages.FIFTEEN,Messages.THIRTY,Messages.FORTY};
-            String[] scoreList = new String[]{enumList[0].message, enumList[1].message, enumList[2].message,enumList[3].message};
-
+        Messages[] enumList = new Messages[]{Messages.LOVE, Messages.FIFTEEN, Messages.THIRTY, Messages.FORTY};
+        if (checkWhenNotDeuceAdvantageOrWin()) {
+            String[] scoreList = new String[]{enumList[0].message, enumList[1].message, enumList[2].message, enumList[3].message};
             return returnMessageWhileNotDeuceAdvantageOrWin(scoreList);
-        } else {
-            if (player1Score == player2Score)
-                return "Deuce";
-            resultMessage = player1Score > player2Score ? player1ScoreMessage : player2ScoreMessage;
-            return ((player1Score - player2Score)*(player1Score - player2Score) == 1) ? "Advantage " + resultMessage : "Win for " + resultMessage;
         }
+        if (player1Score == player2Score)
+            return "Deuce";
+        resultMessage = player1ScoreMessage;
+        if (player1Score < player2Score) resultMessage = player2ScoreMessage;
+        if(checkIfAdvantageOrWin()) return "Advantage " + resultMessage;
+        return "Win for " + resultMessage;
+    }
+
+    private boolean checkIfAdvantageOrWin() {
+        return (player1Score - player2Score)*(player1Score - player2Score) == 1;
+    }
+
+    private boolean checkWhenNotDeuceAdvantageOrWin() {
+        return player1Score < 4 && player2Score < 4 && !(player1Score + player2Score == 6);
     }
 
     private String returnMessageWhileNotDeuceAdvantageOrWin(String[] scoreList) {
