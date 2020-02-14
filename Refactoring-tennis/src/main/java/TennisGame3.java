@@ -11,6 +11,26 @@ public class TennisGame3 implements TennisGame {
         this.player2ScoreMessage = player2ScoreMessage;
     }
 
+    public enum Messages{
+        LOVE ("Love"),
+        FIFTEEN ("Fifteen"),
+        THIRTY ("Thirty"),
+        FORTY ("Forty"),
+        ALL ("All"),
+        WIN ("Win for"),
+        DEUCE ("Deuce"),
+        ADVANTAGE ("Advantage"),
+        PLAYER1 (" Player 1"),
+        PLAYER2 (" Player 2"),
+        DASH ("-");
+
+        String message;
+        private Messages(String message){
+            this.message = message;
+        }
+    }
+
+
     public String getScore() {
         String s;
         if (player1Score < 4 && player2Score < 4 && !(player1Score + player2Score == 6)) {
