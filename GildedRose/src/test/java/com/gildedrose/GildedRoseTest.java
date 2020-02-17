@@ -77,7 +77,13 @@ class GildedRoseTest {
         assertEquals(32,app.items[0].quality);
     }
 
-
+    @Test
+    public void checking_Backstage_when_sell_in_is_equal_to_six(){
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 6, 30 )};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(32,app.items[0].quality);
+    }
 
 
 
