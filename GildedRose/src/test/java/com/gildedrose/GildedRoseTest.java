@@ -69,6 +69,14 @@ class GildedRoseTest {
         assertEquals(0,app.items[0].quality);
     }
 
+    @Test
+    public void checking_quality_when_AgedBrie_expired(){
+        Item[] items = new Item[] { new Item("Aged Brie", 0, 30 )};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(32,app.items[0].quality);
+    }
+
 
 
 
