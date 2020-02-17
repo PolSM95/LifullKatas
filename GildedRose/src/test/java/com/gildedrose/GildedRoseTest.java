@@ -61,6 +61,15 @@ class GildedRoseTest {
         app.updateQuality();
         assertEquals(56,app.items[0].quality);
     }
+    @Test
+    public void checking_that_quality_is_zero_after_the_concert(){
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 30 )};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(0,app.items[0].quality);
+    }
+
+
 
 
 
