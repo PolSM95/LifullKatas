@@ -47,7 +47,7 @@ class GildedRoseTest {
     }
 
     @Test
-    public void checkinG_Backstage_when_sellig_under_six_and_quality_under_fifty(){
+    public void checking_Backstage_when_sellig_under_six_and_quality_under_fifty(){
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 30 )};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
