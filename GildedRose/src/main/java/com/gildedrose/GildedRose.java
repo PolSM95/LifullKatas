@@ -6,8 +6,8 @@ class GildedRose {
     private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     private static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
     private static final int ITEM_QUALITY_MAX = 50;
-    private static final int ITEM_SELLIN_INCREASE_QUALITY_BY_TWO = 11;
-    private static final int ITEM_SELLIN_INCREASE_QUALITY_BY_THREE = 6;
+    private static final int ITEM_SELLIN_LEVEL_ONE = 11;
+    private static final int ITEM_SELLIN_LEVEL_TWO = 6;
     private static final int ITEM_EXPIRED_DATE = 0;
     private static final int ITEM_QUALITY_MIN = 0;
 
@@ -24,38 +24,45 @@ class GildedRose {
             int itemQuality = items[index].quality;
             int itemSellIn = items[index].sellIn;
 
-            if (!itemName.equals(AGED_BRIE) && !itemName.equals(BACKSTAGE_PASSES)) {
-                itemQuality = decrease_quality_when_is_not_sulfuras_and_quality_more_than_zero(itemName, itemQuality);
-            } else {
-                itemQuality = increase_quality_when_item_is_agedbrie_or_backstage(itemName, itemQuality, itemSellIn);
-            }
+            itemQuality = modify_quality_of_item(itemName, itemQuality, itemSellIn);
 
             if (!itemName.equals(SULFURAS_HAND_OF_RAGNAROS)) {
                 itemSellIn--;
             }
 
             if (itemSellIn < ITEM_EXPIRED_DATE) {
-                if (!itemName.equals(AGED_BRIE)) {
-                    if (!itemName.equals(BACKSTAGE_PASSES)) {
-                        itemQuality = decrease_quality_when_is_not_sulfuras_and_quality_more_than_zero(itemName, itemQuality);
-                    } else {
-                        itemQuality = ITEM_QUALITY_MIN;
-                    }
-                } else {
-                    if (itemQuality < ITEM_QUALITY_MAX) {
-                        itemQuality++;
-                    }
-                }
+                itemQuality = modify_quality_when_item_is_expired(itemName, itemQuality);
             }
             items[index].quality = itemQuality;
             items[index].sellIn = itemSellIn;
         }
     }
 
+    private int modify_quality_when_item_is_expired(String itemName, int itemQuality) {
+        if (!itemName.equals(AGED_BRIE)) {
+            return decrease_quality_when_is_not_backstage_and_quality_zero_for_backstage(itemName, itemQuality);
+        }
+        return  increase_quality_below_max(itemQuality);
+    }
+
+    private int decrease_quality_when_is_not_backstage_and_quality_zero_for_backstage(String itemName, int itemQuality) {
+        if (!itemName.equals(BACKSTAGE_PASSES)) {
+            return decrease_quality_when_is_not_sulfuras_and_quality_more_than_zero(itemName, itemQuality);
+        }
+        return ITEM_QUALITY_MIN;
+    }
+
+    private int modify_quality_of_item(String itemName, int itemQuality, int itemSellIn) {
+        if (!itemName.equals(AGED_BRIE) && !itemName.equals(BACKSTAGE_PASSES)) {
+            return decrease_quality_when_is_not_sulfuras_and_quality_more_than_zero(itemName, itemQuality);
+        }
+        return increase_quality_when_item_is_agedbrie_or_backstage(itemName, itemQuality, itemSellIn);
+
+    }
+
     private int increase_quality_when_item_is_agedbrie_or_backstage(String itemName, int itemQuality, int itemSellIn) {
         if (itemQuality < ITEM_QUALITY_MAX) {
             itemQuality++;
-
             itemQuality = increase_quality_for_backstage(itemName, itemQuality, itemSellIn);
         }
         return itemQuality;
@@ -63,16 +70,29 @@ class GildedRose {
 
     private int increase_quality_for_backstage(String itemName, int itemQuality, int itemSellIn) {
         if (itemName.equals(BACKSTAGE_PASSES)) {
-            if (itemSellIn < ITEM_SELLIN_INCREASE_QUALITY_BY_TWO) {
-                if (itemQuality < ITEM_QUALITY_MAX) {
-                    itemQuality++;
-                }
-            }
-            if (itemSellIn < ITEM_SELLIN_INCREASE_QUALITY_BY_THREE) {
-                if (itemQuality < ITEM_QUALITY_MAX) {
-                    itemQuality++;
-                }
-            }
+            itemQuality = increase_quality_when_item_sell_in_level_one(itemQuality, itemSellIn);
+            itemQuality = increase_quality_when_item_sell_in_level_two(itemQuality, itemSellIn);
+        }
+        return itemQuality;
+    }
+
+    private int increase_quality_when_item_sell_in_level_two(int itemQuality, int itemSellIn) {
+        if (itemSellIn < ITEM_SELLIN_LEVEL_TWO) {
+            itemQuality = increase_quality_below_max(itemQuality);
+        }
+        return itemQuality;
+    }
+
+    private int increase_quality_below_max(int itemQuality) {
+        if (itemQuality < ITEM_QUALITY_MAX) {
+            itemQuality++;
+        }
+        return itemQuality;
+    }
+
+    private int increase_quality_when_item_sell_in_level_one(int itemQuality, int itemSellIn) {
+        if (itemSellIn < ITEM_SELLIN_LEVEL_ONE) {
+            itemQuality = increase_quality_below_max(itemQuality);
         }
         return itemQuality;
     }
