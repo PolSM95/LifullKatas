@@ -13,11 +13,11 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
+        for (int index = 0; index < items.length; index++) {
 
-            String itemName = items[i].name;
-            int itemQuality = items[i].quality;
-            int itemSellIn = items[i].sellIn;
+            String itemName = items[index].name;
+            int itemQuality = items[index].quality;
+            int itemSellIn = items[index].sellIn;
 
             if (!itemName.equals(AGED_BRIE) && !itemName.equals(BACKSTAGE_PASSES)) {
                 itemQuality = decrease_quality_when_is_not_sulfuras_and_quality_more_than_zero(itemName, itemQuality);
@@ -59,8 +59,8 @@ class GildedRose {
                     }
                 }
             }
-            items[i].quality = itemQuality;
-            items[i].sellIn = itemSellIn;
+            items[index].quality = itemQuality;
+            items[index].sellIn = itemSellIn;
         }
     }
 
