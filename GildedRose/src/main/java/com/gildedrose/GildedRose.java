@@ -20,22 +20,26 @@ class GildedRose {
     public void updateQuality() {
         for (int index = 0; index < items.length; index++) {
 
-            String itemName = items[index].name;
-            int itemQuality = items[index].quality;
-            int itemSellIn = items[index].sellIn;
-
-            itemQuality = modify_quality_of_item(itemName, itemQuality, itemSellIn);
-
-            if (!itemName.equals(SULFURAS_HAND_OF_RAGNAROS)) {
-                itemSellIn--;
-            }
-
-            if (itemSellIn < ITEM_EXPIRED_DATE) {
-                itemQuality = modify_quality_when_item_is_expired(itemName, itemQuality);
-            }
-            items[index].quality = itemQuality;
-            items[index].sellIn = itemSellIn;
+            assign_sell_in_and_quality_for_the_items(items[index]);
         }
+    }
+
+    private void assign_sell_in_and_quality_for_the_items(Item item) {
+        String itemName = item.name;
+        int itemQuality = item.quality;
+        int itemSellIn = item.sellIn;
+
+        itemQuality = modify_quality_of_item(itemName, itemQuality, itemSellIn);
+
+        if (!itemName.equals(SULFURAS_HAND_OF_RAGNAROS)) {
+            itemSellIn--;
+        }
+
+        if (itemSellIn < ITEM_EXPIRED_DATE) {
+            itemQuality = modify_quality_when_item_is_expired(itemName, itemQuality);
+        }
+        item.quality = itemQuality;
+        item.sellIn = itemSellIn;
     }
 
     private int modify_quality_when_item_is_expired(String itemName, int itemQuality) {
