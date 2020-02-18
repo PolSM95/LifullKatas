@@ -27,22 +27,7 @@ class GildedRose {
             if (!itemName.equals(AGED_BRIE) && !itemName.equals(BACKSTAGE_PASSES)) {
                 itemQuality = decrease_quality_when_is_not_sulfuras_and_quality_more_than_zero(itemName, itemQuality);
             } else {
-                if (itemQuality < ITEM_QUALITY_MAX) {
-                    itemQuality++;
-
-                    if (itemName.equals(BACKSTAGE_PASSES)) {
-                        if (itemSellIn < ITEM_SELLIN_INCREASE_QUALITY_BY_TWO) {
-                            if (itemQuality < ITEM_QUALITY_MAX) {
-                                itemQuality++;
-                            }
-                        }
-                        if (itemSellIn < ITEM_SELLIN_INCREASE_QUALITY_BY_THREE) {
-                            if (itemQuality < ITEM_QUALITY_MAX) {
-                                itemQuality++;
-                            }
-                        }
-                    }
-                }
+                itemQuality = increase_quality_when_item_is_agedbrie_or_backstage(itemName, itemQuality, itemSellIn);
             }
 
             if (!itemName.equals(SULFURAS_HAND_OF_RAGNAROS)) {
@@ -65,6 +50,31 @@ class GildedRose {
             items[index].quality = itemQuality;
             items[index].sellIn = itemSellIn;
         }
+    }
+
+    private int increase_quality_when_item_is_agedbrie_or_backstage(String itemName, int itemQuality, int itemSellIn) {
+        if (itemQuality < ITEM_QUALITY_MAX) {
+            itemQuality++;
+
+            itemQuality = increase_quality_for_backstage(itemName, itemQuality, itemSellIn);
+        }
+        return itemQuality;
+    }
+
+    private int increase_quality_for_backstage(String itemName, int itemQuality, int itemSellIn) {
+        if (itemName.equals(BACKSTAGE_PASSES)) {
+            if (itemSellIn < ITEM_SELLIN_INCREASE_QUALITY_BY_TWO) {
+                if (itemQuality < ITEM_QUALITY_MAX) {
+                    itemQuality++;
+                }
+            }
+            if (itemSellIn < ITEM_SELLIN_INCREASE_QUALITY_BY_THREE) {
+                if (itemQuality < ITEM_QUALITY_MAX) {
+                    itemQuality++;
+                }
+            }
+        }
+        return itemQuality;
     }
 
     private int decrease_quality_when_is_not_sulfuras_and_quality_more_than_zero(String itemName, int itemQuality) {
