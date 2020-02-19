@@ -40,6 +40,7 @@ public class TripServiceTest {
         assertEquals(tripList, testeableTripService.getTripsByUser(userFriend));
     }
 
+
     private class TesteableTripService extends TripService {
 
         private final User userLogged;
