@@ -22,7 +22,10 @@ public class TripServiceTest {
     @Test
     public void does_not_return_any_trips_when_users_are_not_friends(){
         TripService testeableTripService = new TripService();
-        assertEquals(new ArrayList<Trip>(), testeableTripService.getTripsByUser(new User(), new User()));
+        assertEquals(
+                new ArrayList<Trip>(),
+                testeableTripService.getTripsByUser(new User(), new User())
+        );
     }
 
     @Test
