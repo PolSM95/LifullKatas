@@ -1,12 +1,11 @@
 package Bloaters.Longmethods;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class TechnicalDebt {
-    private List<Issue> issues = new ArrayList<Issue>();
+    public final Issues issues = new Issues();
+    private final AssignPriority assignPriority = new AssignPriority();
 
     private float total;
 
@@ -16,44 +15,24 @@ public class TechnicalDebt {
 
     public void fixed(float amount)
     {
-        setTotal(getTotal() - amount);
+        this.total -= amount;
     }
 
-    public void register(float effortManHours, String description)
-    {
-        if (effortManHours > 1000 || effortManHours <= 0)
-        {
-            throw new RuntimeException("Cannot register tech debt where effort is bigger than 1000 man hours to fix");
-        }
-
+    public void register(float effortManHours, String description) {
+        assignPriority.throw_exception_when_effort_is_bigger_than_maximum_hours_to_fix(effortManHours);
         Priority priority = Priority.Low;
+        priority = assignPriority.set_priority_to_medium(effortManHours, priority);
+        priority = assignPriority.set_priority_to_high(effortManHours, priority);
+        priority = assignPriority.set_priority_to_critical(effortManHours, priority);
+        this.total += effortManHours;
+        issues.addIssue(effortManHours, description, priority, this);
+        setActualDateInCalendarFormat();
+    }
 
-        if (effortManHours > 100)
-        {
-            priority = Priority.Medium;
-        }
-
-        if (effortManHours > 250)
-        {
-            priority = Priority.High;
-        }
-
-        if (effortManHours > 500)
-        {
-            priority = Priority.Critical;
-        }
-
-        setTotal(getTotal() + effortManHours);
-
-        issues.add(new Issue(effortManHours, description, priority));
-
+    private void setActualDateInCalendarFormat() {
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
         setLastIssueDate(now.get(Calendar.DAY_OF_MONTH) + "/" + now.get(Calendar.MONTH) + "/" + now.get(Calendar.YEAR));
-    }
-
-    public Issue getLastIssue() {
-        return issues.get((issues.size() - 1));
     }
 
     public String getLastIssueDate() {
@@ -68,7 +47,4 @@ public class TechnicalDebt {
         return total;
     }
 
-    public void setTotal(float total) {
-        this.total = total;
-    }
 }

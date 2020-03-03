@@ -42,7 +42,7 @@ public class TechnicalDebtShould {
     {
         technicalDebt.register(501, "Declared Issue class in same file as TechnicalDebt class");
 
-        assertEquals(Priority.Critical, technicalDebt.getLastIssue().getPriority());
+        assertEquals(Priority.Critical, technicalDebt.issues.getLastIssue().getPriority());
     }
 
     @Test
@@ -50,7 +50,7 @@ public class TechnicalDebtShould {
     {
         technicalDebt.register(251, "Declared Issue class in same file as TechnicalDebt class");
 
-        assertEquals(Priority.High, technicalDebt.getLastIssue().getPriority());
+        assertEquals(Priority.High, technicalDebt.issues.getLastIssue().getPriority());
     }
 
     @Test
@@ -58,7 +58,7 @@ public class TechnicalDebtShould {
     {
         technicalDebt.register(101, "Declared Issue class in same file as TechnicalDebt class");
 
-        assertEquals(Priority.Medium, technicalDebt.getLastIssue().getPriority());
+        assertEquals(Priority.Medium, technicalDebt.issues.getLastIssue().getPriority());
     }
 
     @Test
@@ -66,7 +66,7 @@ public class TechnicalDebtShould {
     {
         technicalDebt.register(100, "Declared Issue class in same file as TechnicalDebt class");
 
-        assertEquals(Priority.Low, technicalDebt.getLastIssue().getPriority());
+        assertEquals(Priority.Low, technicalDebt.issues.getLastIssue().getPriority());
     }
 
     @Test
