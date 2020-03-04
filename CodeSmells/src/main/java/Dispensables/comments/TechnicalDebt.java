@@ -7,6 +7,7 @@ import java.util.List;
 
 public class TechnicalDebt
 {
+    public static final int MAX_EFFORT = 1000;
     private List<Issue> issues = new ArrayList<Issue>();
 
     private float total;
@@ -22,22 +23,31 @@ public class TechnicalDebt
 
     public void register(float effortManHours, String description)
     {
-        // check effort does not exceed max allowed
-        if (effortManHours > 1000)
-        {
-            throw new RuntimeException("Cannot register tech debt where effort is bigger than 1000 man hours to fix");
-        }
 
-        // deduct amount from total
+        check_effort_does_not_exceed_max_allowed(effortManHours);
+
         total += effortManHours;
 
-        // record issue
-        issues.add(new Issue(effortManHours, description));
+        recordIssue(effortManHours, description);
 
-        // update last issue date
+        update_last_issue_date();
+    }
+
+    private void update_last_issue_date() {
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
         lastIssueDate = now.get(Calendar.DAY_OF_MONTH) + "/" + now.get(Calendar.MONTH) + "/" + now.get(Calendar.YEAR);
+    }
+
+    private void recordIssue(float effortManHours, String description) {
+        issues.add(new Issue(effortManHours, description));
+    }
+
+    private void check_effort_does_not_exceed_max_allowed(float effortManHours) {
+        if (effortManHours > MAX_EFFORT)
+        {
+            throw new RuntimeException("Cannot register tech debt where effort is bigger than 1000 man hours to fix");
+        }
     }
 
     public float getTotal() {
