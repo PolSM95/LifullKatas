@@ -1,13 +1,8 @@
 package Couplers.InappropriateIntimacy;
 
 public class License {
-    private Motorist motorist;
+    Motorist motorist;
     public int points;
-
-    public String getSummary()
-    {
-            return motorist.getTitle() + " " + motorist.getFirstName() + " " + motorist.getSurname() + ", " + points + " points";
-    }
 
     public void addPoints(int points)
     {

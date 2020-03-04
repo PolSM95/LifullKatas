@@ -46,4 +46,9 @@ public class Motorist {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String getSummary(License license)
+    {
+            return getTitle() + " " + getFirstName() + " " + getSurname() + ", " + license.points + " points";
+    }
 }
