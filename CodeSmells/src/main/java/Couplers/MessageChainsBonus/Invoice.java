@@ -28,8 +28,7 @@ public class Invoice {
             invoiceTotal += invoiceItem.getSubtotal();
         }
 
-        Address address = customer.getAddress();
-        Country country = address.getCountry();
+        Country country = customer.getCountry();
 
         if (!country.isInEurope())
         {
@@ -37,4 +36,5 @@ public class Invoice {
         }
         return invoiceTotal;
     }
+
 }

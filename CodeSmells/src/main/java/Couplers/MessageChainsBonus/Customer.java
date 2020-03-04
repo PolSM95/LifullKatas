@@ -12,4 +12,8 @@ public class Customer {
     public Address getAddress() {
         return address;
     }
+
+    Country getCountry() {
+        return getAddress().getCountry();
+    }
 }
