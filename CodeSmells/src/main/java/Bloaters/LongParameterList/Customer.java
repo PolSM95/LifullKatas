@@ -11,18 +11,6 @@ public class Customer {
 
     private String summary;
 
-    private String buildCustomerSummary(
-            String customerFirstName,
-            String customerLastName,
-            String customerTitle,
-            String customerCity,
-            String customerPostCode,
-            String customerCountry)
-    {
-        return customerTitle + " " + customerFirstName + " " + customerLastName + ", " + customerCity + ", "
-                + customerPostCode + ", " + customerCountry;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -56,13 +44,9 @@ public class Customer {
     }
 
     public String getSummary() {
-        return buildCustomerSummary(
-                firstName,
-                lastName,
-                title,
-                address.getCity(),
-                address.getPostcode(),
-                address.getCountry());
+
+        return title + " " + firstName + " " + lastName + ", " + address.getCity() + ", "
+                + address.getPostcode() + ", " + address.getCountry();
     }
 
     public void setSummary(String summary) {
