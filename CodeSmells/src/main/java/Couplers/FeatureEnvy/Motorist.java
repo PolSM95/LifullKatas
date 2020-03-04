@@ -41,4 +41,19 @@ public class Motorist {
     public void setPointsOnLicense(int pointsOnLicense) {
         this.pointsOnLicense = pointsOnLicense;
     }
+
+    public RiskFactor CalculateMotoristRisk()
+    {
+        if (getPointsOnLicense() > 3 || getAge() < 25)
+        {
+            return RiskFactor.HIGH_RISK;
+        }
+
+        if (getPointsOnLicense() > 0)
+        {
+            return RiskFactor.MODERATE_RISK;
+        }
+
+        return RiskFactor.LOW_RISK;
+    }
 }

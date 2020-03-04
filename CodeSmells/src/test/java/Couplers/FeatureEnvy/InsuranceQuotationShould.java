@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class InsuranceQuotationShould {
     private RiskFactor calculateMotoristRisk(String dateOfBirth, int pointsOnLicense)
     {
-        return buildInsuranceQuoteForMotorist(dateOfBirth, pointsOnLicense).CalculateMotoristRisk();
+        return buildInsuranceQuoteForMotorist(dateOfBirth, pointsOnLicense).motorist.CalculateMotoristRisk();
     }
 
     private InsuranceQuote buildInsuranceQuoteForMotorist(String dateOfBirth, int pointsOnLicense)
