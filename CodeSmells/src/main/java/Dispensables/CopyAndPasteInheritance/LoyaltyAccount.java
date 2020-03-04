@@ -1,16 +1,7 @@
 package Dispensables.CopyAndPasteInheritance;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
-public class LoyaltyAccount {
-    private final List<Transaction> transactions = new ArrayList<>();
+public class LoyaltyAccount extends Account {
     private int loyaltypoints;
-    private float balance;
-    private Transaction lastTransaction;
-    private String lastTransactionDate;
 
     public void credit(float amount)
     {
@@ -23,23 +14,14 @@ public class LoyaltyAccount {
         executeTransaction(-amount);
     }
 
-    private void executeTransaction(float amount)
-    {
-        this.balance = this.getBalance() + amount;
-        recordTransaction(amount);
-        updateLastTransactionDate();
-    }
-
     private void recordTransaction(float amount)
     {
-        transactions.add(new Transaction(true, amount));
+        transactions.recordTransaction(amount);
     }
 
     private void updateLastTransactionDate()
     {
-        Calendar now = Calendar.getInstance();
-        now.setTime(new Date());
-        this.lastTransactionDate = now.get(Calendar.DAY_OF_MONTH) + "/" + now.get(Calendar.MONTH) + "/" + now.get(Calendar.YEAR);
+        transactions.updateLastTransactionDate();
     }
 
     public float getBalance() {
@@ -47,14 +29,14 @@ public class LoyaltyAccount {
     }
 
     public Transaction getLastTransaction() {
-        return transactions.get(transactions.size() - 1);
+        return transactions.getLastTransaction();
     }
 
     public void setLastTransaction(Transaction lastTransaction) {
-        this.lastTransaction = lastTransaction;
+        transactions.setLastTransaction(lastTransaction);
     }
 
     public String getLastTransactionDate() {
-        return lastTransactionDate;
+        return transactions.getLastTransactionDate();
     }
 }

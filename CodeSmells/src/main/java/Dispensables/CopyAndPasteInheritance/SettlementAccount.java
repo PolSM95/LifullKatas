@@ -5,10 +5,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class SettlementAccount {
-    private final List<Transaction> transactions = new ArrayList<>();
+public class SettlementAccount extends Account {
     private float owing;
-    private float Balance;
     private Transaction lastTransaction;
     private String LastTransactionDate;
 
@@ -29,19 +27,12 @@ public class SettlementAccount {
 
     public void settle()
     {
-        this.Balance = this.getBalance() - owing;
-    }
-
-    private void executeTransaction(float amount)
-    {
-        this.Balance = this.getBalance() + amount;
-        recordTransaction(amount);
-        updateLastTransactionDate();
+        balance = balance - owing;
     }
 
     private void recordTransaction(float amount)
     {
-        transactions.add(new Transaction(true, amount));
+        transactions.recordTransaction(amount);
     }
 
     private void updateLastTransactionDate()
@@ -52,11 +43,11 @@ public class SettlementAccount {
     }
 
     public float getBalance() {
-        return Balance;
+        return balance;
     }
 
     public Transaction getLastTransaction() {
-        return transactions.get(transactions.size() - 1);
+        return transactions.getLastTransaction();
     }
 
     public String getLastTransactionDate() {
