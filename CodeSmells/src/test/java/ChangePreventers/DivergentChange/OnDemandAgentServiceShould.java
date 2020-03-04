@@ -15,7 +15,7 @@ public class OnDemandAgentServiceShould {
     {
         OnDemandAgentService service = new OnDemandAgentService();
         List<String> log = new ArrayList<>();
-        service.Log = log;
+        service.log.Log = log;
         service.Password = "passw0rd";
         service.Username = "admin";
 
@@ -30,7 +30,7 @@ public class OnDemandAgentServiceShould {
     {
         OnDemandAgentService service = new OnDemandAgentService();
         List<String> log = new ArrayList<>();
-        service.Log = log;
+        service.log.Log = log;
         service.Password = "";
         service.Username = "";
 

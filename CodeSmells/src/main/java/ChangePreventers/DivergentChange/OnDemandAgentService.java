@@ -1,32 +1,30 @@
 package ChangePreventers.DivergentChange;
 
-import java.util.List;
-
 public class OnDemandAgentService {
+    public Log log = new Log();
     public String Username;
     public String Password;
-    public List<String> Log;
 
     public OnDemandAgent startNewOnDemandMachine()
     {
-        loginfo("Starting on-demand agent startup logic");
+        log.loginfo("Starting on-demand agent startup logic");
 
         try
         {
             if (isAuthorized(Username, Password))
             {
-                loginfo(String.format("User %s will attempt to start a new on-demand agent.", Username));
+                log.loginfo(String.format("User %s will attempt to start a new on-demand agent.", Username));
                 OnDemandAgent agent = startNewAmazonServer();
                 sendEmailToAdmin(String.format("User %s has successfully started a machine with ip %s.", Username, agent.getIp()));
                 return agent;
             }
 
-            logWarning("User " + Username + " attempted to start a new on-demand agent.");
+            log.logWarning("User " + Username + " attempted to start a new on-demand agent.");
             throw new RuntimeException("Unauthorized access to StartNewOnDemandMachine method.");
         }
         catch (Exception ex)
         {
-            logError("Exception in on-demand agent creation logic");
+            log.logError("Exception in on-demand agent creation logic");
             throw new RuntimeException(ex);
         }
     }
@@ -41,21 +39,6 @@ public class OnDemandAgentService {
         return amazonAgent;
     }
 
-    private void loginfo(String info)
-    {
-        Log.add("INFO: " + info);
-    }
-
-    private void logWarning(String warning)
-    {
-        Log.add("WARNING: " + warning);
-    }
-
-    private void logError(String errorMessage)
-    {
-        Log.add("ERROR: " + errorMessage);
-    }
-
     private boolean isAuthorized(String username, String password)
     {
         return username.equals("admin") && password.equals("passw0rd");
@@ -68,5 +51,4 @@ public class OnDemandAgentService {
 
         // actual email sending implementation omitted
     }
-
 }
