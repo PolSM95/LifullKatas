@@ -19,12 +19,7 @@ public class TechnicalDebt {
     public void register(float effortManHours, String description)
     {
         float effortManHours1 = -effortManHours;
-        this.balance -= effortManHours1;
-        transactions.add(new Issue(-effortManHours1, description));
-
-        Calendar now = Calendar.getInstance();
-        now.setTime(new Date());
-        lastTransactionDate = now.get(Calendar.DAY_OF_MONTH) + "/" + now.get(Calendar.MONTH) + "/" + now.get(Calendar.YEAR);
+        fix(effortManHours1, description);
     }
 
     public void fix(float effortManHours, String description)
