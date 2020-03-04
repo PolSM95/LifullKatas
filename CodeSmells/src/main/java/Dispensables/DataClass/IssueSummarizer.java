@@ -9,6 +9,6 @@ public class IssueSummarizer {
     }
 
     public String getIssueSummary() {
-        return "Description:'" + issue.getDescription() + "' Effort:'" + issue.getEffortManHours() + "' Priority:'" + issue.getPriority() + "'";
+        return issue.getSummary();
     }
 }

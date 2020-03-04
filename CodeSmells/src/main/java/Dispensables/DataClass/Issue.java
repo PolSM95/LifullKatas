@@ -19,27 +19,20 @@ public class Issue {
         this.setPriority(priority);
     }
 
-    public Priority getPriority() {
-        return priority;
-    }
-
     public void setPriority(Priority priority) {
         this.priority = priority;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public float getEffortManHours() {
-        return effortManHours;
-    }
-
     public void setEffortManHours(float effortManHours) {
         this.effortManHours = effortManHours;
+    }
+
+    public String getSummary() {
+        return "Description:'" + this.description + "' Effort:'" + this.effortManHours + "' Priority:'" + this.priority + "'";
+
     }
 }
