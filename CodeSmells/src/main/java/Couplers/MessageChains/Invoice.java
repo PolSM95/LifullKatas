@@ -27,10 +27,11 @@ public class Invoice {
             invoiceTotal += invoiceItem.getSubtotal();
         }
 
-        if (!customer.getAddress().getCountry().isInEurope())
+        if (!customer.isInEurope())
         {
             invoiceTotal += SHIPPING_COST_OUTSIDE_EU;
         }
         return invoiceTotal;
     }
+
 }

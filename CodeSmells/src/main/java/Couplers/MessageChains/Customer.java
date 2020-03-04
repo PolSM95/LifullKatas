@@ -11,4 +11,13 @@ public class Customer {
     public Address getAddress() {
         return address;
     }
+
+    public boolean isInEurope() {
+        return isAddressInEurope();
+    }
+
+    public boolean isAddressInEurope() {
+        return address.isCountryInEurope();
+    }
+
 }

@@ -11,4 +11,8 @@ public class Address {
     public Country getCountry() {
         return country;
     }
+
+    public boolean isCountryInEurope() {
+        return getCountry().isInEurope();
+    }
 }
