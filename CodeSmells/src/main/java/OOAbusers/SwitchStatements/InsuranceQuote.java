@@ -27,14 +27,7 @@ public class InsuranceQuote {
     {
         RiskFactor riskFactor = calculateMotoristRisk();
 
-        switch (riskFactor)
-        {
-            case LOW_RISK:
-                return insuranceValue * 0.02;
-            case MODERATE_RISK:
-                return insuranceValue * 0.04;
-            default:
-                return insuranceValue * 0.06;
-        }
+        return insuranceValue * riskFactor.factor;
+
     }
 }
