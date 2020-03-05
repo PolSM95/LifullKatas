@@ -62,8 +62,4 @@ public class Board
                 !tileAt(new Tile(rowIndex, 2, SYMBOL_DEFAULT)).hasSameSymbol(new Tile(rowIndex, 1, SYMBOL_DEFAULT));
     }
 
-    public boolean containsTile(Tile tile){
-
-        return tileAt(tile).hasSameSymbol(tile);
-    }
 }
