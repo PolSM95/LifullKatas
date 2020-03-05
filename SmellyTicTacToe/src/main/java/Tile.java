@@ -27,4 +27,12 @@ public class Tile
     public int hashCode() {
         return Objects.hash(xCoordinate, yCoordinate);
     }
+
+    public int getyCoordinate() {
+        return yCoordinate;
+    }
+
+    public int getxCoordinate() {
+        return xCoordinate;
+    }
 }

@@ -15,7 +15,7 @@ public class Game {
             throw new Exception("Invalid next player");
         }
         //if not first move but play on an already played tile
-        else if (board.tileAt(xCoordinate, yCoordinate).symbol != ' ') {
+        else if (board.tileAt(new Tile(xCoordinate, yCoordinate, Board.SYMBOL_DEFAULT)).symbol != ' ') {
             throw new Exception("Invalid position");
         }
 
