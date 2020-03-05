@@ -39,4 +39,46 @@ public class Board
 
         tileAt(x,y).symbol = symbol;
     }
+
+    public char winner() {
+        //if the positions in first row are taken
+        if (tileAt(0, 0).symbol != ' ' &&
+                tileAt(0, 1).symbol != ' ' &&
+                tileAt(0, 2).symbol != ' ') {
+            //if first row is full with same symbol
+            if (tileAt(0, 0).symbol ==
+                    tileAt(0, 1).symbol &&
+                    tileAt(0, 2).symbol == tileAt(0, 1).symbol) {
+                return tileAt(0, 0).symbol;
+            }
+        }
+
+        //if the positions in first row are taken
+        if (tileAt(1, 0).symbol != ' ' &&
+                tileAt(1, 1).symbol != ' ' &&
+                tileAt(1, 2).symbol != ' ') {
+            //if middle row is full with same symbol
+            if (tileAt(1, 0).symbol ==
+                    tileAt(1, 1).symbol &&
+                    tileAt(1, 2).symbol ==
+                            tileAt(1, 1).symbol) {
+                return tileAt(1, 0).symbol;
+            }
+        }
+
+        //if the positions in first row are taken
+        if (tileAt(2, 0).symbol != ' ' &&
+                tileAt(2, 1).symbol != ' ' &&
+                tileAt(2, 2).symbol != ' ') {
+            //if middle row is full with same symbol
+            if (tileAt(2, 0).symbol ==
+                    tileAt(2, 1).symbol &&
+                    tileAt(2, 2).symbol ==
+                            tileAt(2, 1).symbol) {
+                return tileAt(2, 0).symbol;
+            }
+        }
+
+        return ' ';
+    }
 }
