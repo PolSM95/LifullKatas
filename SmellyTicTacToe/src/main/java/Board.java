@@ -10,11 +10,15 @@ public class Board
     {
         for (int xCoordinate = 0; xCoordinate < 3; xCoordinate++)
         {
-            for (int yCoordinate = 0; yCoordinate < 3; yCoordinate++)
-            {
-                Tile tile = new Tile(xCoordinate,yCoordinate,SYMBOL_DEFAULT);
-                plays.add(tile);
-            }
+            fillColumnWithEmptyTile(xCoordinate);
+        }
+    }
+
+    private void fillColumnWithEmptyTile(int xCoordinate) {
+        for (int yCoordinate = 0; yCoordinate < 3; yCoordinate++)
+        {
+            Tile tile = new Tile(xCoordinate,yCoordinate,SYMBOL_DEFAULT);
+            plays.add(tile);
         }
     }
 
@@ -56,5 +60,10 @@ public class Board
     private boolean checkIfRowIsNotEmpty(int rowIndex) {
         return !tileAt(new Tile(rowIndex, 0, SYMBOL_DEFAULT)).hasSameSymbol(new Tile(rowIndex, 1, SYMBOL_DEFAULT)) &&
                 !tileAt(new Tile(rowIndex, 2, SYMBOL_DEFAULT)).hasSameSymbol(new Tile(rowIndex, 1, SYMBOL_DEFAULT));
+    }
+
+    public boolean containsTile(Tile tile){
+
+        return tileAt(tile).hasSameSymbol(tile);
     }
 }

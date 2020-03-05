@@ -4,18 +4,18 @@ public class Game {
 
     public void play(char symbol, int xCoordinate, int yCoordinate) throws Exception {
         //if first move
-        if (lastSymbol == ' ') {
-            //if player is X
-            if (symbol == 'O') {
-                throw new Exception("Invalid first player");
-            }
+        //if player is X
+        if (lastSymbol == ' ' && symbol == 'O') {
+            throw new Exception("Invalid first player");
         }
         //if not first move but player repeated
-        else if (symbol == lastSymbol) {
+        if (symbol == lastSymbol) {
             throw new Exception("Invalid next player");
         }
         //if not first move but play on an already played tile
-        else if (board.tileAt(new Tile(xCoordinate, yCoordinate, Board.SYMBOL_DEFAULT)).symbol != ' ') {
+
+        Tile tile = new Tile(xCoordinate, yCoordinate, Board.SYMBOL_DEFAULT);
+        if (!board.tileAt(tile).hasSameSymbol(tile)) {
             throw new Exception("Invalid position");
         }
 

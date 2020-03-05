@@ -2,9 +2,9 @@ import java.util.Objects;
 
 public class Tile
 {
-    public int xCoordinate;
-    public int yCoordinate;
-    public char symbol;
+    private int xCoordinate;
+    private int yCoordinate;
+    private char symbol;
 
     public Tile(int xCoordinate, int yCoordinate, char symbol) {
 
