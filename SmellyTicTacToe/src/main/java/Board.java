@@ -3,41 +3,35 @@ import java.util.List;
 
 public class Board
 {
-    private List<Tile> _plays = new ArrayList<>();
+    private static final char SYMBOL_DEFAULT = ' ';
+    private List<Tile> plays = new ArrayList<>();
 
     public Board()
     {
-        for (int i = 0; i < 3; i++)
+        for (int xCoordinate = 0; xCoordinate < 3; xCoordinate++)
         {
-            for (int j = 0; j < 3; j++)
+            for (int yCoordinate = 0; yCoordinate < 3; yCoordinate++)
             {
-                Tile tile = new Tile();
-                tile.x = i;
-                tile.y = j;
-                tile.symbol = ' ';
-                _plays.add(tile);
+                Tile tile = new Tile(xCoordinate,yCoordinate,SYMBOL_DEFAULT);
+                plays.add(tile);
             }
         }
     }
 
-    public Tile tileAt(int x, int y)
+    public Tile tileAt(int xCoordinate, int yCoordinate)
     {
-        for (Tile t : _plays) {
-            if (t.x == x && t.y == y){
-                return t;
+        for (Tile tile : plays) {
+            if (tile.equals(new Tile(xCoordinate,yCoordinate,SYMBOL_DEFAULT))){
+                return tile;
             }
         }
         return null;
     }
 
-    public void addTileAt(char symbol, int x, int y)
+    public void addTileAt(char symbol, int xCoordinate, int yCoordinate)
     {
-        Tile newTile = new Tile();
-        newTile.x = x;
-        newTile.y = y;
-        newTile.symbol = symbol;
-
-        tileAt(x,y).symbol = symbol;
+        Tile newTile = new Tile(xCoordinate,yCoordinate,symbol);
+        tileAt(xCoordinate,yCoordinate).symbol = symbol;
     }
 
     public char winner() {
@@ -79,6 +73,6 @@ public class Board
             }
         }
 
-        return ' ';
+        return SYMBOL_DEFAULT;
     }
 }
