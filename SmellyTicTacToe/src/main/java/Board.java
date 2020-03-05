@@ -33,32 +33,20 @@ public class Board
         tileAt(new Tile(xCoordinate, yCoordinate, SYMBOL_DEFAULT)).symbol = symbol;
     }
 
-    public char winner() {
-        //if the positions in first row are taken
-        if (checkIfRowIsNotEmpty(0)) {
-            //if first row is full with same symbol
-            if (checkIfAllRowHasSameSymbol(0)) {
-                return tileAt(new Tile(0, 0, SYMBOL_DEFAULT)).symbol;
-            }
-        }
-
-        //if the positions in first row are taken
-        if (checkIfRowIsNotEmpty(1)) {
-            //if middle row is full with same symbol
-            if (checkIfAllRowHasSameSymbol(1)) {
-                return tileAt(new Tile(1, 0, SYMBOL_DEFAULT)).symbol;
-            }
-        }
-
-        //if the positions in first row are taken
-        if (checkIfRowIsNotEmpty(2)) {
-            //if middle row is full with same symbol
-            if (checkIfAllRowHasSameSymbol(2)) {
-                return tileAt(new Tile(2, 0, SYMBOL_DEFAULT)).symbol;
-            }
-        }
-
+    public static char winner(Board board) {
+        if (checkRowIfSomeoneWIN(board, 0)) return board.tileAt(new Tile(0, 0, SYMBOL_DEFAULT)).symbol;
+        if (checkRowIfSomeoneWIN(board, 1)) return board.tileAt(new Tile(1, 0, SYMBOL_DEFAULT)).symbol;
+        if (checkRowIfSomeoneWIN(board, 2)) return board.tileAt(new Tile(2, 0, SYMBOL_DEFAULT)).symbol;
         return SYMBOL_DEFAULT;
+    }
+
+    private static boolean checkRowIfSomeoneWIN(Board board, int rowIndex) {
+        if (board.checkIfRowIsNotEmpty(rowIndex)) {
+            if (board.checkIfAllRowHasSameSymbol(rowIndex)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean checkIfAllRowHasSameSymbol(int rowIndex) {
