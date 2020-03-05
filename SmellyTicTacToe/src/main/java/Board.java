@@ -28,9 +28,10 @@ public class Board
         return null;
     }
 
-    public void addTileAt(char symbol, int xCoordinate, int yCoordinate)
+    public void updateTileAt(char symbol, int xCoordinate, int yCoordinate)
     {
-        tileAt(new Tile(xCoordinate, yCoordinate, SYMBOL_DEFAULT)).symbol = symbol;
+        Tile tile = new Tile(xCoordinate, yCoordinate, symbol);
+        plays.set(plays.indexOf(tile), tile);
     }
 
     public static char winner(Board board) {

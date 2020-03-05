@@ -21,7 +21,7 @@ public class Game {
 
         // update game state
         lastSymbol = symbol;
-        board.addTileAt(symbol, xCoordinate, yCoordinate);
+        board.updateTileAt(symbol, xCoordinate, yCoordinate);
     }
 
     public char winner() {
