@@ -31,4 +31,9 @@ public class Tile
     public char getSymbol() {
         return symbol;
     }
+
+    public boolean hasSameSymbol(Tile tile){
+        return symbol == tile.symbol;
+
+    }
 }

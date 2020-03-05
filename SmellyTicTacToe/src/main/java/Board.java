@@ -20,9 +20,7 @@ public class Board
 
     private boolean checkRowIfSomeoneWIN(int rowIndex) {
         if (checkIfRowIsNotEmpty(rowIndex)) {
-            if (checkIfAllRowHasSameSymbol(rowIndex)) {
-                return true;
-            }
+            return checkIfAllRowHasSameSymbol(rowIndex);
         }
         return false;
     }
@@ -51,14 +49,12 @@ public class Board
     }
 
     private boolean checkIfAllRowHasSameSymbol(int rowIndex) {
-        return tileAt(new Tile(rowIndex, 0, SYMBOL_DEFAULT)).symbol ==
-                tileAt(new Tile(rowIndex, 1, SYMBOL_DEFAULT)).symbol &&
-                tileAt(new Tile(rowIndex, 2, SYMBOL_DEFAULT)).symbol == tileAt(new Tile(rowIndex, 1, SYMBOL_DEFAULT)).symbol;
+        return tileAt(new Tile(rowIndex, 0, SYMBOL_DEFAULT)).hasSameSymbol(tileAt(new Tile(rowIndex, 1, SYMBOL_DEFAULT))) &&
+                tileAt(new Tile(rowIndex, 2, SYMBOL_DEFAULT)).hasSameSymbol(tileAt(new Tile(rowIndex, 1, SYMBOL_DEFAULT)));
     }
 
     private boolean checkIfRowIsNotEmpty(int rowIndex) {
-        return tileAt(new Tile(rowIndex, 0, SYMBOL_DEFAULT)).symbol != ' ' &&
-                tileAt(new Tile(rowIndex, 1, SYMBOL_DEFAULT)).symbol != ' ' &&
-                tileAt(new Tile(rowIndex, 2, SYMBOL_DEFAULT)).symbol != ' ';
+        return !tileAt(new Tile(rowIndex, 0, SYMBOL_DEFAULT)).hasSameSymbol(new Tile(rowIndex, 1, SYMBOL_DEFAULT)) &&
+                !tileAt(new Tile(rowIndex, 2, SYMBOL_DEFAULT)).hasSameSymbol(new Tile(rowIndex, 1, SYMBOL_DEFAULT));
     }
 }
