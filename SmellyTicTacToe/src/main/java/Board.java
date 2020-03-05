@@ -34,11 +34,11 @@ public class Board
 
     public Tile tileAt(Tile tile)
     {
-        for (Tile currentTile : plays) {
-            if (currentTile.equals(tile)){
-                return currentTile;
-            }
+        if (plays.contains(tile)) {
+
+            return plays.get(plays.indexOf(tile));
         }
+
         return null;
     }
 
