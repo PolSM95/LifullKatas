@@ -28,11 +28,7 @@ public class Tile
         return Objects.hash(xCoordinate, yCoordinate);
     }
 
-    public int getyCoordinate() {
-        return yCoordinate;
-    }
-
-    public int getxCoordinate() {
-        return xCoordinate;
+    public char getSymbol() {
+        return symbol;
     }
 }

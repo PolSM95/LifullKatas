@@ -25,6 +25,6 @@ public class Game {
     }
 
     public char winner() {
-        return Board.winner(board);
+        return board.winner();
     }
 }

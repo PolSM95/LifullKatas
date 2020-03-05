@@ -18,6 +18,22 @@ public class Board
         }
     }
 
+    private boolean checkRowIfSomeoneWIN(int rowIndex) {
+        if (checkIfRowIsNotEmpty(rowIndex)) {
+            if (checkIfAllRowHasSameSymbol(rowIndex)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public char winner() {
+        if (this.checkRowIfSomeoneWIN(0)) return tileAt(new Tile(0, 0, SYMBOL_DEFAULT)).getSymbol();
+        if (this.checkRowIfSomeoneWIN(1)) return tileAt(new Tile(1, 0, SYMBOL_DEFAULT)).getSymbol();
+        if (this.checkRowIfSomeoneWIN(2)) return tileAt(new Tile(2, 0, SYMBOL_DEFAULT)).getSymbol();
+        return SYMBOL_DEFAULT;
+    }
+
     public Tile tileAt(Tile tile)
     {
         for (Tile currentTile : plays) {
@@ -32,22 +48,6 @@ public class Board
     {
         Tile tile = new Tile(xCoordinate, yCoordinate, symbol);
         plays.set(plays.indexOf(tile), tile);
-    }
-
-    public static char winner(Board board) {
-        if (checkRowIfSomeoneWIN(board, 0)) return board.tileAt(new Tile(0, 0, SYMBOL_DEFAULT)).symbol;
-        if (checkRowIfSomeoneWIN(board, 1)) return board.tileAt(new Tile(1, 0, SYMBOL_DEFAULT)).symbol;
-        if (checkRowIfSomeoneWIN(board, 2)) return board.tileAt(new Tile(2, 0, SYMBOL_DEFAULT)).symbol;
-        return SYMBOL_DEFAULT;
-    }
-
-    private static boolean checkRowIfSomeoneWIN(Board board, int rowIndex) {
-        if (board.checkIfRowIsNotEmpty(rowIndex)) {
-            if (board.checkIfAllRowHasSameSymbol(rowIndex)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     private boolean checkIfAllRowHasSameSymbol(int rowIndex) {
