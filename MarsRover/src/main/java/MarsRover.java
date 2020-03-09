@@ -2,13 +2,7 @@ import java.util.Objects;
 
 public class MarsRover {
 
-    private int xCoordinate;
-    private int yCoordinate;
     private Coordinates coordinates;
-
-
-
-
 
     public MarsRover(Coordinates coordinates) {
 
@@ -20,18 +14,17 @@ public class MarsRover {
 
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MarsRover marsRover = (MarsRover) o;
-        return xCoordinate == marsRover.xCoordinate &&
-                yCoordinate == marsRover.yCoordinate &&
-                coordinates.orientation == marsRover.coordinates.orientation;
+        return coordinates.equals(marsRover.coordinates);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(xCoordinate, yCoordinate, coordinates.orientation);
+        return Objects.hash(coordinates);
     }
 }
