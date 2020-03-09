@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MarsRoverShould {
 
     @Test
-    public void rotate_left_when_input_command_is_L(){
+    public void rotate_left_when_input_command_is_L_and_initial_orientation_is_E() {
 
-        MarsRover marsRover = new MarsRover(2,3,'E');
-        MarsRover marsRoverExpected = new MarsRover(2,3,'N');
+        MarsRover marsRover = new MarsRover(2, 3, 'E');
+        MarsRover marsRoverExpected = new MarsRover(2, 3, 'N');
         char[] commandArray = {'L'};
 
         marsRover.inputCommand(commandArray);
@@ -17,7 +17,7 @@ public class MarsRoverShould {
     }
 
     @Test
-    public void rotate_right_when_input_command_is_R(){
+    public void rotate_right_when_input_command_is_R_and_initial_orientation_is_E(){
 
         MarsRover marsRover = new MarsRover(2,3,'E');
         MarsRover marsRoverExpected = new MarsRover(2,3,'S');
@@ -86,7 +86,7 @@ public class MarsRoverShould {
         assertEquals(marsRoverExpected, marsRover);
     }
     @Test
-    public void rotate_left_when_input_command_is_F_and_initial_orientation_is_N(){
+    public void rotate_left_when_input_command_is_L_and_initial_orientation_is_N(){
 
         MarsRover marsRover = new MarsRover(2,3,'N');
         MarsRover marsRoverExpected = new MarsRover(2,3,'W');

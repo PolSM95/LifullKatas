@@ -2,55 +2,20 @@ import java.util.Objects;
 
 public class MarsRover {
 
+    private final Orientation orientation = new Orientation();
     private int xCoordinate;
     private int yCoordinate;
-    private char orientation;
 
 
     public MarsRover(int xCoordinate, int yCoordinate, char orientation) {
 
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
-        this.orientation = orientation;
+        this.orientation.orientation = orientation;
     }
 
     public void inputCommand(char[] commandArray) {
-        switch (orientation) {
-            case 'E':
-                if (commandArray[0] == 'L') {
-                    this.orientation = 'N';
-                }
-                if (commandArray[0] == 'R') {
-                    this.orientation = 'S';
-                }
-                break;
-            case 'W':
-                if (commandArray[0] == 'L') {
-                    this.orientation = 'S';
-                }
-                if (commandArray[0] == 'R') {
-                    this.orientation = 'N';
-                }
-                break;
-            case 'S':
-                if (commandArray[0] == 'R') {
-                    this.orientation = 'W';
-                }
-                if (commandArray[0] == 'L') {
-                    this.orientation = 'E';
-                }
-                break;
-            case 'N':
-                if (commandArray[0] == 'R') {
-                    this.orientation = 'E';
-                }
-                if (commandArray[0] == 'L') {
-                    this.orientation = 'W';
-                }
-                break;
-
-
-        }
+        orientation.updateOrientation(commandArray);
 
     }
 
@@ -61,11 +26,11 @@ public class MarsRover {
         MarsRover marsRover = (MarsRover) o;
         return xCoordinate == marsRover.xCoordinate &&
                 yCoordinate == marsRover.yCoordinate &&
-                orientation == marsRover.orientation;
+                orientation.orientation == marsRover.orientation.orientation;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(xCoordinate, yCoordinate, orientation);
+        return Objects.hash(xCoordinate, yCoordinate, orientation.orientation);
     }
 }
