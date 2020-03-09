@@ -13,6 +13,7 @@ public class Coordinates {
 
     void updateOrientation(char[] commandArray) {
 
+
         switch (orientation) {
             case EAST:
                 if (commandArray[0] == PossibleChars.LEFT.getValue()) {
