@@ -9,7 +9,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Coordinates(2, 3, PossibleChars.EAST));
         MarsRover marsRoverExpected = new MarsRover(new Coordinates(2, 3, PossibleChars.NORTH));
-        char[] commandArray = {PossibleChars.LEFT.getValue()};
+        PossibleChars[] commandArray = {PossibleChars.LEFT};
 
         marsRover.inputCommand(commandArray);
 
@@ -21,7 +21,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Coordinates(2, 3, PossibleChars.EAST));
         MarsRover marsRoverExpected = new MarsRover(new Coordinates(2, 3, PossibleChars.SOUTH));
-        char[] commandArray = {PossibleChars.RIGHT.getValue()};
+        PossibleChars[] commandArray = {PossibleChars.RIGHT};
 
         marsRover.inputCommand(commandArray);
 
@@ -33,7 +33,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Coordinates(2, 3, PossibleChars.WEST));
         MarsRover marsRoverExpected = new MarsRover(new Coordinates(2, 3, PossibleChars.NORTH));
-        char[] commandArray = {PossibleChars.RIGHT.getValue()};
+        PossibleChars[] commandArray = {PossibleChars.RIGHT};
 
         marsRover.inputCommand(commandArray);
 
@@ -45,7 +45,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Coordinates(2, 3, PossibleChars.WEST));
         MarsRover marsRoverExpected = new MarsRover(new Coordinates(2, 3, PossibleChars.SOUTH));
-        char[] commandArray = {PossibleChars.LEFT.getValue()};
+        PossibleChars[] commandArray = {PossibleChars.LEFT};
 
         marsRover.inputCommand(commandArray);
 
@@ -57,7 +57,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Coordinates(2, 3, PossibleChars.SOUTH));
         MarsRover marsRoverExpected = new MarsRover(new Coordinates(2, 3, PossibleChars.WEST));
-        char[] commandArray = {PossibleChars.RIGHT.getValue()};
+        PossibleChars[] commandArray = {PossibleChars.RIGHT};
 
         marsRover.inputCommand(commandArray);
 
@@ -68,7 +68,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Coordinates(2, 3, PossibleChars.SOUTH));
         MarsRover marsRoverExpected = new MarsRover(new Coordinates(2, 3, PossibleChars.EAST));
-        char[] commandArray = {PossibleChars.LEFT.getValue()};
+        PossibleChars[] commandArray = {PossibleChars.LEFT};
 
         marsRover.inputCommand(commandArray);
 
@@ -79,7 +79,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Coordinates(2, 3, PossibleChars.NORTH));
         MarsRover marsRoverExpected = new MarsRover(new Coordinates(2, 3, PossibleChars.EAST));
-        char[] commandArray = {PossibleChars.RIGHT.getValue()};
+        PossibleChars[] commandArray = {PossibleChars.RIGHT};
 
         marsRover.inputCommand(commandArray);
 
@@ -91,7 +91,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Coordinates(2, 3, PossibleChars.NORTH));
         MarsRover marsRoverExpected = new MarsRover(new Coordinates(2,3,PossibleChars.WEST));
-        char[] commandArray = {PossibleChars.LEFT.getValue()};
+        PossibleChars[] commandArray = {PossibleChars.LEFT};
 
         marsRover.inputCommand(commandArray);
 

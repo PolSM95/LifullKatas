@@ -9,7 +9,7 @@ public class MarsRover {
         this.coordinates = coordinates;
     }
 
-    public void inputCommand(char[] commandArray) {
+    public void inputCommand(PossibleChars[] commandArray) {
         coordinates.updateOrientation(commandArray);
 
     }

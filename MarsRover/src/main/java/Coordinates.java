@@ -1,58 +1,49 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Coordinates {
     private int xCoordinate;
     private int yCoordinate;
     PossibleChars orientation;
+    private List<PossibleChars> cardinals = new ArrayList();
 
     public Coordinates(int xCoordinate, int yCoordinate, PossibleChars orientation) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
         this.orientation = orientation;
+        cardinals.addAll(Arrays.asList(new PossibleChars[]{PossibleChars.NORTH, PossibleChars.EAST, PossibleChars.SOUTH, PossibleChars.WEST}));
+
     }
 
-    void updateOrientation(char[] commandArray) {
+    void updateOrientation(PossibleChars[] commandArray) {
 
+        rotation(commandArray[0]);
 
-        switch (orientation) {
-            case EAST:
-                if (commandArray[0] == PossibleChars.LEFT.getValue()) {
-                    this.orientation = PossibleChars.NORTH;
-                }
-                if (commandArray[0] == PossibleChars.RIGHT.getValue()) {
-                    this.orientation = PossibleChars.SOUTH;
-                }
-                break;
-            case WEST:
-                if (commandArray[0] == PossibleChars.LEFT.getValue()) {
-                    this.orientation = PossibleChars.SOUTH;
-                }
-                if (commandArray[0] == PossibleChars.RIGHT.getValue()) {
-                    this.orientation = PossibleChars.NORTH;
-                }
-                break;
-            case SOUTH:
-                if (commandArray[0] == PossibleChars.LEFT.getValue()) {
-                    this.orientation = PossibleChars.EAST;
-                }
-                if (commandArray[0] == PossibleChars.RIGHT.getValue()) {
-                    this.orientation = PossibleChars.WEST;
-                }
+    }
 
-                break;
-            case NORTH:
-                if (commandArray[0] == PossibleChars.LEFT.getValue()) {
-                    this.orientation = PossibleChars.WEST;
-                }
-                if (commandArray[0] == PossibleChars.RIGHT.getValue()) {
-                    this.orientation = PossibleChars.EAST;
-                }
+    public void rotation(PossibleChars direction){
 
-                break;
+        int currentDirection = cardinals.indexOf(orientation);
 
-
+        if(direction == PossibleChars.LEFT){
+            currentDirection --;
+            if(currentDirection < 0 ){
+                currentDirection = 3;
+            }
         }
+        else if (direction == PossibleChars.RIGHT){
+            currentDirection ++;
+            if(currentDirection > 3){
+                currentDirection = 0;
+            }
+        }
+
+        orientation = cardinals.get(currentDirection);
+
     }
+
 
     @Override
     public boolean equals(Object o) {
