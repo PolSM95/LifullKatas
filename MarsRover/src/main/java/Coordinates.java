@@ -30,36 +30,52 @@ public class Coordinates {
 
     private void move(PossibleChars direction) {
         if (orientation == PossibleChars.NORTH){
-            if (direction == PossibleChars.FORWARD){
-                yCoordinate++;
-            }
-            if (direction == PossibleChars.BACKWARDS){
-                yCoordinate--;
-            }
+            moveFacingNorth(direction);
         }
         if (orientation == PossibleChars.SOUTH){
-            if (direction == PossibleChars.FORWARD){
-                yCoordinate--;
-            }
-            if (direction == PossibleChars.BACKWARDS){
-                yCoordinate++;
-            }
+            moveFacingSouth(direction);
         }
         if (orientation == PossibleChars.EAST){
-            if (direction == PossibleChars.FORWARD){
-                xCoordinate++;
-            }
-            if (direction == PossibleChars.BACKWARDS){
-                xCoordinate--;
-            }
+            moveFacingEast(direction);
         }
         if (orientation == PossibleChars.WEST){
-            if (direction == PossibleChars.FORWARD){
-                xCoordinate--;
-            }
-            if (direction == PossibleChars.BACKWARDS){
-                xCoordinate++;
-            }
+            moveFacingWest(direction);
+        }
+    }
+
+    private void moveFacingWest(PossibleChars direction) {
+        if (direction == PossibleChars.FORWARD){
+            xCoordinate--;
+        }
+        if (direction == PossibleChars.BACKWARDS){
+            xCoordinate++;
+        }
+    }
+
+    private void moveFacingEast(PossibleChars direction) {
+        if (direction == PossibleChars.FORWARD){
+            xCoordinate++;
+        }
+        if (direction == PossibleChars.BACKWARDS){
+            xCoordinate--;
+        }
+    }
+
+    private void moveFacingSouth(PossibleChars direction) {
+        if (direction == PossibleChars.FORWARD){
+            yCoordinate--;
+        }
+        if (direction == PossibleChars.BACKWARDS){
+            yCoordinate++;
+        }
+    }
+
+    private void moveFacingNorth(PossibleChars direction) {
+        if (direction == PossibleChars.FORWARD){
+            yCoordinate++;
+        }
+        if (direction == PossibleChars.BACKWARDS){
+            yCoordinate--;
         }
     }
 
