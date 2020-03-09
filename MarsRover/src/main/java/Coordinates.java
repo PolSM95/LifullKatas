@@ -1,17 +1,11 @@
 import java.util.Objects;
 
 public class Coordinates {
-    private static final char LEFT = 'L';
-    private static final char RIGHT = 'R';
-    private static final char NORTH = 'N';
-    private static final char SOUTH = 'S';
-    private static final char EAST = 'E';
-    private static final char WEST = 'W';
     private int xCoordinate;
     private int yCoordinate;
-    char orientation;
+    PossibleChars orientation;
 
-    public Coordinates(int xCoordinate, int yCoordinate, char orientation) {
+    public Coordinates(int xCoordinate, int yCoordinate, PossibleChars orientation) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
         this.orientation = orientation;
@@ -21,36 +15,36 @@ public class Coordinates {
 
         switch (orientation) {
             case EAST:
-                if (commandArray[0] == LEFT) {
-                    this.orientation = NORTH;
+                if (commandArray[0] == PossibleChars.LEFT.getValue()) {
+                    this.orientation = PossibleChars.NORTH;
                 }
-                if (commandArray[0] == RIGHT) {
-                    this.orientation = SOUTH;
+                if (commandArray[0] == PossibleChars.RIGHT.getValue()) {
+                    this.orientation = PossibleChars.SOUTH;
                 }
                 break;
             case WEST:
-                if (commandArray[0] == LEFT) {
-                    this.orientation = SOUTH;
+                if (commandArray[0] == PossibleChars.LEFT.getValue()) {
+                    this.orientation = PossibleChars.SOUTH;
                 }
-                if (commandArray[0] == RIGHT) {
-                    this.orientation = NORTH;
+                if (commandArray[0] == PossibleChars.RIGHT.getValue()) {
+                    this.orientation = PossibleChars.NORTH;
                 }
                 break;
-            case 'S':
-                if (commandArray[0] == LEFT) {
-                    this.orientation = EAST;
+            case SOUTH:
+                if (commandArray[0] == PossibleChars.LEFT.getValue()) {
+                    this.orientation = PossibleChars.EAST;
                 }
-                if (commandArray[0] == RIGHT) {
-                    this.orientation = WEST;
+                if (commandArray[0] == PossibleChars.RIGHT.getValue()) {
+                    this.orientation = PossibleChars.WEST;
                 }
 
                 break;
             case NORTH:
-                if (commandArray[0] == LEFT) {
-                    this.orientation = WEST;
+                if (commandArray[0] == PossibleChars.LEFT.getValue()) {
+                    this.orientation = PossibleChars.WEST;
                 }
-                if (commandArray[0] == RIGHT) {
-                    this.orientation = EAST;
+                if (commandArray[0] == PossibleChars.RIGHT.getValue()) {
+                    this.orientation = PossibleChars.EAST;
                 }
 
                 break;
@@ -71,6 +65,6 @@ public class Coordinates {
 
     @Override
     public int hashCode() {
-        return Objects.hash(xCoordinate, yCoordinate, orientation);
+        return Objects.hash(xCoordinate, yCoordinate, orientation.getValue());
     }
 }
