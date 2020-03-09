@@ -4,7 +4,9 @@ public enum PossibleChars {
     NORTH('N'),
     SOUTH('S'),
     EAST('E'),
-    WEST('W');
+    WEST('W'),
+    FORWARD('F'),
+    BACKWARDS('B');
 
     private char value;
 

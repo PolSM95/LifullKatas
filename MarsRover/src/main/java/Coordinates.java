@@ -17,10 +17,50 @@ public class Coordinates {
 
     }
 
-    void updateOrientation(PossibleChars[] commandArray) {
+    void updatePosition(PossibleChars[] commandArray) {
 
-        rotation(commandArray[0]);
+        if(commandArray[0] == PossibleChars.FORWARD){
+            move(commandArray[0]);
+        }
+        else {
+            rotation(commandArray[0]);
+        }
 
+    }
+
+    private void move(PossibleChars direction) {
+        if (orientation == PossibleChars.NORTH){
+            if (direction == PossibleChars.FORWARD){
+                yCoordinate++;
+            }
+            if (direction == PossibleChars.BACKWARDS){
+                yCoordinate--;
+            }
+        }
+        if (orientation == PossibleChars.SOUTH){
+            if (direction == PossibleChars.FORWARD){
+                yCoordinate--;
+            }
+            if (direction == PossibleChars.BACKWARDS){
+                yCoordinate++;
+            }
+        }
+        if (orientation == PossibleChars.EAST){
+            if (direction == PossibleChars.FORWARD){
+                xCoordinate++;
+            }
+            if (direction == PossibleChars.BACKWARDS){
+                xCoordinate--;
+            }
+        }
+        if (orientation == PossibleChars.WEST){
+            if (direction == PossibleChars.FORWARD){
+                xCoordinate--;
+            }
+            if (direction == PossibleChars.BACKWARDS){
+                xCoordinate++;
+            }
+        }
     }
 
     public void rotation(PossibleChars direction){
@@ -28,20 +68,30 @@ public class Coordinates {
         int currentDirection = cardinals.indexOf(orientation);
 
         if(direction == PossibleChars.LEFT){
-            currentDirection --;
-            if(currentDirection < 0 ){
-                currentDirection = 3;
-            }
+            currentDirection = rotateLeft(currentDirection);
         }
         else if (direction == PossibleChars.RIGHT){
-            currentDirection ++;
-            if(currentDirection > 3){
-                currentDirection = 0;
-            }
+            currentDirection = rotateRight(currentDirection);
         }
 
         orientation = cardinals.get(currentDirection);
 
+    }
+
+    private int rotateRight(int currentDirection) {
+        currentDirection ++;
+        if(currentDirection > 3){
+            currentDirection = 0;
+        }
+        return currentDirection;
+    }
+
+    private int rotateLeft(int currentDirection) {
+        currentDirection --;
+        if(currentDirection < 0 ){
+            currentDirection = 3;
+        }
+        return currentDirection;
     }
 
 

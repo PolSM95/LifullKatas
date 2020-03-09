@@ -98,6 +98,18 @@ public class MarsRoverShould {
         assertEquals(marsRoverExpected, marsRover);
     }
 
+    @Test
+    public void move_forward_when_input_command_is_F_and_initial_orientation_is_N(){
+
+        MarsRover marsRoverExpected = new MarsRover(new Coordinates(2,4,PossibleChars.NORTH));
+        MarsRover marsRover = new MarsRover(new Coordinates(2,3,PossibleChars.NORTH));
+        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+
 
 
 }
