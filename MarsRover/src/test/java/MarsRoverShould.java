@@ -52,6 +52,51 @@ public class MarsRoverShould {
         assertEquals(marsRoverExpected, marsRover);
     }
 
+    @Test
+    public void rotate_right_when_input_command_is_R_and_initial_orientation_is_S(){
+
+        MarsRover marsRover = new MarsRover(2,3,'S');
+        MarsRover marsRoverExpected = new MarsRover(2,3,'W');
+        char[] commandArray = {'R'};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+    @Test
+    public void rotate_left_when_input_command_is_L_and_initial_orientation_is_S(){
+
+        MarsRover marsRover = new MarsRover(2,3,'S');
+        MarsRover marsRoverExpected = new MarsRover(2,3,'E');
+        char[] commandArray = {'L'};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+    @Test
+    public void rotate_right_when_input_command_is_R_and_initial_orientation_is_N(){
+
+        MarsRover marsRover = new MarsRover(2,3,'N');
+        MarsRover marsRoverExpected = new MarsRover(2,3,'E');
+        char[] commandArray = {'R'};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+    @Test
+    public void rotate_left_when_input_command_is_F_and_initial_orientation_is_N(){
+
+        MarsRover marsRover = new MarsRover(2,3,'N');
+        MarsRover marsRoverExpected = new MarsRover(2,3,'W');
+        char[] commandArray = {'L'};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+
 
 
 }

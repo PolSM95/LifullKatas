@@ -15,22 +15,41 @@ public class MarsRover {
     }
 
     public void inputCommand(char[] commandArray) {
-        if(orientation == 'E'){
-            if(commandArray[0] == 'L') {
-                this.orientation = 'N';
-            }
-            if(commandArray[0] == 'R'){
-                this.orientation = 'S';
-            }
-        }
+        switch (orientation) {
+            case 'E':
+                if (commandArray[0] == 'L') {
+                    this.orientation = 'N';
+                }
+                if (commandArray[0] == 'R') {
+                    this.orientation = 'S';
+                }
+                break;
+            case 'W':
+                if (commandArray[0] == 'L') {
+                    this.orientation = 'S';
+                }
+                if (commandArray[0] == 'R') {
+                    this.orientation = 'N';
+                }
+                break;
+            case 'S':
+                if (commandArray[0] == 'R') {
+                    this.orientation = 'W';
+                }
+                if (commandArray[0] == 'L') {
+                    this.orientation = 'E';
+                }
+                break;
+            case 'N':
+                if (commandArray[0] == 'R') {
+                    this.orientation = 'E';
+                }
+                if (commandArray[0] == 'L') {
+                    this.orientation = 'W';
+                }
+                break;
 
-        if(orientation == 'W'){
-            if(commandArray[0] == 'L') {
-                this.orientation = 'S';
-            }
-            if(commandArray[0] == 'R'){
-                this.orientation = 'N';
-            }
+
         }
 
     }
