@@ -2,20 +2,21 @@ import java.util.Objects;
 
 public class MarsRover {
 
-    private final Orientation orientation = new Orientation();
     private int xCoordinate;
     private int yCoordinate;
+    private Coordinates coordinates;
 
 
-    public MarsRover(int xCoordinate, int yCoordinate, char orientation) {
 
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
-        this.orientation.orientation = orientation;
+
+
+    public MarsRover(Coordinates coordinates) {
+
+        this.coordinates = coordinates;
     }
 
     public void inputCommand(char[] commandArray) {
-        orientation.updateOrientation(commandArray);
+        coordinates.updateOrientation(commandArray);
 
     }
 
@@ -26,11 +27,11 @@ public class MarsRover {
         MarsRover marsRover = (MarsRover) o;
         return xCoordinate == marsRover.xCoordinate &&
                 yCoordinate == marsRover.yCoordinate &&
-                orientation.orientation == marsRover.orientation.orientation;
+                coordinates.orientation == marsRover.coordinates.orientation;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(xCoordinate, yCoordinate, orientation.orientation);
+        return Objects.hash(xCoordinate, yCoordinate, coordinates.orientation);
     }
 }

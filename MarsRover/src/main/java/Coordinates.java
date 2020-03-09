@@ -1,7 +1,12 @@
-public class Orientation {
+public class Coordinates {
+    private int xCoordinate;
+    private int yCoordinate;
     char orientation;
 
-    public Orientation() {
+    public Coordinates(int xCoordinate, int yCoordinate, char orientation) {
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
+        this.orientation = orientation;
     }
 
     void updateOrientation(char[] commandArray) {
@@ -43,5 +48,17 @@ public class Orientation {
 
 
         }
+    }
+
+    public char getOrientation() {
+        return orientation;
+    }
+
+    public int getyCoordinate() {
+        return yCoordinate;
+    }
+
+    public int getxCoordinate() {
+        return xCoordinate;
     }
 }
