@@ -1,21 +1,53 @@
 
 import MarsRover.*;
-import MarsRover.Cardinal.East;
-import MarsRover.Cardinal.North;
-import MarsRover.Cardinal.South;
-import MarsRover.Cardinal.West;
+import MarsRover.Cardinal.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MarsRoverShould {
+
+    @ParameterizedTest
+    @CsvSource({
+            "L,2 3 N",
+            "LL,2 3 W"
+    }
+
+    )
+    public void generic_test(String command, String expectedPosition){
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new East()));
+        MarsRover marsRoverExpected = new MarsRover(parsePosition(expectedPosition));
+        String commandArray =command;
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+    private Position parsePosition(String expectedPosition){
+        String[] position = expectedPosition.split(" ");
+        Coordinates coordinates = new Coordinates(Integer.parseInt(position[0]), Integer.parseInt(position[1]));
+        Cardinal cardinal = new South();
+        if(position[2].equals("N")){
+            cardinal = new North();
+        }
+        if(position[2].equals( "W")){
+            cardinal = new West();
+        }
+        if(position[2].equals("E")){
+            cardinal = new East();
+        }
+
+        return new Position(coordinates, cardinal);
+    }
 
     @Test
     public void rotate_left_when_input_command_is_L_and_initial_orientation_is_E() {
 
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new East()));
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new North()));
-        PossibleChars[] commandArray = {PossibleChars.LEFT};
+        String commandArray = "L";
 
         marsRover.inputCommand(commandArray);
 
@@ -27,7 +59,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3),new East()));
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new South()));
-        PossibleChars[] commandArray = {PossibleChars.RIGHT};
+        String commandArray = "R";
 
         marsRover.inputCommand(commandArray);
 
@@ -39,7 +71,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new West()));
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new North()));
-        PossibleChars[] commandArray = {PossibleChars.RIGHT};
+        String commandArray = "R";
 
         marsRover.inputCommand(commandArray);
 
@@ -51,7 +83,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new West()));
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new South()));
-        PossibleChars[] commandArray = {PossibleChars.LEFT};
+        String commandArray = "L";
 
         marsRover.inputCommand(commandArray);
 
@@ -63,7 +95,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new South()));
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new West()));
-        PossibleChars[] commandArray = {PossibleChars.RIGHT};
+        String commandArray = "R";
 
         marsRover.inputCommand(commandArray);
 
@@ -74,7 +106,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3),new South()));
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new East()));
-        PossibleChars[] commandArray = {PossibleChars.LEFT};
+        String commandArray = "L";
 
         marsRover.inputCommand(commandArray);
 
@@ -85,7 +117,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new North()));
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new East()));
-        PossibleChars[] commandArray = {PossibleChars.RIGHT};
+        String  commandArray = "R";
 
         marsRover.inputCommand(commandArray);
 
@@ -97,7 +129,7 @@ public class MarsRoverShould {
 
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new North()));
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3),new West()));
-        PossibleChars[] commandArray = {PossibleChars.LEFT};
+        String commandArray = "L";
 
         marsRover.inputCommand(commandArray);
 
@@ -109,7 +141,7 @@ public class MarsRoverShould {
 
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,4),new North()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3),new North()));
-        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+        String  commandArray = "F";
 
         marsRover.inputCommand(commandArray);
 
@@ -122,7 +154,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,2),new North()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3),new North()));
 
-        PossibleChars[] commandArray = {PossibleChars.BACKWARDS};
+        String commandArray = "B";
 
         marsRover.inputCommand(commandArray);
 
@@ -135,7 +167,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(3,2),new East()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new East()));
 
-        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+        String commandArray = "F";
 
         marsRover.inputCommand(commandArray);
 
@@ -148,7 +180,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(1,2),new East()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new East()));
 
-        PossibleChars[] commandArray = {PossibleChars.BACKWARDS};
+        String commandArray = "B";
 
         marsRover.inputCommand(commandArray);
 
@@ -161,7 +193,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,1),new South()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new South()));
 
-        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+        String commandArray = "F";
 
         marsRover.inputCommand(commandArray);
 
@@ -174,7 +206,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3),new South()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new South()));
 
-        PossibleChars[] commandArray = {PossibleChars.BACKWARDS};
+        String commandArray = "B";
 
         marsRover.inputCommand(commandArray);
 
@@ -187,7 +219,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(1,2),new West()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new West()));
 
-        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+        String commandArray = "F";
 
         marsRover.inputCommand(commandArray);
 
@@ -200,7 +232,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(3,2),new West()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new West()));
 
-        PossibleChars[] commandArray = {PossibleChars.BACKWARDS};
+        String commandArray = "B";
 
         marsRover.inputCommand(commandArray);
 
@@ -213,7 +245,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,1),new South()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new West()));
 
-        PossibleChars[] commandArray = {PossibleChars.FORWARD,PossibleChars.FORWARD,PossibleChars.LEFT, PossibleChars.FORWARD};
+        String commandArray = "FFLF";
 
         marsRover.inputCommand(commandArray);
 
@@ -226,7 +258,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,0),new East()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(20,0),new East()));
 
-        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+        String commandArray = "F";
 
         marsRover.inputCommand(commandArray);
 
@@ -239,7 +271,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,0),new North()));
         MarsRover marsRover = new MarsRover(new Position(new Coordinates(0,20),new North()));
 
-        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+        String commandArray = "F";
 
         marsRover.inputCommand(commandArray);
 
@@ -252,7 +284,7 @@ public class MarsRoverShould {
         MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,10),new South()));
         MarsRover marsRover = new MarsRover((new Position(new Coordinates(18,10), new North())));
 
-        PossibleChars[] commandArray = {PossibleChars.FORWARD,PossibleChars.LEFT,PossibleChars.FORWARD, PossibleChars.BACKWARDS,PossibleChars.BACKWARDS, PossibleChars.BACKWARDS,PossibleChars.BACKWARDS,PossibleChars.LEFT,PossibleChars.FORWARD};
+        String commandArray = "FLFBBBBLF";
         marsRover.inputCommand(commandArray);
 
         assertEquals(marsRoverExpected,marsRover);

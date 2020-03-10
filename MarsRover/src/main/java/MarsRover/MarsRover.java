@@ -14,13 +14,14 @@ public class MarsRover {
     }
 
 
-    void updatePosition(PossibleChars commandInput) {
+    void updatePosition(Character commandInput) {
         Command command = CommandFactory.createCommand(commandInput, position);
         command.execute();
     }
 
-    public void inputCommand(PossibleChars[] commandArray) {
-        for (PossibleChars order :commandArray ) {
+    public void inputCommand(String commandArray) {
+
+        for (Character order :commandArray.toCharArray() ) {
             updatePosition(order);
         }
 
