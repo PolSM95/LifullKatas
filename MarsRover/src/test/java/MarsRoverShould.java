@@ -110,6 +110,99 @@ public class MarsRoverShould {
         assertEquals(marsRoverExpected, marsRover);
     }
 
+    @Test
+    public void move_backwards_when_input_command_is_B_and_initial_orientation_is_N (){
+
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,2),new North()));
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3),new North()));
+
+        PossibleChars[] commandArray = {PossibleChars.BACKWARDS};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+
+    @Test
+    public void move_forward_when_input_command_is_F_and_initial_orientation_is_E (){
+
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(3,2),new East()));
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new East()));
+
+        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+
+    @Test
+    public void move_backward_when_input_command_is_B_and_initial_orientation_is_E (){
+
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(1,2),new East()));
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new East()));
+
+        PossibleChars[] commandArray = {PossibleChars.BACKWARDS};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+
+    @Test
+    public void move_forward_when_input_command_is_F_and_initial_orientation_is_S (){
+
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,1),new South()));
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new South()));
+
+        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+
+    @Test
+    public void move_backward_when_input_command_is_B_and_initial_orientation_is_S (){
+
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3),new South()));
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new South()));
+
+        PossibleChars[] commandArray = {PossibleChars.BACKWARDS};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+
+    @Test
+    public void move_forward_when_input_command_is_F_and_initial_orientation_is_W (){
+
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(1,2),new West()));
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new West()));
+
+        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+
+    @Test
+    public void move_backward_when_input_command_is_B_and_initial_orientation_is_W (){
+
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(3,2),new West()));
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new West()));
+
+        PossibleChars[] commandArray = {PossibleChars.BACKWARDS};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+    }
+
+
+
 
 
 }
