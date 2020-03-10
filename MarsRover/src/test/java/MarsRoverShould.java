@@ -11,13 +11,31 @@ public class MarsRoverShould {
 
     @ParameterizedTest
     @CsvSource({
-            "L,2 3 N",
-            "LL,2 3 W"
+            "L,2 3 N,2 3 E",
+            "R,2 3 S,2 3 E",
+            "R,2 3 N,2 3 W",
+            "L,2 3 S,2 3 W",
+            "R,2 3 W,2 3 S",
+            "L,2 3 E,2 3 S",
+            "R,2 3 E,2 3 N",
+            "L,2 3 W,2 3 N",
+            "F,2 4 N,2 3 N",
+            "B,2 2 N,2 3 N",
+            "F,3 2 E,2 2 E",
+            "B,1 2 E,2 2 E",
+            "F,2 1 S,2 2 S",
+            "B,2 3 S,2 2 S",
+            "F,1 2 W,2 2 W",
+            "B,3 2 W,2 2 W",
+            "FFLF,0 1 S,2 2 W",
+            "F,0 0 E,20 0 E",
+            "F,0 0 N,0 20 N",
+            "FLFBBBBLF,0 10 S,18 10 N"
     }
 
     )
-    public void generic_test(String command, String expectedPosition){
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new East()));
+    public void generic_test(String command, String expectedPosition, String initialPosition){
+        MarsRover marsRover = new MarsRover(parsePosition(initialPosition));
         MarsRover marsRoverExpected = new MarsRover(parsePosition(expectedPosition));
         String commandArray =command;
 
@@ -41,254 +59,5 @@ public class MarsRoverShould {
 
         return new Position(coordinates, cardinal);
     }
-
-    @Test
-    public void rotate_left_when_input_command_is_L_and_initial_orientation_is_E() {
-
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new East()));
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new North()));
-        String commandArray = "L";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void rotate_right_when_input_command_is_R_and_initial_orientation_is_E(){
-
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3),new East()));
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new South()));
-        String commandArray = "R";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void rotate_right_when_input_command_is_R_and_initial_orientation_is_W(){
-
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new West()));
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new North()));
-        String commandArray = "R";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void rotate_left_when_input_command_is_L_and_initial_orientation_is_W(){
-
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new West()));
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new South()));
-        String commandArray = "L";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void rotate_right_when_input_command_is_R_and_initial_orientation_is_S(){
-
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new South()));
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new West()));
-        String commandArray = "R";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-    @Test
-    public void rotate_left_when_input_command_is_L_and_initial_orientation_is_S(){
-
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3),new South()));
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new East()));
-        String commandArray = "L";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-    @Test
-    public void rotate_right_when_input_command_is_R_and_initial_orientation_is_N(){
-
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new North()));
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3), new East()));
-        String  commandArray = "R";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void rotate_left_when_input_command_is_L_and_initial_orientation_is_N(){
-
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3), new North()));
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3),new West()));
-        String commandArray = "L";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void move_forward_when_input_command_is_F_and_initial_orientation_is_N(){
-
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,4),new North()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3),new North()));
-        String  commandArray = "F";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void move_backwards_when_input_command_is_B_and_initial_orientation_is_N (){
-
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,2),new North()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,3),new North()));
-
-        String commandArray = "B";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void move_forward_when_input_command_is_F_and_initial_orientation_is_E (){
-
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(3,2),new East()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new East()));
-
-        String commandArray = "F";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void move_backward_when_input_command_is_B_and_initial_orientation_is_E (){
-
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(1,2),new East()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new East()));
-
-        String commandArray = "B";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void move_forward_when_input_command_is_F_and_initial_orientation_is_S (){
-
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,1),new South()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new South()));
-
-        String commandArray = "F";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void move_backward_when_input_command_is_B_and_initial_orientation_is_S (){
-
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(2,3),new South()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new South()));
-
-        String commandArray = "B";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void move_forward_when_input_command_is_F_and_initial_orientation_is_W (){
-
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(1,2),new West()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new West()));
-
-        String commandArray = "F";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-    @Test
-    public void move_backward_when_input_command_is_B_and_initial_orientation_is_W (){
-
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(3,2),new West()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new West()));
-
-        String commandArray = "B";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-    }
-
-
-    @Test
-    public void update_position_when_sending_multiple_commands(){
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,1),new South()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new West()));
-
-        String commandArray = "FFLF";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-
-        }
-
-    @Test
-    public void check_position_when_exceeding_x_coordinate_limit(){
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,0),new East()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(20,0),new East()));
-
-        String commandArray = "F";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-
-    }
-
-    @Test
-    public void check_position_when_exceeding_y_coordinate_limit(){
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,0),new North()));
-        MarsRover marsRover = new MarsRover(new Position(new Coordinates(0,20),new North()));
-
-        String commandArray = "F";
-
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected, marsRover);
-
-    }
-
-    @Test
-    public void checking_that_everything_works_by_introducing_very_long_command(){
-        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,10),new South()));
-        MarsRover marsRover = new MarsRover((new Position(new Coordinates(18,10), new North())));
-
-        String commandArray = "FLFBBBBLF";
-        marsRover.inputCommand(commandArray);
-
-        assertEquals(marsRoverExpected,marsRover);
-     }
-
 
 }
