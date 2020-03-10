@@ -1,21 +1,25 @@
-public class East implements Cardinal {
+package MarsRover.Cardinal;
+
+import MarsRover.Coordinates;
+
+public class South implements Cardinal {
     @Override
     public Cardinal rotateLeft() {
-        return new North();
+        return new East();
     }
 
     @Override
     public Cardinal rotateRight() {
-        return new South();
+        return new West();
     }
 
     @Override
     public void moveForward(Coordinates coordinates) {
-        coordinates.moveRight();
+        coordinates.moveDown();
     }
 
     @Override
     public void moveBackwards(Coordinates coordinates) {
-        coordinates.moveLeft();
+        coordinates.moveUp();
     }
 }

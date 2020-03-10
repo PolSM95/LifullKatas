@@ -1,4 +1,6 @@
+package MarsRover.Cardinal;
 
+import MarsRover.Coordinates;
 
 public interface Cardinal {
     Cardinal rotateLeft();

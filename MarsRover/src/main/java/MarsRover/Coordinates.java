@@ -1,3 +1,5 @@
+package MarsRover;
+
 public class Coordinates {
     int xCoordinate;
     int yCoordinate;

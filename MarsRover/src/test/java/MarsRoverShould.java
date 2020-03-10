@@ -1,4 +1,9 @@
 
+import MarsRover.*;
+import MarsRover.Cardinal.East;
+import MarsRover.Cardinal.North;
+import MarsRover.Cardinal.South;
+import MarsRover.Cardinal.West;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

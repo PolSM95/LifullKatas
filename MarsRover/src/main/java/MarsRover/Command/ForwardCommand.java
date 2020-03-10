@@ -1,3 +1,7 @@
+package MarsRover.Command;
+
+import MarsRover.Position;
+
 public class ForwardCommand implements Command {
     private Position position;
 

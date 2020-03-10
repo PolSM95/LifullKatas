@@ -1,3 +1,7 @@
+package MarsRover;
+
+import MarsRover.Cardinal.Cardinal;
+
 import java.util.Objects;
 
 public class Position {

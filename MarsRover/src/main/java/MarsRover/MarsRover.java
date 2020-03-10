@@ -1,3 +1,7 @@
+package MarsRover;
+
+import MarsRover.Command.*;
+
 import java.util.Objects;
 
 public class MarsRover {

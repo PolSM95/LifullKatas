@@ -1,3 +1,5 @@
+package MarsRover;
+
 public enum PossibleChars {
     LEFT('L'),
     RIGHT('R'),
