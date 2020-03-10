@@ -7,8 +7,16 @@ public class Coordinates {
         this.yCoordinate = yCoordinate;
     }
 
-    void updateCoordinates(int xCoordinate, int yCoordinate){
-        this.xCoordinate += xCoordinate;
-        this.yCoordinate += yCoordinate;
+    public void moveUp(){
+        this.yCoordinate++;
+    }
+    public void moveDown(){
+        this.yCoordinate--;
+    }
+    public void moveLeft(){
+        this.xCoordinate--;
+    }
+    public void moveRight(){
+        this.xCoordinate++;
     }
 }

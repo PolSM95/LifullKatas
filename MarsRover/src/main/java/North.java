@@ -11,11 +11,11 @@ public class North implements Cardinal {
 
     @Override
     public void moveForward(Coordinates coordinates) {
-        coordinates.updateCoordinates(0,1);
+        coordinates.moveUp();
     }
 
     @Override
     public void moveBackwards(Coordinates coordinates) {
-        coordinates.updateCoordinates(0,-1);
+        coordinates.moveDown();
     }
 }

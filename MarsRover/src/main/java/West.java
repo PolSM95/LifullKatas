@@ -11,11 +11,11 @@ public class West implements Cardinal {
 
     @Override
     public void moveForward(Coordinates coordinates) {
-
+        coordinates.moveLeft();
     }
 
     @Override
     public void moveBackwards(Coordinates coordinates) {
-
+        coordinates.moveRight();
     }
 }

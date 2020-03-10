@@ -11,11 +11,11 @@ public class South implements Cardinal {
 
     @Override
     public void moveForward(Coordinates coordinates) {
-
+        coordinates.moveDown();
     }
 
     @Override
     public void moveBackwards(Coordinates coordinates) {
-
+        coordinates.moveUp();
     }
 }
