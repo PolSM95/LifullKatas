@@ -216,7 +216,31 @@ public class MarsRoverShould {
 
         }
 
+    @Test
+    public void check_position_when_exceeding_x_coordinate_limit(){
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,0),new East()));
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(20,0),new East()));
 
+        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+
+    }
+
+    @Test
+    public void check_position_when_exceeding_y_coordinate_limit(){
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,0),new North()));
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(0,20),new North()));
+
+        PossibleChars[] commandArray = {PossibleChars.FORWARD};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+
+    }
 
 
 }

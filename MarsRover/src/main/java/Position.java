@@ -4,6 +4,7 @@ public class Position {
     private  Coordinates coordinates;
     Cardinal orientation;
 
+
     public Position(Coordinates coordinates, Cardinal orientation) {
 
         this.coordinates = coordinates;
