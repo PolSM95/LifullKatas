@@ -2,15 +2,15 @@ import java.util.Objects;
 
 public class MarsRover {
 
-    private Coordinates coordinates;
+    private Position position;
 
-    public MarsRover(Coordinates coordinates) {
+    public MarsRover(Position position) {
 
-        this.coordinates = coordinates;
+        this.position = position;
     }
 
     public void inputCommand(PossibleChars[] commandArray) {
-        coordinates.updatePosition(commandArray);
+        position.updatePosition(commandArray);
     }
 
 
@@ -19,11 +19,11 @@ public class MarsRover {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MarsRover marsRover = (MarsRover) o;
-        return coordinates.equals(marsRover.coordinates);
+        return position.equals(marsRover.position);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(coordinates);
+        return Objects.hash(position);
     }
 }

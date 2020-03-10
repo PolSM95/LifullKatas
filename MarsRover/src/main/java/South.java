@@ -10,12 +10,12 @@ public class South implements Cardinal {
     }
 
     @Override
-    public void moveForward() {
-
+    public Coordinates moveForward(Coordinates coordinates) {
+return null;
     }
 
     @Override
-    public void moveBackwards() {
-
+    public Coordinates moveBackwards(Coordinates coordinates) {
+return null;
     }
 }

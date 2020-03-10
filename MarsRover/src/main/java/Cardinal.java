@@ -1,6 +1,8 @@
+
+
 public interface Cardinal {
     Cardinal rotateLeft();
     Cardinal rotateRight();
-    void moveForward();
-    void moveBackwards();
+    Coordinates moveForward(Coordinates coordinates);
+    Coordinates moveBackwards(Coordinates coordinates);
 }
