@@ -6,4 +6,9 @@ public class Coordinates {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
     }
+
+    void updateCoordinates(int xCoordinate, int yCoordinate){
+        this.xCoordinate += xCoordinate;
+        this.yCoordinate += yCoordinate;
+    }
 }
