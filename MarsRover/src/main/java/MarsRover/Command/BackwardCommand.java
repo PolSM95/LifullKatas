@@ -1,16 +1,16 @@
 package MarsRover.Command;
 
-import MarsRover.Position;
+import MarsRover.MarsRover;
 
 public class BackwardCommand implements Command {
-    private Position position;
+    private MarsRover marsRover;
 
-    public BackwardCommand(Position position) {
-        this.position = position;
+    public BackwardCommand(MarsRover marsRover) {
+        this.marsRover = marsRover;
     }
 
     @Override
     public void execute() {
-        position.moveBackwards();
+        marsRover.moveBackwards();
     }
 }

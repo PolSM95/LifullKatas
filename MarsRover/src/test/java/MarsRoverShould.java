@@ -1,7 +1,6 @@
 
 import MarsRover.*;
 import MarsRover.Cardinal.*;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -35,15 +34,15 @@ public class MarsRoverShould {
 
     )
     public void generic_test(String command, String expectedPosition, String initialPosition){
-        MarsRover marsRover = new MarsRover(parsePosition(initialPosition));
-        MarsRover marsRoverExpected = new MarsRover(parsePosition(expectedPosition));
+        MarsRoverController marsRoverController = new MarsRoverController(parsePosition(initialPosition));
+        MarsRoverController marsRoverControllerExpected = new MarsRoverController(parsePosition(expectedPosition));
         String commandArray =command;
 
-        marsRover.inputCommand(commandArray);
+        marsRoverController.inputCommand(commandArray);
 
-        assertEquals(marsRoverExpected, marsRover);
+        assertEquals(marsRoverControllerExpected, marsRoverController);
     }
-    private Position parsePosition(String expectedPosition){
+    private MarsRover parsePosition(String expectedPosition){
         String[] position = expectedPosition.split(" ");
         Coordinates coordinates = new Coordinates(Integer.parseInt(position[0]), Integer.parseInt(position[1]));
         Cardinal cardinal = new South();
@@ -57,7 +56,7 @@ public class MarsRoverShould {
             cardinal = new East();
         }
 
-        return new Position(coordinates, cardinal);
+        return new MarsRover(coordinates, cardinal);
     }
 
 }

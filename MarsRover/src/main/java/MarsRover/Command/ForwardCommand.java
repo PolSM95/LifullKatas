@@ -1,16 +1,16 @@
 package MarsRover.Command;
 
-import MarsRover.Position;
+import MarsRover.MarsRover;
 
 public class ForwardCommand implements Command {
-    private Position position;
+    private MarsRover marsRover;
 
-    public ForwardCommand(Position position) {
-        this.position = position;
+    public ForwardCommand(MarsRover marsRover) {
+        this.marsRover = marsRover;
     }
 
     @Override
     public void execute() {
-        position.moveForward();
+        marsRover.moveForward();
     }
 }

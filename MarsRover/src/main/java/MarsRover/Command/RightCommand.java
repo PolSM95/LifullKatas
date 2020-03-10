@@ -1,20 +1,20 @@
 package MarsRover.Command;
 
-import MarsRover.Position;
+import MarsRover.MarsRover;
 
 public class RightCommand implements Command {
 
 
-    private Position position;
+    private MarsRover marsRover;
 
-    public RightCommand(Position position) {
+    public RightCommand(MarsRover marsRover) {
 
 
-        this.position = position;
+        this.marsRover = marsRover;
     }
 
     @Override
     public void execute() {
-        position.rotateRight();
+        marsRover.rotateRight();
     }
 }

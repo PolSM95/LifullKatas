@@ -1,23 +1,23 @@
 package MarsRover.Command;
 
-import MarsRover.Position;
+import MarsRover.MarsRover;
 import MarsRover.PossibleChars;
 
 public abstract class CommandFactory {
-    public static Command createCommand(Character commandInput, Position position){
+    public static Command createCommand(Character commandInput, MarsRover marsRover){
         Command command = null;
 
         if(commandInput == PossibleChars.FORWARD.getValue()){
-            command = new ForwardCommand(position);
+            command = new ForwardCommand(marsRover);
         }
         if(commandInput == PossibleChars.BACKWARDS.getValue()){
-            command = new BackwardCommand(position);
+            command = new BackwardCommand(marsRover);
         }
         if(commandInput == PossibleChars.LEFT.getValue()){
-            command = new LeftCommand(position);
+            command = new LeftCommand(marsRover);
         }
         if(commandInput == PossibleChars.RIGHT.getValue()){
-            command = new RightCommand(position);
+            command = new RightCommand(marsRover);
         }
 
         return command;
