@@ -11,7 +11,6 @@ public class MarsRover {
 
     public void inputCommand(PossibleChars[] commandArray) {
         coordinates.updatePosition(commandArray);
-
     }
 
 

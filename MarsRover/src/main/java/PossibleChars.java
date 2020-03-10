@@ -1,10 +1,6 @@
 public enum PossibleChars {
     LEFT('L'),
     RIGHT('R'),
-    NORTH('N'),
-    SOUTH('S'),
-    EAST('E'),
-    WEST('W'),
     FORWARD('F'),
     BACKWARDS('B');
 

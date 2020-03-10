@@ -6,123 +6,30 @@ import java.util.Objects;
 public class Coordinates {
     private int xCoordinate;
     private int yCoordinate;
-    PossibleChars orientation;
-    private List<PossibleChars> cardinals = new ArrayList();
+    Cardinal orientation;
 
-    public Coordinates(int xCoordinate, int yCoordinate, PossibleChars orientation) {
+
+    public Coordinates(int xCoordinate, int yCoordinate, Cardinal orientation) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
         this.orientation = orientation;
-        cardinals.addAll(Arrays.asList(new PossibleChars[]{PossibleChars.NORTH, PossibleChars.EAST, PossibleChars.SOUTH, PossibleChars.WEST}));
-
     }
 
     void updatePosition(PossibleChars[] commandArray) {
 
         if(commandArray[0] == PossibleChars.FORWARD){
-            move(commandArray[0]);
+            orientation.moveForward();
         }
-        else {
-            rotation(commandArray[0]);
+        if(commandArray[0] == PossibleChars.BACKWARDS){
+            orientation.moveBackwards();
+        }
+        if(commandArray[0] == PossibleChars.LEFT){
+            orientation.rotateLeft();
+        }
+        if(commandArray[0] == PossibleChars.RIGHT){
+            orientation.rotateRight();
         }
 
     }
 
-    private void move(PossibleChars direction) {
-        if (orientation == PossibleChars.NORTH){
-            moveFacingNorth(direction);
-        }
-        if (orientation == PossibleChars.SOUTH){
-            moveFacingSouth(direction);
-        }
-        if (orientation == PossibleChars.EAST){
-            moveFacingEast(direction);
-        }
-        if (orientation == PossibleChars.WEST){
-            moveFacingWest(direction);
-        }
-    }
-
-    private void moveFacingWest(PossibleChars direction) {
-        if (direction == PossibleChars.FORWARD){
-            xCoordinate--;
-        }
-        if (direction == PossibleChars.BACKWARDS){
-            xCoordinate++;
-        }
-    }
-
-    private void moveFacingEast(PossibleChars direction) {
-        if (direction == PossibleChars.FORWARD){
-            xCoordinate++;
-        }
-        if (direction == PossibleChars.BACKWARDS){
-            xCoordinate--;
-        }
-    }
-
-    private void moveFacingSouth(PossibleChars direction) {
-        if (direction == PossibleChars.FORWARD){
-            yCoordinate--;
-        }
-        if (direction == PossibleChars.BACKWARDS){
-            yCoordinate++;
-        }
-    }
-
-    private void moveFacingNorth(PossibleChars direction) {
-        if (direction == PossibleChars.FORWARD){
-            yCoordinate++;
-        }
-        if (direction == PossibleChars.BACKWARDS){
-            yCoordinate--;
-        }
-    }
-
-    public void rotation(PossibleChars direction){
-
-        int currentDirection = cardinals.indexOf(orientation);
-
-        if(direction == PossibleChars.LEFT){
-            currentDirection = rotateLeft(currentDirection);
-        }
-        else if (direction == PossibleChars.RIGHT){
-            currentDirection = rotateRight(currentDirection);
-        }
-
-        orientation = cardinals.get(currentDirection);
-
-    }
-
-    private int rotateRight(int currentDirection) {
-        currentDirection ++;
-        if(currentDirection > 3){
-            currentDirection = 0;
-        }
-        return currentDirection;
-    }
-
-    private int rotateLeft(int currentDirection) {
-        currentDirection --;
-        if(currentDirection < 0 ){
-            currentDirection = 3;
-        }
-        return currentDirection;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Coordinates that = (Coordinates) o;
-        return xCoordinate == that.xCoordinate &&
-                yCoordinate == that.yCoordinate &&
-                orientation == that.orientation;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(xCoordinate, yCoordinate, orientation.getValue());
-    }
 }
