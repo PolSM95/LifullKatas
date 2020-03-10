@@ -9,9 +9,27 @@ public class MarsRover {
         this.position = position;
     }
 
+
+    void updatePosition(PossibleChars command) {
+
+        if(command == PossibleChars.FORWARD){
+            position.moveForward();
+        }
+        if(command == PossibleChars.BACKWARDS){
+            position.moveBackwards();
+        }
+        if(command == PossibleChars.LEFT){
+            position.rotateLeft();
+        }
+        if(command == PossibleChars.RIGHT){
+            position.rotateRight();
+        }
+
+    }
+
     public void inputCommand(PossibleChars[] commandArray) {
         for (PossibleChars order :commandArray ) {
-            position.updatePosition(order);
+            updatePosition(order);
         }
 
     }

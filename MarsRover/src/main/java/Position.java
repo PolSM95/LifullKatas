@@ -11,21 +11,20 @@ public class Position {
         this.orientation = orientation;
     }
 
-    void updatePosition(PossibleChars command) {
+    public void rotateRight() {
+        orientation = orientation.rotateRight();
+    }
 
-        if(command == PossibleChars.FORWARD){
-            orientation.moveForward(coordinates);
-        }
-        if(command == PossibleChars.BACKWARDS){
-            orientation.moveBackwards(coordinates);
-        }
-        if(command == PossibleChars.LEFT){
-            orientation = orientation.rotateLeft();
-        }
-        if(command == PossibleChars.RIGHT){
-            orientation = orientation.rotateRight();
-        }
+    public void rotateLeft() {
+        orientation = orientation.rotateLeft();
+    }
 
+    public void moveBackwards() {
+        orientation.moveBackwards(coordinates);
+    }
+
+    public void moveForward() {
+        orientation.moveForward(coordinates);
     }
 
     @Override

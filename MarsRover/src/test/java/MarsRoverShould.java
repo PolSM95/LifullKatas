@@ -1,6 +1,5 @@
 
 import org.junit.jupiter.api.Test;
-import org.omg.PortableServer.POA;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
