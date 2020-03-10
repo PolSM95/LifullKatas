@@ -15,20 +15,7 @@ public class MarsRover {
 
 
     void updatePosition(PossibleChars commandInput) {
-        Command command = null;
-
-        if(commandInput == PossibleChars.FORWARD){
-            command = new ForwardCommand(position);
-        }
-        if(commandInput == PossibleChars.BACKWARDS){
-            command = new BackwardCommand(position);
-        }
-        if(commandInput == PossibleChars.LEFT){
-            command = new LeftCommand(position);
-        }
-        if(commandInput == PossibleChars.RIGHT){
-            command = new RightCommand(position);
-        }
+        Command command = CommandFactory.createCommand(commandInput, position);
         command.execute();
     }
 
