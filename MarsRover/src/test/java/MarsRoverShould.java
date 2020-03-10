@@ -1,3 +1,4 @@
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -201,6 +202,19 @@ public class MarsRoverShould {
         assertEquals(marsRoverExpected, marsRover);
     }
 
+
+    @Test
+    public void update_position_when_sending_multiple_commands(){
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,1),new South()));
+        MarsRover marsRover = new MarsRover(new Position(new Coordinates(2,2),new West()));
+
+        PossibleChars[] commandArray = {PossibleChars.FORWARD,PossibleChars.FORWARD,PossibleChars.LEFT, PossibleChars.FORWARD};
+
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected, marsRover);
+
+        }
 
 
 

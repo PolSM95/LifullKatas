@@ -10,7 +10,10 @@ public class MarsRover {
     }
 
     public void inputCommand(PossibleChars[] commandArray) {
-        position.updatePosition(commandArray);
+        for (PossibleChars order :commandArray ) {
+            position.updatePosition(order);
+        }
+
     }
 
 

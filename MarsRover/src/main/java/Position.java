@@ -10,18 +10,18 @@ public class Position {
         this.orientation = orientation;
     }
 
-    void updatePosition(PossibleChars[] commandArray) {
+    void updatePosition(PossibleChars command) {
 
-        if(commandArray[0] == PossibleChars.FORWARD){
+        if(command == PossibleChars.FORWARD){
             orientation.moveForward(coordinates);
         }
-        if(commandArray[0] == PossibleChars.BACKWARDS){
+        if(command == PossibleChars.BACKWARDS){
             orientation.moveBackwards(coordinates);
         }
-        if(commandArray[0] == PossibleChars.LEFT){
+        if(command == PossibleChars.LEFT){
             orientation = orientation.rotateLeft();
         }
-        if(commandArray[0] == PossibleChars.RIGHT){
+        if(command == PossibleChars.RIGHT){
             orientation = orientation.rotateRight();
         }
 
