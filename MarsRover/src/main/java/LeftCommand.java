@@ -1,13 +1,17 @@
+
 public class LeftCommand implements Command {
-    private Cardinal orientation;
 
-    public LeftCommand(Cardinal orientation) {
 
-        this.orientation = orientation;
+    private Position position;
+
+    public LeftCommand(Position position) {
+
+
+        this.position = position;
     }
 
     @Override
     public void execute() {
-        orientation = orientation.rotateLeft();
+        position.rotateLeft();
     }
 }
