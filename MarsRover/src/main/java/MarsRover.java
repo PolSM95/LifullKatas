@@ -1,4 +1,3 @@
-import java.util.Collections;
 import java.util.Objects;
 
 public class MarsRover {
@@ -15,12 +14,10 @@ public class MarsRover {
         Command command = null;
 
         if(commandInput == PossibleChars.FORWARD){
-            command = new ForwardCommand();
-            position.moveForward();
+            command = new ForwardCommand(position);
         }
         if(commandInput == PossibleChars.BACKWARDS){
-            command = new BackwardCommand();
-            position.moveBackwards();
+            command = new BackwardCommand(position);
         }
         if(commandInput == PossibleChars.LEFT){
             command = new LeftCommand(position);
