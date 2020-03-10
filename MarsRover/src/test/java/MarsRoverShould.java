@@ -1,5 +1,6 @@
 
 import org.junit.jupiter.api.Test;
+import org.omg.PortableServer.POA;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -241,6 +242,17 @@ public class MarsRoverShould {
         assertEquals(marsRoverExpected, marsRover);
 
     }
+
+    @Test
+    public void checking_that_everything_works_by_introducing_very_long_command(){
+        MarsRover marsRoverExpected = new MarsRover(new Position(new Coordinates(0,10),new South()));
+        MarsRover marsRover = new MarsRover((new Position(new Coordinates(18,10), new North())));
+
+        PossibleChars[] commandArray = {PossibleChars.FORWARD,PossibleChars.LEFT,PossibleChars.FORWARD, PossibleChars.BACKWARDS,PossibleChars.BACKWARDS, PossibleChars.BACKWARDS,PossibleChars.BACKWARDS,PossibleChars.LEFT,PossibleChars.FORWARD};
+        marsRover.inputCommand(commandArray);
+
+        assertEquals(marsRoverExpected,marsRover);
+     }
 
 
 }
