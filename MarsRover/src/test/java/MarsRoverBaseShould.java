@@ -1,8 +1,11 @@
 
 import MarsRover.*;
 import MarsRover.Cardinal.*;
+import MarsRover.MarsRoverPackage.BasicMarsRover;
 import MarsRover.MarsRoverPackage.MarsRover;
 import MarsRover.MarsRoverPackage.MarsRoverFast;
+import MarsRover.MarsRoverPackage.MarsRoversForwardDecorator;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -100,7 +103,7 @@ public class MarsRoverBaseShould {
         if(roverType.equals("Lunar")){
             return new LunarAdapter(Integer.parseInt(position[0]), Integer.parseInt(position[1]), cardinal);
         }
-        return new MarsRoverBase(coordinates, cardinal);
+        return new BasicMarsRover(coordinates, cardinal);
     }
 
     @ParameterizedTest
@@ -134,7 +137,16 @@ public class MarsRoverBaseShould {
 
         assertEquals(marsRoverControllerExpected, marsRoverController);
     }
+    @Test
+    public void move_with_double_velocity(){
+        MarsRoverController marsRoverController = new MarsRoverController(new MarsRoversForwardDecorator(new MarsRoversForwardDecorator(parsePosition("2 3 N", "patata"))));
+        MarsRoverController marsRoverControllerExpected = new MarsRoverController(new MarsRoversForwardDecorator(new MarsRoversForwardDecorator(parsePosition("2 7 N", "patata"))));
 
+        String commandArray = "F";
 
+        marsRoverController.inputCommand(commandArray);
+
+        assertEquals(marsRoverControllerExpected, marsRoverController);
+    }
 
 }

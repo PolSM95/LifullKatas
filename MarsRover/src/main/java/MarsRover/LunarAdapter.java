@@ -1,11 +1,11 @@
 package MarsRover;
 
 import MarsRover.Cardinal.*;
-import MarsRover.MarsRoverPackage.AbstractMarsRover;
+import MarsRover.MarsRoverPackage.BasicMarsRover;
 
 import java.util.Objects;
 
-public class LunarAdapter extends AbstractMarsRover {
+public class LunarAdapter extends BasicMarsRover {
 
     private LunarRover lunarRover;
 

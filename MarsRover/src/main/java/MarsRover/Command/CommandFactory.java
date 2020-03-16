@@ -1,6 +1,5 @@
 package MarsRover.Command;
 
-import MarsRover.MarsRoverBase;
 import MarsRover.MarsRoverPackage.MarsRover;
 import MarsRover.PossibleChars;
 

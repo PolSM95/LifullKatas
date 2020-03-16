@@ -1,6 +1,5 @@
 package MarsRover.Command;
 
-import MarsRover.MarsRoverBase;
 import MarsRover.MarsRoverPackage.MarsRover;
 
 public class BackwardCommand implements Command {

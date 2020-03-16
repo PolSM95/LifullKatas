@@ -5,7 +5,7 @@ import MarsRover.Coordinates;
 
 import java.util.Objects;
 
-public class MarsRoverFast extends AbstractMarsRover {
+public class MarsRoverFast extends BasicMarsRover {
     private static final int MARS_ROVER_FAST_VELOCITY = 2;
 
 
