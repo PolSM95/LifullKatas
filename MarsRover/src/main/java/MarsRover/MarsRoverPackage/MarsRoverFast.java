@@ -3,9 +3,24 @@ package MarsRover.MarsRoverPackage;
 public class MarsRoverFast implements MarsRover {
 
     @Override
-    public void moveForward() {}
+    public void moveForward() {
+
+    }
 
     @Override
-    public void moveBackward() {}
+    public void moveBackwards() {
+
+    }
+
+    @Override
+    public void rotateLeft() {
+
+    }
+
+    @Override
+    public void rotateRight() {
+
+    }
+
 
 }

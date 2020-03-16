@@ -3,6 +3,8 @@ package MarsRover.MarsRoverPackage;
 public interface MarsRover {
 
     void moveForward();
-    void moveBackward();
+    void moveBackwards();
+    void rotateLeft();
+    void rotateRight();
 
 }

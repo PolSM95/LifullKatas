@@ -1,10 +1,11 @@
 package MarsRover;
 
 import MarsRover.Cardinal.Cardinal;
+import MarsRover.MarsRoverPackage.MarsRover;
 
 import java.util.Objects;
 
-public class MarsRoverBase {
+public class MarsRoverBase implements MarsRover {
     private  Coordinates coordinates;
     Cardinal orientation;
 

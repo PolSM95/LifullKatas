@@ -1,13 +1,14 @@
 package MarsRover.Command;
 
 import MarsRover.MarsRoverBase;
+import MarsRover.MarsRoverPackage.MarsRover;
 
 public class LeftCommand implements Command {
 
 
-    private MarsRoverBase marsRover;
+    private MarsRover marsRover;
 
-    public LeftCommand(MarsRoverBase marsRover) {
+    public LeftCommand(MarsRover marsRover) {
 
 
         this.marsRover = marsRover;

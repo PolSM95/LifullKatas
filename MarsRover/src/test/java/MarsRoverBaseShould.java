@@ -1,6 +1,7 @@
 
 import MarsRover.*;
 import MarsRover.Cardinal.*;
+import MarsRover.MarsRoverPackage.MarsRover;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -42,7 +43,7 @@ public class MarsRoverBaseShould {
 
         assertEquals(marsRoverControllerExpected, marsRoverController);
     }
-    private MarsRoverBase parsePosition(String expectedPosition){
+    private MarsRover parsePosition(String expectedPosition){
         String[] position = expectedPosition.split(" ");
         Coordinates coordinates = new Coordinates(Integer.parseInt(position[0]), Integer.parseInt(position[1]));
         Cardinal cardinal = new South();

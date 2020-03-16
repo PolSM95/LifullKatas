@@ -1,14 +1,15 @@
 package MarsRover;
 
 import MarsRover.Command.*;
+import MarsRover.MarsRoverPackage.MarsRover;
 
 import java.util.Objects;
 
 public class MarsRoverController {
 
-    private MarsRoverBase marsRover;
+    private MarsRover marsRover;
 
-    public MarsRoverController(MarsRoverBase marsRover) {
+    public MarsRoverController(MarsRover marsRover) {
 
         this.marsRover = marsRover;
     }
