@@ -1,8 +1,8 @@
 package MarsRover;
 
 public class Coordinates {
-    int xCoordinate;
-    int yCoordinate;
+    public int xCoordinate;
+    public int yCoordinate;
     private final static int X_COORDINATE_LIMIT = 20;
     private final static int Y_COORDINATE_LIMIT = 20;
 
