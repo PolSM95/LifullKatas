@@ -11,19 +11,17 @@ public class MarsRoverFast implements MarsRover {
     private Cardinal orientation;
 
     public MarsRoverFast(Coordinates coordinates, Cardinal orientation) {
-        this.coordinates = coordinates;
+        this.coordinates = new Coordinates(coordinates, 2);
         this.orientation = orientation;
     }
 
     @Override
     public void moveForward() {
         orientation.moveForward(coordinates);
-        orientation.moveForward(coordinates);
     }
 
     @Override
     public void moveBackwards() {
-        orientation.moveBackwards(coordinates);
         orientation.moveBackwards(coordinates);
     }
 
