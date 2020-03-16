@@ -4,12 +4,12 @@ import MarsRover.Cardinal.Cardinal;
 
 import java.util.Objects;
 
-public class MarsRover {
+public class MarsRoverBase {
     private  Coordinates coordinates;
     Cardinal orientation;
 
 
-    public MarsRover(Coordinates coordinates, Cardinal orientation) {
+    public MarsRoverBase(Coordinates coordinates, Cardinal orientation) {
 
         this.coordinates = coordinates;
         this.orientation = orientation;
@@ -35,7 +35,7 @@ public class MarsRover {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MarsRover that = (MarsRover) o;
+        MarsRoverBase that = (MarsRoverBase) o;
         return coordinates.xCoordinate == that.coordinates.xCoordinate &&
                 coordinates.yCoordinate == that.coordinates.yCoordinate &&
                 orientation.getClass() == that.orientation.getClass();

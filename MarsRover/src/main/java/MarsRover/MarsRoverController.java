@@ -6,9 +6,9 @@ import java.util.Objects;
 
 public class MarsRoverController {
 
-    private MarsRover marsRover;
+    private MarsRoverBase marsRover;
 
-    public MarsRoverController(MarsRover marsRover) {
+    public MarsRoverController(MarsRoverBase marsRover) {
 
         this.marsRover = marsRover;
     }

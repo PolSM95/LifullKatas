@@ -1,11 +1,11 @@
 package MarsRover.Command;
 
-import MarsRover.MarsRover;
+import MarsRover.MarsRoverBase;
 
 public class BackwardCommand implements Command {
-    private MarsRover marsRover;
+    private MarsRoverBase marsRover;
 
-    public BackwardCommand(MarsRover marsRover) {
+    public BackwardCommand(MarsRoverBase marsRover) {
         this.marsRover = marsRover;
     }
 

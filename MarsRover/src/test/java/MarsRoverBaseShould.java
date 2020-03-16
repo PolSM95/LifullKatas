@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MarsRoverShould {
+public class MarsRoverBaseShould {
 
     @ParameterizedTest
     @CsvSource({
@@ -42,7 +42,7 @@ public class MarsRoverShould {
 
         assertEquals(marsRoverControllerExpected, marsRoverController);
     }
-    private MarsRover parsePosition(String expectedPosition){
+    private MarsRoverBase parsePosition(String expectedPosition){
         String[] position = expectedPosition.split(" ");
         Coordinates coordinates = new Coordinates(Integer.parseInt(position[0]), Integer.parseInt(position[1]));
         Cardinal cardinal = new South();
@@ -56,7 +56,7 @@ public class MarsRoverShould {
             cardinal = new East();
         }
 
-        return new MarsRover(coordinates, cardinal);
+        return new MarsRoverBase(coordinates, cardinal);
     }
 
 }

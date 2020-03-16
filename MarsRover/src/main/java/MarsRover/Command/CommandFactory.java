@@ -1,10 +1,10 @@
 package MarsRover.Command;
 
-import MarsRover.MarsRover;
+import MarsRover.MarsRoverBase;
 import MarsRover.PossibleChars;
 
 public abstract class CommandFactory {
-    public static Command createCommand(Character commandInput, MarsRover marsRover){
+    public static Command createCommand(Character commandInput, MarsRoverBase marsRover){
         Command command = null;
 
         if(commandInput == PossibleChars.FORWARD.getValue()){
