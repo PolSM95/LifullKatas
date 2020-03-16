@@ -1,6 +1,7 @@
 package MarsRover;
 
 import MarsRover.Cardinal.Cardinal;
+import MarsRover.Cardinal.North;
 import MarsRover.MarsRoverPackage.AbstractMarsRover;
 
 public class LunarAdapter extends AbstractMarsRover {
@@ -15,12 +16,12 @@ public class LunarAdapter extends AbstractMarsRover {
     public void  rotateAdapter(Coordinates coordinates,Cardinal orientation){
 
 
-
     }
 
 
     @Override
     public void moveForward() {
+        //if(orientation instanceof North){}
         //up N
 
     }
