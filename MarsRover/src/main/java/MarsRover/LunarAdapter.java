@@ -3,6 +3,8 @@ package MarsRover;
 import MarsRover.Cardinal.*;
 import MarsRover.MarsRoverPackage.AbstractMarsRover;
 
+import java.util.Objects;
+
 public class LunarAdapter extends AbstractMarsRover {
 
     private Cardinal auxiliarOrientation;
@@ -14,12 +16,6 @@ public class LunarAdapter extends AbstractMarsRover {
         lunarRover = new LunarRover(coordinates.xCoordinate,coordinates.yCoordinate);
 
     }
-
-
-    public void  rotateAdapter(){
-
-    }
-
 
     @Override
     public void moveForward() {
@@ -62,5 +58,18 @@ public class LunarAdapter extends AbstractMarsRover {
     @Override
     public void rotateRight() {
         auxiliarOrientation.rotateRight();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LunarAdapter that = (LunarAdapter) o;
+        return Objects.equals(lunarRover, that.lunarRover);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(auxiliarOrientation, lunarRover);
     }
 }

@@ -121,15 +121,11 @@ public class MarsRoverBaseShould {
             "B,2 3 S,2 2 S",
             "F,1 2 W,2 2 W",
             "B,3 2 W,2 2 W",
-            "FFLF,0 1 S,2 2 W",
-            "F,0 0 E,20 0 E",
-            "F,0 0 N,0 20 N",
-            "FLFBBBBLF,0 10 S,18 10 N"
     }
 
     )
     public void lunar_test(String command, String expectedPosition, String initialPosition){
-        String roverType = "Base";
+        String roverType = "Lunar";
         MarsRoverController marsRoverController = new MarsRoverController(parsePosition(initialPosition, roverType));
         MarsRoverController marsRoverControllerExpected = new MarsRoverController(parsePosition(expectedPosition, roverType));
         String commandArray =command;
