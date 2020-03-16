@@ -21,9 +21,9 @@ public class MarsRoverBase extends AbstractMarsRover {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MarsRoverBase that = (MarsRoverBase) o;
-        return super.coordinates.xCoordinate == that.coordinates.xCoordinate &&
-                super.coordinates.yCoordinate == that.coordinates.yCoordinate &&
-                super.orientation.getClass() == that.orientation.getClass();
+        return coordinates.xCoordinate == that.coordinates.xCoordinate &&
+                coordinates.yCoordinate == that.coordinates.yCoordinate &&
+                orientation.getClass() == that.orientation.getClass();
 
     }
 

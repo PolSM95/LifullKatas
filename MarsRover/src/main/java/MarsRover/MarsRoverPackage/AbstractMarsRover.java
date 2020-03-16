@@ -13,6 +13,8 @@ public abstract class AbstractMarsRover implements MarsRover {
         this.orientation = orientation;
     }
 
+
+
     @Override
     public void rotateRight() {
         orientation = orientation.rotateRight();

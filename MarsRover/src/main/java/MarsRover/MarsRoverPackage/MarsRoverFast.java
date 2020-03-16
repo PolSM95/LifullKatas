@@ -5,35 +5,15 @@ import MarsRover.Coordinates;
 
 import java.util.Objects;
 
-public class MarsRoverFast implements MarsRover {
+public class MarsRoverFast extends AbstractMarsRover {
     private static final int MARS_ROVER_FAST_VELOCITY = 2;
-    private Coordinates coordinates;
-    private Cardinal orientation;
+
 
     public MarsRoverFast(Coordinates coordinates, Cardinal orientation) {
-        this.coordinates = new Coordinates(coordinates, MARS_ROVER_FAST_VELOCITY);
-        this.orientation = orientation;
+
+        super(new Coordinates(coordinates, MARS_ROVER_FAST_VELOCITY), orientation);
     }
 
-    @Override
-    public void moveForward() {
-        orientation.moveForward(coordinates);
-    }
-
-    @Override
-    public void moveBackwards() {
-        orientation.moveBackwards(coordinates);
-    }
-
-    @Override
-    public void rotateLeft() {
-        orientation = orientation.rotateLeft();
-    }
-
-    @Override
-    public void rotateRight() {
-        orientation = orientation.rotateRight();
-    }
 
 
     @Override
