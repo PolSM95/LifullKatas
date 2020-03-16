@@ -1,47 +1,29 @@
 package MarsRover;
 
 import MarsRover.Cardinal.Cardinal;
+import MarsRover.MarsRoverPackage.AbstractMarsRover;
 import MarsRover.MarsRoverPackage.MarsRover;
 
 import java.util.Objects;
 
-public class MarsRoverBase implements MarsRover {
-    private  Coordinates coordinates;
-    Cardinal orientation;
+public class MarsRoverBase extends AbstractMarsRover {
 
 
     public MarsRoverBase(Coordinates coordinates, Cardinal orientation) {
-        this.coordinates = coordinates;
-        this.orientation = orientation;
-    }
-    @Override
-    public void rotateRight() {
-        orientation = orientation.rotateRight();
-    }
+        super(
+                coordinates, orientation
+        );
 
-    @Override
-    public void rotateLeft() {
-        orientation = orientation.rotateLeft();
-    }
 
-    @Override
-    public void moveBackwards() {
-        orientation.moveBackwards(coordinates);
     }
-
-    @Override
-    public void moveForward() {
-        orientation.moveForward(coordinates);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MarsRoverBase that = (MarsRoverBase) o;
-        return coordinates.xCoordinate == that.coordinates.xCoordinate &&
-                coordinates.yCoordinate == that.coordinates.yCoordinate &&
-                orientation.getClass() == that.orientation.getClass();
+        return super.coordinates.xCoordinate == that.coordinates.xCoordinate &&
+                super.coordinates.yCoordinate == that.coordinates.yCoordinate &&
+                super.orientation.getClass() == that.orientation.getClass();
 
     }
 
