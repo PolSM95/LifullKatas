@@ -6,12 +6,12 @@ import MarsRover.Coordinates;
 import java.util.Objects;
 
 public class MarsRoverFast implements MarsRover {
-
+    private static final int MARS_ROVER_FAST_VELOCITY = 2;
     private Coordinates coordinates;
     private Cardinal orientation;
 
     public MarsRoverFast(Coordinates coordinates, Cardinal orientation) {
-        this.coordinates = new Coordinates(coordinates, 2);
+        this.coordinates = new Coordinates(coordinates, MARS_ROVER_FAST_VELOCITY);
         this.orientation = orientation;
     }
 
