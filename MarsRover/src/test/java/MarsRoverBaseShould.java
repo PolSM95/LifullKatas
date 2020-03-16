@@ -98,7 +98,7 @@ public class MarsRoverBaseShould {
             return new MarsRoverFast(coordinates,cardinal);
         }
         if(roverType.equals("Lunar")){
-            return new LunarAdapter(coordinates,cardinal);
+            return new LunarAdapter(Integer.parseInt(position[0]), Integer.parseInt(position[1]), cardinal);
         }
         return new MarsRoverBase(coordinates, cardinal);
     }
