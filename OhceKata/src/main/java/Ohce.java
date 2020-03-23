@@ -10,6 +10,6 @@ public class Ohce {
 
 
     public void init(String name) {
-        System.out.println("¡Buenos días "+name+"!");
+        output.showOutput("¡Buenos días "+name+"!");
     }
 }
