@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="335d83d7-e34a-466c-a73a-c97a885f05e8" name="Default Changelist" comment="" />
+    <list default="true" id="335d83d7-e34a-466c-a73a-c97a885f05e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../InstrumentProcessor/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InstrumentProcessor/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CharacterCopier.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CharacterCopier.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InstrumentProcessor/src/main/java/InstrumentProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../InstrumentProcessor/src/main/java/InstrumentProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InstrumentProcessor/src/test/java/InstrumentProcessorShould.java" beforeDir="false" afterPath="$PROJECT_DIR$/../InstrumentProcessor/src/test/java/InstrumentProcessorShould.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="CharacterCopier" />
@@ -20,6 +30,16 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1ZWNuYpfLZ7SyTU9WNRqdEOSz8M" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -119,6 +139,10 @@
       <screen x="0" y="23" width="1280" height="696" />
     </state>
     <state x="399" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1280.696/1280.23.1920.1057@0.23.1280.696" timestamp="1584954755650" />
+    <state x="422" y="96" key="FileChooserDialogImpl" timestamp="1584970116666">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="422" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1584970116666" />
     <state width="1493" height="187" key="GridCell.Tab.0.bottom" timestamp="1584964633618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

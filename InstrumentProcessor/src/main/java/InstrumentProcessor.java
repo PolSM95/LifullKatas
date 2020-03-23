@@ -8,9 +8,12 @@ public class InstrumentProcessor {
     }
 
     void process(){
-        String task = taskDispatcher.getTask();
-        instrument.execute(task);
-        taskDispatcher.finishTask(task);
-
+        try{
+            String task = taskDispatcher.getTask();
+            instrument.execute(task);
+            taskDispatcher.finishTask(task);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
