@@ -1,6 +1,6 @@
-package MarsRover.MarsRoverPackage;
+package MarsRover.Decorator;
 
-public class MarsRoversForwardDecorator extends MarsRoverDecorator{
+public class MarsRoversForwardDecorator extends MarsRoverDecorator {
     public MarsRoversForwardDecorator(MarsRover marsRover) {
         super(marsRover);
     }
