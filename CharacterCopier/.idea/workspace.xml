@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="335d83d7-e34a-466c-a73a-c97a885f05e8" name="Default Changelist" comment="" />
+    <list default="true" id="335d83d7-e34a-466c-a73a-c97a885f05e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/copyShould.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CharacterCopier.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CharacterCopier.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -20,7 +32,6 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
@@ -37,9 +48,17 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="317" y="202" key="com.intellij.ide.util.TipDialog" timestamp="1584951131517">
+    <state x="349" y="179" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584952001332">
       <screen x="0" y="23" width="1280" height="693" />
     </state>
-    <state x="317" y="202" key="com.intellij.ide.util.TipDialog/0.23.1280.693/1280.23.1920.1057@0.23.1280.693" timestamp="1584951131517" />
+    <state x="349" y="179" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.693/1280.23.1920.1057@0.23.1280.693" timestamp="1584952001332" />
+    <state x="489" y="265" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1584951824068">
+      <screen x="0" y="23" width="1280" height="693" />
+    </state>
+    <state x="489" y="265" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1280.693/1280.23.1920.1057@0.23.1280.693" timestamp="1584951824068" />
+    <state x="317" y="202" key="com.intellij.ide.util.TipDialog" timestamp="1584952671881">
+      <screen x="0" y="23" width="1280" height="693" />
+    </state>
+    <state x="317" y="202" key="com.intellij.ide.util.TipDialog/0.23.1280.693/1280.23.1920.1057@0.23.1280.693" timestamp="1584952671881" />
   </component>
 </project>
