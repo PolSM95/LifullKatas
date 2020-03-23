@@ -15,8 +15,11 @@ public class copyShould {
      WriterTest writerTest = new WriterTest();
      Copier copier = new Copier(readerTest,writerTest);
      copier.copy();
-     assertEquals('a', 'a');
+     assertEquals(1, writerTest.writeResultLength());
     }
+
+
+
 
 }
 
@@ -41,13 +44,19 @@ public class copyShould {
 
 class WriterTest implements Writeable {
 
-    char[] writeResult;
-
+    String writeResult = "";
 
     @Override
     public void write(char character) {
 
+        writeResult += character;
+
     }
+
+    public int writeResultLength(){
+        return writeResult.length();
+    }
+
 
 
 }
