@@ -1,5 +1,7 @@
 package app;
 
 public class Copier {
-    public void copy() { }
+    public void copy() {
+
+    }
 }
