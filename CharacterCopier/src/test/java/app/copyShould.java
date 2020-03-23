@@ -1,6 +1,5 @@
-import app.Copier;
-import app.Readable;
-import app.Writeable;
+package app;
+
 import org.junit.jupiter.api.Test;
 
 
