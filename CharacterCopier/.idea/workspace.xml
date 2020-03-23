@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="335d83d7-e34a-466c-a73a-c97a885f05e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../OhceKata/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OhceKata/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OhceKata/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OhceKata/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OhceKata/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OhceKata/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OhceKata/src/test/java/defaultShould.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OhceKata/src/main/java/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OhceKata/src/main/java/Ohce.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OhceKata/src/main/java/Ohce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OhceKata/src/test/java/OhceShould.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OhceKata/src/test/java/OhceShould.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
