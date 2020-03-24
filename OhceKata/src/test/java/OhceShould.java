@@ -42,12 +42,23 @@ public class OhceShould {
     }
 
     @Test
-    public void verify_that_reverse_works(){
+    public void verify_that_reverse_the_word_if_not_a_palindrome(){
         OutputOhce output = mock(OutputOhce.class);
         Ohce ohce = new Ohce(output);
-        ohce.reverse("roma");
+        ohce.handleWord("roma");
 
         verify(output).showOutput("amor");
+    }
+
+    @Test
+    public void verify_that_the_word_is_palindrome(){
+        OutputOhce output = mock(OutputOhce.class);
+        Ohce ohce = new Ohce(output);
+
+        ohce.handleWord("oto");
+
+        verify(output).showOutput("oto");
+        verify(output).showOutput("¡Bonita Palabra!");
     }
 
 }

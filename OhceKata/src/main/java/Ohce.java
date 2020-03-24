@@ -28,11 +28,28 @@ public class Ohce {
         }
     }
 
-    public void reverse (String word){
+    public void handleWord (String word){
+
+        String reverseWord = reverse(word);
+        output.showOutput(reverseWord);
+        if (palindrome(word,reverseWord)){
+            output.showOutput("¡Bonita Palabra!");
+        }
+    }
+
+    public String reverse (String word){
         String reverse="";
         for (int index = word.length()-1; index >= 0 ; index--){
             reverse += word.charAt(index);
         }
-        output.showOutput(reverse);
+        return reverse;
+    }
+
+    public boolean palindrome (String word, String reverseWord){
+        if (reverseWord.equals(word)){
+            return  true;
+        }
+        return false;
+
     }
 }
