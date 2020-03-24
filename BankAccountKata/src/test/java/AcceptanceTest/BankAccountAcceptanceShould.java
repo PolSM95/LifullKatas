@@ -19,9 +19,9 @@ public class BankAccountAcceptanceShould {
         account.printStatement();
 
         verify(console).printLine("date       || credit   || debit    || balance");
-        verify(console).printLine("14/01/2012 ||          || 500.00   || 2500.00");
-        verify(console).printLine("13/01/2012 || 2000.00  ||          || 3000.00");
-        verify(console).printLine("10/01/2012 || 1000.00  ||          || 1000.00");
+        verify(console).printLine("14/01/2012 ||          || 500      || 2500");
+        verify(console).printLine("13/01/2012 || 2000     ||          || 3000");
+        verify(console).printLine("10/01/2012 || 1000     ||          || 1000");
 
 
     }
