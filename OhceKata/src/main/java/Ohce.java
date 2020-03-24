@@ -7,22 +7,13 @@ public class Ohce {
     String name;
 
 
-    public Ohce(OutputOhce output, TimeServer timeServer) {
+    public Ohce(OutputOhce output, TimeServer timeServer, String name) {
         this.output = output;
         this.timeServer = timeServer;
-    }
-
-    public Ohce(OutputOhce output) {
-        this.output = output;
-    }
-
-    public Ohce(OutputOhce output, String name) {
-        this.output = output;
         this.name = name;
     }
 
-
-    public void init(String name) {
+    public void checkDayTime(String name) {
         this.name = name;
         DayTimes dayTimes = timeServer.getTime();
         if (dayTimes == DayTimes.MAÑANA){
@@ -50,7 +41,6 @@ public class Ohce {
         if (palindrome(word,reverseWord)){
             output.showOutput("¡Bonita Palabra!");
         }
-
 
     }
 
