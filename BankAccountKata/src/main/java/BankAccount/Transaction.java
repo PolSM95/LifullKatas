@@ -12,8 +12,9 @@ public class Transaction {
     public Transaction ( int amount, int currentBalance){
 
         //this.date = new Date().toString();
+
         this.amount = amount;
-        this.balance = currentBalance + amount;
+        this.balance = currentBalance;
     }
 
     @Override
@@ -29,5 +30,14 @@ public class Transaction {
     @Override
     public int hashCode() {
         return Objects.hash(date, amount, balance);
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "date='" + date + '\'' +
+                ", amount=" + amount +
+                ", balance=" + balance +
+                '}';
     }
 }
