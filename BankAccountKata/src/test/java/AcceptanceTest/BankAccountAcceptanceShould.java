@@ -12,7 +12,8 @@ public class BankAccountAcceptanceShould {
 
         Console console = mock(Console.class);
         Transactions transactions = new Transactions();
-        BankAccount account = new BankAccount(console, transactions);
+        FormatTransaction formatTransaction = new FormatTransaction(console);
+        BankAccount account = new BankAccount(console, transactions, formatTransaction);
         account.deposit(1000);
         account.deposit(2000);
         account.withdraw(500);

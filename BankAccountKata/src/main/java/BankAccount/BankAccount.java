@@ -5,16 +5,20 @@ public class BankAccount {
     private Console console;
     private Transactions transactions;
     private int currentBalance;
+    private FormatTransaction formatTransaction;
 
 
-    public BankAccount(Console console, Transactions transactions){
+    public BankAccount(Console console, Transactions transactions, FormatTransaction formatTransaction){
         this.currentBalance = 0;
         this.console = console;
         this.transactions = transactions;
+        this.formatTransaction = formatTransaction;
     }
 
     public void printStatement() {
-        throw new UnsupportedOperationException();
+
+
+        formatTransaction.printListTransaction(transactions.getTransactionList());
     }
 
     public void deposit(int amount) {
