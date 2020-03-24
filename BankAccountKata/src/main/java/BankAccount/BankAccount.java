@@ -18,6 +18,9 @@ public class BankAccount {
     }
 
     public void deposit(int amount) {
+        if(amount < 0){
+            throw new NullPointerException();
+        }
         currentBalance += amount;
         Transaction transactionDeposit = new Transaction(amount, currentBalance);
         transactions.addTransaction(transactionDeposit);

@@ -2,6 +2,8 @@ package UnitTest;
 
 import BankAccount.*;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 public class BankAccountShould {
@@ -56,6 +58,18 @@ public class BankAccountShould {
         bankAccount.withdraw(600);
         transactionExpected = new Transaction(-500, 0);
         verify(transactions).addTransaction(transactionExpected);
+
+    }
+
+    @Test
+    public void throw_exception_when_depositing_any_negative_amount(){
+        Console console = mock(Console.class);
+        Transactions transactions = mock(Transactions.class);
+        BankAccount bankAccount = new BankAccount(console, transactions);
+
+
+        assertThrows(NullPointerException.class, () -> bankAccount.deposit(-500));
+        verify(transactions, never()).addTransaction(any());
 
     }
 
