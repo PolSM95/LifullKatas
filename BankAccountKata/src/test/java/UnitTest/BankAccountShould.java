@@ -73,6 +73,20 @@ public class BankAccountShould {
 
     }
 
+    @Test
+    public void test(){
+        Console console = mock(Console.class);
+        Transactions transactions = mock(Transactions.class);
+        BankAccount bankAccount = new BankAccount(console, transactions);
+
+
+        bankAccount.printStatement();
+
+
+
+
+    }
+
 
 
 }

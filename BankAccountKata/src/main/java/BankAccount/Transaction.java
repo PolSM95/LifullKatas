@@ -1,5 +1,6 @@
 package BankAccount;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ public class Transaction {
 
     public Transaction ( int amount, int currentBalance){
 
-        //this.date = new Date().toString();
+        this.date = "24/03/2020";
 
         this.amount = amount;
         this.balance = currentBalance;
@@ -39,5 +40,17 @@ public class Transaction {
                 ", amount=" + amount +
                 ", balance=" + balance +
                 '}';
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public int getBalance() {
+        return balance;
     }
 }
