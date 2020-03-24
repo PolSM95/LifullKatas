@@ -9,6 +9,10 @@ public class Ohce {
         this.timeServer = timeServer;
     }
 
+    public Ohce(OutputOhce output) {
+        this.output = output;
+    }
+
 
     public void init(String name) {
         DayTimes dayTimes = timeServer.getTime();
@@ -22,5 +26,13 @@ public class Ohce {
             output.showOutput("¡Buenas noches "+name+"!");
 
         }
+    }
+
+    public void reverse (String word){
+        String reverse="";
+        for (int index = word.length()-1; index >= 0 ; index--){
+            reverse += word.charAt(index);
+        }
+        output.showOutput(reverse);
     }
 }

@@ -41,4 +41,13 @@ public class OhceShould {
         verify(output).showOutput("¡Buenas noches Pedro!");
     }
 
+    @Test
+    public void verify_that_reverse_works(){
+        OutputOhce output = mock(OutputOhce.class);
+        Ohce ohce = new Ohce(output);
+        ohce.reverse("roma");
+
+        verify(output).showOutput("amor");
+    }
+
 }
