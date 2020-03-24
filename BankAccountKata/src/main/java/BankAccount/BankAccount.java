@@ -4,6 +4,7 @@ public class BankAccount {
 
     private Console console;
     private Transactions transactions;
+
     //balance total
     //base de datos
 
@@ -23,8 +24,9 @@ public class BankAccount {
     }
 
     public void deposit(int amount) {
+        Transaction transactionDeposit = new Transaction(amount,0);
+        transactions.addTransaction(transactionDeposit);
 
-        throw new UnsupportedOperationException();
 
     }
 
