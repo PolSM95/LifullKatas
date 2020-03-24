@@ -4,6 +4,9 @@ public class Ohce {
 
     OutputOhce output;
     TimeServer timeServer;
+    String name;
+
+
     public Ohce(OutputOhce output, TimeServer timeServer) {
         this.output = output;
         this.timeServer = timeServer;
@@ -13,8 +16,14 @@ public class Ohce {
         this.output = output;
     }
 
+    public Ohce(OutputOhce output, String name) {
+        this.output = output;
+        this.name = name;
+    }
+
 
     public void init(String name) {
+        this.name = name;
         DayTimes dayTimes = timeServer.getTime();
         if (dayTimes == DayTimes.MAÑANA){
             output.showOutput("¡Buenos días "+name+"!");
@@ -30,11 +39,19 @@ public class Ohce {
 
     public void handleWord (String word){
 
+        if (stop(word)){
+            output.showOutput("Adios "+name+"!");
+        }
+
         String reverseWord = reverse(word);
+
         output.showOutput(reverseWord);
+
         if (palindrome(word,reverseWord)){
             output.showOutput("¡Bonita Palabra!");
         }
+
+
     }
 
     public String reverse (String word){
@@ -51,5 +68,12 @@ public class Ohce {
         }
         return false;
 
+    }
+
+    public boolean stop (String word){
+        if (word.equals("Stop!")){
+            return true;
+        }
+        return false;
     }
 }

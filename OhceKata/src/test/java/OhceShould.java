@@ -61,4 +61,14 @@ public class OhceShould {
         verify(output).showOutput("¡Bonita Palabra!");
     }
 
+    @Test
+    public void verify_that_the_word_is_Stop(){
+        OutputOhce output = mock(OutputOhce.class);
+        Ohce ohce = new Ohce(output,"Pedro");
+
+        ohce.handleWord("Stop!");
+
+        verify(output).showOutput("Adios Pedro!");
+    }
+
 }
