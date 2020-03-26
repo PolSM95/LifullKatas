@@ -39,8 +39,19 @@ public class FormatTransactionShould {
         formatTransaction.printListTransaction(transactionsList);
 
         verify(console).printLine("date       || credit   || debit    || balance");
-        verify(console).printLine("24/03/2020 || 1000 ||  || 0" );
+        verify(console).printLine("24/03/2020 || 1000 ||          || 0" );
 
+    }
+
+    @Test
+    public void print_transaction_when_there_is_a_deposit_and_a_withdraw(){
+        transactionsList.add(new Transaction(1000,0));
+        transactionsList.add(new Transaction(-500,500));
+        formatTransaction.printListTransaction(transactionsList);
+
+        verify(console).printLine("date       || credit   || debit    || balance");
+        verify(console).printLine("24/03/2020 || 1000 ||          || 0" );
+        verify(console).printLine("24/03/2020 ||          || 500 || 500" );
     }
 
 }

@@ -13,9 +13,12 @@ public class FormatTransaction {
 
     private void printTransaction(Transaction transaction){
         if (transaction.getAmount() >= 0){
-           console.printLine(transaction.getDate()+" || "+transaction.getAmount()+" ||  || "+transaction.getBalance());
+           console.printLine(transaction.getDate()+" || "+transaction.getAmount()+" ||          || "+transaction.getBalance());
+
         }
-         console.printLine(transaction.getDate()+" ||  || "+ transaction.getAmount()+" || "+transaction.getBalance());
+        if (transaction.getAmount()<0) {
+            console.printLine(transaction.getDate() + " ||          || " + (-transaction.getAmount()) + " || " + transaction.getBalance());
+        }
     }
 
     public void printListTransaction (List<Transaction> listTransaction){
