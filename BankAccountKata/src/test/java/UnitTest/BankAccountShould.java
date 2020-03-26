@@ -4,6 +4,9 @@ import BankAccount.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
@@ -19,7 +22,7 @@ public class BankAccountShould {
        console = mock(Console.class);
        transactions = mock(Transactions.class);
        formatTransaction = mock(FormatTransaction.class);
-       bankAccount = new BankAccount(console, transactions, formatTransaction);
+       bankAccount = new BankAccount(transactions, formatTransaction);
     }
 
     @Test
@@ -74,15 +77,18 @@ public class BankAccountShould {
     }
 
     @Test
-    public void test(){
+    public void check_that_transactionList_is_showed_correctly(){
 
+        List<Transaction> transactionsList = new ArrayList<>();
 
-        bankAccount.deposit(1000);
+        transactionsList.add(new Transaction(1000,0));
+        transactionsList.add(new Transaction(500,1000));
+
+        when(transactions.getTransactionList()).thenReturn(transactionsList);
+
         bankAccount.printStatement();
 
-       // verify(console).printLine("date       || credit   || debit    || balance");
-        verify(console).printLine("24/03/2020 || 1000 || || 1000");
-
+        verify(formatTransaction).printListTransaction(transactionsList);
 
     }
 
