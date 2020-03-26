@@ -16,8 +16,6 @@ public class BankAccount {
     }
 
     public void printStatement() {
-
-
         formatTransaction.printListTransaction(transactions.getTransactionList());
     }
 
@@ -26,17 +24,17 @@ public class BankAccount {
             throw new NullPointerException();
         }
         currentBalance += amount;
-        Transaction transactionDeposit = new Transaction(amount, currentBalance,date.formatDate());
+        Transaction transactionDeposit = new Transaction(amount, currentBalance, date.formatDate());
         transactions.addTransaction(transactionDeposit);
     }
 
     public void withdraw(int amount) {
         if((currentBalance - amount) < 0){
-            Transaction transactionDeposit = new Transaction(-currentBalance, 0,date.formatDate());
+            Transaction transactionDeposit = new Transaction(-currentBalance, 0, date.formatDate());
             transactions.addTransaction(transactionDeposit);
         }
         currentBalance -= amount;
-        Transaction transactionDeposit = new Transaction(-amount, currentBalance,date.formatDate());
+        Transaction transactionDeposit = new Transaction(-amount, currentBalance, date.formatDate());
         transactions.addTransaction(transactionDeposit);
 
     }

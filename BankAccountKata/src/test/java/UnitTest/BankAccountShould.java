@@ -32,7 +32,8 @@ public class BankAccountShould {
 
         bankAccount.deposit(1000);
 
-        Transaction transactionExpected = new Transaction(1000, 1000,date.formatDate());
+        Transaction transactionExpected = new Transaction(1000, 1000, date.formatDate());
+
         verify(transactions).addTransaction(transactionExpected);
     }
     @Test
@@ -40,7 +41,8 @@ public class BankAccountShould {
 
         bankAccount.withdraw(500);
 
-        Transaction transactionExpected = new Transaction(-500, -500,date.formatDate());
+        Transaction transactionExpected = new Transaction(-500, -500, date.formatDate());
+
         verify(transactions).addTransaction(transactionExpected);
     }
     @Test
@@ -48,11 +50,11 @@ public class BankAccountShould {
 
         bankAccount.deposit(500);
 
-        Transaction transactionExpected = new Transaction(500, 500,date.formatDate());
+        Transaction transactionExpected = new Transaction(500, 500, date.formatDate());
         verify(transactions).addTransaction(transactionExpected);
 
         bankAccount.withdraw(200);
-        transactionExpected = new Transaction(-200, 300,date.formatDate());
+        transactionExpected = new Transaction(-200, 300, date.formatDate());
         verify(transactions).addTransaction(transactionExpected);
 
     }
@@ -61,11 +63,12 @@ public class BankAccountShould {
 
         bankAccount.deposit(500);
 
-        Transaction transactionExpected = new Transaction(500, 500,date.formatDate());
+        Transaction transactionExpected = new Transaction(500, 500, date.formatDate());
+
         verify(transactions).addTransaction(transactionExpected);
 
         bankAccount.withdraw(600);
-        transactionExpected = new Transaction(-500, 0,date.formatDate());
+        transactionExpected = new Transaction(-500, 0, date.formatDate());
         verify(transactions).addTransaction(transactionExpected);
 
     }
@@ -74,6 +77,7 @@ public class BankAccountShould {
     public void throw_exception_when_depositing_any_negative_amount(){
 
         assertThrows(NullPointerException.class, () -> bankAccount.deposit(-500));
+
         verify(transactions, never()).addTransaction(any());
 
     }
@@ -83,8 +87,8 @@ public class BankAccountShould {
 
         List<Transaction> transactionsList = new ArrayList<>();
 
-        transactionsList.add(new Transaction(1000,0,date.formatDate()));
-        transactionsList.add(new Transaction(500,1000,date.formatDate()));
+        transactionsList.add(new Transaction(1000,0, date.formatDate()));
+        transactionsList.add(new Transaction(500,1000, date.formatDate()));
 
         when(transactions.getTransactionList()).thenReturn(transactionsList);
 
