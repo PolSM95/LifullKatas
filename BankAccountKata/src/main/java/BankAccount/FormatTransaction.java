@@ -21,9 +21,9 @@ public class FormatTransaction {
     public void printListTransaction (List<Transaction> listTransaction){
 
         console.printLine(HEADER);
-        /*for (Transaction transaction:listTransaction) {
+        for (Transaction transaction:listTransaction) {
             printTransaction(transaction);
-        }*/
+        }
     }
 
 }
