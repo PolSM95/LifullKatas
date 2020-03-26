@@ -10,7 +10,7 @@ public class Transaction {
     private int amount;
     private int balance;
 
-    public Transaction ( int amount, int currentBalance){
+    public Transaction(int amount, int currentBalance) {
 
         this.date = "24/03/2020";
 
@@ -41,6 +41,7 @@ public class Transaction {
                 ", balance=" + balance +
                 '}';
     }
+
 
     public String getDate() {
         return date;

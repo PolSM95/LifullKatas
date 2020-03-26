@@ -54,4 +54,5 @@ public class FormatTransactionShould {
         verify(console).printLine("24/03/2020 ||          || 500 || 500" );
     }
 
+
 }

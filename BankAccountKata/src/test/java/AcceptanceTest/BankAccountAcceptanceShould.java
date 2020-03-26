@@ -20,9 +20,9 @@ public class BankAccountAcceptanceShould {
         account.printStatement(); //TODO
 
         verify(console).printLine("date       || credit   || debit    || balance");
-        verify(console).printLine("24/03/2020 ||          || 500      || 2500");
-        verify(console).printLine("24/03/2020 || 2000     ||          || 3000");
-        verify(console).printLine("24/03/2020 || 1000     ||          || 1000");
+        verify(console).printLine("24/03/2020 ||          || 500 || 2500");
+        verify(console).printLine("24/03/2020 || 2000 ||          || 3000");
+        verify(console).printLine("24/03/2020 || 1000 ||          || 1000");
 
 
     }
