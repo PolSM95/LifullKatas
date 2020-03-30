@@ -8,12 +8,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class BusDriverShould {
 
     Console console;
     GossipController gossipController;
-    BusDriver busDriver;
     BusDriversList busDriversList;
     BusDriversApp busDriversApp;
 
@@ -21,9 +21,6 @@ public class BusDriverShould {
     @Test
     public void init(){
         console = mock(Console.class);
-        gossipController = mock(GossipController.class);
-
-
     }
 
     @Test
@@ -36,8 +33,10 @@ public class BusDriverShould {
         driverList.add(busDriverB);
 
         busDriversList = new BusDriversList(driverList);
+        gossipController = new GossipController(busDriversList);
         busDriversApp = new BusDriversApp(console,gossipController);
 
+        verify(console).printline("2");
 
     }
 }
