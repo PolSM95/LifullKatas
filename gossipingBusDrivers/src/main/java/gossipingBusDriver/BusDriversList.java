@@ -11,6 +11,23 @@ public class BusDriversList {
     }
 
     public List<Integer> nextDriver() {
+
+        /*boolean match = false;
+        for (int driversNum = 0; driversNum <= busDriverList.size(); driversNum++ ){
+
+            int firstStop = busDriverList.get(driversNum).route.routeDriver.get(0);
+
+            for (int indexDriveComparator = 1; indexDriveComparator <= busDriverList.size(); indexDriveComparator++ ){
+
+                int otherStop = busDriverList.get(indexDriveComparator).route.routeDriver.get(0);
+
+                if (firstStop == otherStop){
+
+                    match =true;
+                }
+            }
+        }*/
+
         List<Integer> currentStops = new ArrayList();
         List<Integer> matchingStops = new ArrayList();
         for (BusDriver busDriver : busDriverList) {

@@ -1,7 +1,7 @@
 package gossipingBusDriver;
 
 public class BusDriver {
-    private Route route;
+    public Route route;
 
     public BusDriver(Route route){
 

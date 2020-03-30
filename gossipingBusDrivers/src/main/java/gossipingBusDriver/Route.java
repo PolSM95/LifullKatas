@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Route {
 
-    List<Integer> routeDriver = new ArrayList<Integer>();
+    public List<Integer> routeDriver;
     Iterator interatorRoute;
     int currentStop;
 
@@ -24,4 +24,7 @@ public class Route {
         currentStop = (int) interatorRoute.next();
         return currentStop;
     }
+
+
+
 }
