@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -11,15 +12,15 @@ public class BusDriversAcceptanceShould {
     public void  testAcceptance(){
 
         Console console = mock(Console.class);
-        BusDriversApp busDriversApp = new BusDriversApp();
+        BusDriversApp busDriversApp = new BusDriversApp(console);
 
-        int[][] routes = {
-                {3, 1, 2, 3},
-                {3, 2, 3, 1},
-                {4, 2, 3, 4, 5}
-        };
+        BusDriver busDriverA = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(3, 1, 2, 3))));
+        BusDriver busDriverB = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(3, 2, 3, 1))));
+        BusDriver busDriverC = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(4, 2, 3, 4, 5))));
 
-        busDriversApp.main(routes);
+        List<BusDriver> busDriverList = new ArrayList<BusDriver>(Arrays.asList(busDriverA, busDriverB, busDriverC));
+
+        busDriversApp.main(busDriverList);
 
         verify(console).printline("5");
     }

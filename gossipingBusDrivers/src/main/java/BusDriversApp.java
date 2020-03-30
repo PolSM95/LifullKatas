@@ -1,6 +1,20 @@
+import java.util.List;
+
 public class BusDriversApp {
 
-    public void main(int[][] routes) {
+    private Console console;
+    
+    public BusDriversApp(Console console){
 
+        this.console = console;
+
+    }
+
+    public void main(List<BusDriver> busDriverList) {
+        /*for (int[] busDriver: routes) {
+            for (int busStop : busDriver) {
+
+            }
+        }*/
     }
 }
