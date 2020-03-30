@@ -1,13 +1,13 @@
+package unit;
+
+import gossipingBusDriver.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-public class BusDriverTestShould {
+public class GossipControllerShould {
 
     Console console;
     GossipController gossipController;
@@ -22,15 +22,10 @@ public class BusDriverTestShould {
 
     @Test
     public void print_message_never_when_there_is_no_gossip_shared(){
-        /*
-        BusDriver busDriverA = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(1, 2))));
-        BusDriver busDriverB = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(3, 2))));
-
-         */
 
         BusDriversList busDriverList = mock(BusDriversList.class);
         when(gossipController.isFinished()).thenReturn(false);
-        busDriversApp.main(busDriverList);
+        busDriversApp.main();
 
         verify(gossipController, times(480)).nextStep();
         verify(console).printline("never");
@@ -42,7 +37,7 @@ public class BusDriverTestShould {
 
         BusDriversList busDriverList = mock(BusDriversList.class);
         when(gossipController.isFinished()).thenReturn(false,false, true);
-        busDriversApp.main(busDriverList);
+        busDriversApp.main();
 
         verify(gossipController, times(3)).nextStep();
         verify(console).printline("3");

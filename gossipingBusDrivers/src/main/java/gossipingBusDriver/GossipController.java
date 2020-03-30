@@ -1,5 +1,16 @@
+package gossipingBusDriver;
+
 public class GossipController {
-    public boolean checkStop(int StopDriverA, int StopDriverB) {
+
+    private final BusDriversList busDriversList;
+
+    public GossipController(BusDriversList busDriversList) {
+
+        this.busDriversList = busDriversList;
+
+    }
+
+    public boolean checkStop() {
         return false;
     }
 

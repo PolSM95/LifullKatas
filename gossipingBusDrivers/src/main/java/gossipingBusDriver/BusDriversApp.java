@@ -1,4 +1,4 @@
-import java.util.List;
+package gossipingBusDriver;
 
 public class BusDriversApp {
 
@@ -11,9 +11,11 @@ public class BusDriversApp {
         this.console = console;
 
         this.gossipController = gossipController;
+
+
     }
 
-    public void main(BusDriversList busDriverList) {
+    public void main() {
 
         int totalSteps;
         for (totalSteps = 0; totalSteps < 480; ++totalSteps){
