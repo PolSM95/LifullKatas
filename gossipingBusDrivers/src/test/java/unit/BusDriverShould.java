@@ -26,7 +26,6 @@ public class BusDriverShould {
 
     }
 
-
     @Test
     public void test(){
         BusDriver busDriverA = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(1, 2))));
@@ -42,11 +41,3 @@ public class BusDriverShould {
 
     }
 }
-
-
-
-
-    /*
-
-
-         */

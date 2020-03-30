@@ -15,7 +15,7 @@ public class GossipController {
     }
 
     public void nextStep() {
-        throw new UnsupportedOperationException();
+        busDriversList.nextDriver();
     }
 
     public boolean isFinished() {
