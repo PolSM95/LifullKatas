@@ -17,7 +17,7 @@ public class BusDriverTestShould {
     public void initTests(){
         console = mock(Console.class);
         gossipController= mock(GossipController.class);
-        busDriversApp = new BusDriversApp(console);
+        busDriversApp = new BusDriversApp(console, gossipController);
     }
 
     @Test
@@ -27,11 +27,12 @@ public class BusDriverTestShould {
         BusDriver busDriverA = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(1, 2))));
         BusDriver busDriverB = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(3, 2))));
 
-        List<BusDriver> busDriverList = new ArrayList<BusDriver>(Arrays.asList(busDriverA, busDriverB));
-
+        BusDriversList busDriverList = mock(BusDriversList.class);
+        when(gossipController.isFinished()).thenReturn(false);
         busDriversApp.main(busDriverList);
 
-        verify(gossipController).checkStop(false);
+        verify(gossipController, times(480)).nextStep();
+        verify(console).printline("never");
 
     }
 }

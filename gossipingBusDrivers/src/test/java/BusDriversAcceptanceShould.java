@@ -12,7 +12,7 @@ public class BusDriversAcceptanceShould {
     public void  testAcceptance(){
 
         Console console = mock(Console.class);
-        BusDriversApp busDriversApp = new BusDriversApp(console);
+        BusDriversApp busDriversApp = new BusDriversApp(console, new GossipController());
 
         BusDriver busDriverA = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(3, 1, 2, 3))));
         BusDriver busDriverB = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(3, 2, 3, 1))));
@@ -20,7 +20,7 @@ public class BusDriversAcceptanceShould {
 
         List<BusDriver> busDriverList = new ArrayList<BusDriver>(Arrays.asList(busDriverA, busDriverB, busDriverC));
 
-        busDriversApp.main(busDriverList);
+        busDriversApp.main(null);
 
         verify(console).printline("5");
     }
