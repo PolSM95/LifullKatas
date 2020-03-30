@@ -14,11 +14,13 @@ public class BusDriversApp {
     }
 
     public void main(BusDriversList busDriverList) {
+
         int totalSteps;
         for (totalSteps = 0; totalSteps < 480; ++totalSteps){
             gossipController.nextStep();
 
             if (gossipController.isFinished()){
+                console.printline(Integer.toString(totalSteps+1));
                 break;
             }
         }

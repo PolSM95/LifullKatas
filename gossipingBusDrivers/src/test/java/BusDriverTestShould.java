@@ -21,11 +21,12 @@ public class BusDriverTestShould {
     }
 
     @Test
-    public void test(){
-
-
+    public void print_message_never_when_there_is_no_gossip_shared(){
+        /*
         BusDriver busDriverA = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(1, 2))));
         BusDriver busDriverB = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(3, 2))));
+
+         */
 
         BusDriversList busDriverList = mock(BusDriversList.class);
         when(gossipController.isFinished()).thenReturn(false);
@@ -33,6 +34,18 @@ public class BusDriverTestShould {
 
         verify(gossipController, times(480)).nextStep();
         verify(console).printline("never");
+
+    }
+
+    @Test
+    public void print_number_of_stops_that_takes_to_share_all_the_gossips(){
+
+        BusDriversList busDriverList = mock(BusDriversList.class);
+        when(gossipController.isFinished()).thenReturn(false,false, true);
+        busDriversApp.main(busDriverList);
+
+        verify(gossipController, times(3)).nextStep();
+        verify(console).printline("3");
 
     }
 }
