@@ -22,7 +22,7 @@ public class BusDriversApp {
             gossipController.nextStep();
 
             if (gossipController.isFinished()){
-                console.printline(Integer.toString(totalSteps+1));
+                console.printline(Integer.toString(totalSteps));
                 break;
             }
         }

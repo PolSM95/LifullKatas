@@ -10,15 +10,12 @@ public class GossipController {
 
     }
 
-    public boolean checkStop() {
-        return false;
-    }
 
     public void nextStep() {
-        busDriversList.nextDriver();
+        busDriversList.nextStep();
     }
 
     public boolean isFinished() {
-        throw new UnsupportedOperationException();
+        return busDriversList.isFinished();
     }
 }

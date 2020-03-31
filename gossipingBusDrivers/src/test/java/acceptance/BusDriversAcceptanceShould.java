@@ -13,15 +13,11 @@ public class BusDriversAcceptanceShould {
 
     @Test
     public void  testAcceptance(){
-
         Console console = mock(Console.class);
-        List<BusDriver> driversList = new ArrayList<>();
-
-
 
         BusDriver busDriverA = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(3, 1, 2, 3))));
         BusDriver busDriverB = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(3, 2, 3, 1))));
-        BusDriver busDriverC = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(4, 2, 3, 4, 5))));
+        BusDriver busDriverC = new BusDriver(new Route(new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5))));
 
         List<BusDriver> busDriverList = new ArrayList<BusDriver>(Arrays.asList(busDriverA, busDriverB, busDriverC));
         BusDriversList driverList = new BusDriversList(busDriverList);

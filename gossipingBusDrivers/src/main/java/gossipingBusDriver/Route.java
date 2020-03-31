@@ -19,7 +19,6 @@ public class Route {
     public int nextStop() {
         if (!interatorRoute.hasNext()) {
             interatorRoute = routeDriver.iterator();
-
         }
         currentStop = (int) interatorRoute.next();
         return currentStop;
@@ -27,7 +26,7 @@ public class Route {
 
     public int stopNumber(){
 
-        return routeDriver.get(currentStop);
+        return currentStop;
     }
 
 

@@ -20,7 +20,9 @@ public class BusDriver {
 
     public boolean sameStop(BusDriver busDriver){
 
-        return (busDriver.route.stopNumber() == route.stopNumber());
+        int otherBusDriverStop = busDriver.route.stopNumber();
+        int actualBusDriverStop = route.stopNumber();
+        return (otherBusDriverStop == actualBusDriverStop);
     }
 
     public int gossipNumber() {
