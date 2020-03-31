@@ -25,6 +25,11 @@ public class Route {
         return currentStop;
     }
 
+    public int stopNumber(){
+
+        return routeDriver.get(currentStop);
+    }
+
 
 
 }

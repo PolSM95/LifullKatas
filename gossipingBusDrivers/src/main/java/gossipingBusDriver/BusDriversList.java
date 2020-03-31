@@ -42,4 +42,41 @@ public class BusDriversList {
         }
         return currentStops;
     }
+
+    public boolean isFinished(){
+
+        for (BusDriver busDriver: busDriverList ) {
+
+            if(busDriver.gossipNumber() != busDriverList.size()){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    public void addDriver(BusDriver busDriver){
+
+    }
+
+    public void nextStep(){
+        // mover una posición adelante en el array de rutas de cada driver
+        //cmprobar si los drivers estan en la misma parada --> transfieren gossips
+
+        for (BusDriver busDriver : busDriverList) {
+            busDriver.nextStop();
+        }
+
+        for (BusDriver busDriver : busDriverList) {
+            List<BusDriver> driversList = new ArrayList<>();
+
+        }
+
+
+
+
+
+    }
+
 }
+
