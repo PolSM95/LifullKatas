@@ -1,3 +1,11 @@
+package acceptance;
+
+import domain.BasketItem;
+import domain.Product;
+import domain.ShoppingBasket;
+import domain.ShoppingCartRepository;
+import infraestructure.ShoppingCartController;
+import infraestructure.ShoppingCartService;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.*;
@@ -8,7 +16,9 @@ public class ShoppingCartAcceptanceTest {
     @Test
     public void AcceptanceTest(){
         ShoppingCartRepository shoppingCartRepository = mock(ShoppingCartRepository.class);
-        ShoppingCartController shoppingCartController = new ShoppingCartController(shoppingCartRepository);
+        ShoppingCartService shoppingCartService = new ShoppingCartService(shoppingCartRepository);
+        ShoppingCartController shoppingCartController = new ShoppingCartController(shoppingCartService);
+
         String input = "2,10002\n5,20110";
 
         shoppingCartController.post(input);

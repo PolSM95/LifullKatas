@@ -29,7 +29,7 @@ Products available (in-memory repository):
     
         public void addItem(UserID userId, ProductID productId, int quantity) { }
 ​
-        public ShoppingBasket basketFor(UserID userId) { }
+        public domain.ShoppingBasket basketFor(UserID userId) { }
     
     }    
 ```
