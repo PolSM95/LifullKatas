@@ -1,10 +1,26 @@
 package domain;
 
+import java.util.Objects;
+
 public class ProductID {
-    private int id;
+    private int productID;
 
-    public ProductID(int id) {
+    public ProductID(int productID) {
 
-        this.id = id;
+        this.productID = productID;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductID productID1 = (ProductID) o;
+        return productID == productID1.productID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(productID);
     }
 }
+
