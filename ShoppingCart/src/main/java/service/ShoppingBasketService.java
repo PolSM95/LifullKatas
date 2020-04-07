@@ -4,6 +4,7 @@ import domain.*;
 import infraestructure.ProductRespository;
 import infraestructure.ShoppingBasketRepository;
 
+
 public class ShoppingBasketService {
 
     private ShoppingBasketRepository shoppingBasketRepository;
@@ -27,9 +28,11 @@ public class ShoppingBasketService {
         }
 
         Product product = productRespository.getProductById(productID);
-        BasketItem basketItem = new BasketItem(product, quantity);
 
-        shoppingBasket.addBasketItem(basketItem);
+
+        shoppingBasket.addProductToShoppingBasket(product, quantity );
+
+
 
         shoppingBasketRepository.saveBasket(shoppingBasket);
 

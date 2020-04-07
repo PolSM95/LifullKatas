@@ -1,6 +1,7 @@
 package domain;
 
-import java.util.List;
+import exception.ProductDoesNotExistException;
+
 import java.util.Objects;
 
 public class ShoppingBasket
@@ -17,7 +18,13 @@ public class ShoppingBasket
         this.basketItemList = new BasketItemList();
     }
 
-    public void addBasketItem(BasketItem basketItem) {
+    public void addProductToShoppingBasket(Product product, int quantity) {
+
+        if (product == null){
+            throw new ProductDoesNotExistException("Product does not exist");
+        }
+
+        BasketItem basketItem = new BasketItem(product, quantity);
 
         basketItemList.addBasketItemToAList(basketItem);
 
