@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 public class ShoppingBasketServiceShould {
 
     @Test
-    public void  test(){
+    public void  adding_items_to_a_user_basket_and_saving_the_basket(){
         ShoppingBasketRepository shoppingBasketRepository = mock(ShoppingBasketRepository.class);
         ProductRespository productRespository = mock(ProductRespository.class);
 
