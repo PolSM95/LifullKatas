@@ -51,10 +51,7 @@ public class ShoppingBasketAcceptanceTest {
         inOrder.verify(shoppingBasketRepository).saveBasket(shoppingBasket);
     }
 
-    //Añadir un producto que no existe, productID no existe
-    //Añadir el mismo producto dos veces
-    //Añadir un BasketItem con cantidad negativa
-    //Añadir un producto vacío
+
 
     @Test
     public void raise_error_when_sending_a_product_Id_that_does_not_exist(){
@@ -79,11 +76,5 @@ public class ShoppingBasketAcceptanceTest {
         when(shoppingBasketRepository.getBasketByUserId(any(UserID.class))).thenReturn(shoppingBasket);
 
         assertThrows(ProductDoesNotExistException.class, () -> shoppingBasketController.post(input));
-
-
-
-
     }
-
-
 }

@@ -14,7 +14,18 @@ public class BasketItemList {
     }
 
     public void addBasketItemToAList(BasketItem basketItem) {
-        basketItemList.add(basketItem);
+        boolean isSameProduct = false;
+        for (BasketItem currentBasketItem : basketItemList) {
+
+           if(currentBasketItem.isSameProduct(basketItem)){
+               isSameProduct = true;
+               currentBasketItem.addQuantity(basketItem);
+           }
+        }
+
+        if(!isSameProduct) {
+            basketItemList.add(basketItem);
+        }
     }
 
     @Override

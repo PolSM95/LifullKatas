@@ -20,7 +20,6 @@ public class ShoppingBasketService {
     }
 
     public void addItem(UserID userID, ProductID productID, int quantity) {
-
         ShoppingBasket  shoppingBasket = shoppingBasketRepository.getBasketByUserId(userID);
 
         if(shoppingBasket == null){
@@ -29,13 +28,8 @@ public class ShoppingBasketService {
 
         Product product = productRespository.getProductById(productID);
 
-
-        shoppingBasket.addProductToShoppingBasket(product, quantity );
-
-
-
+        shoppingBasket.addProductToShoppingBasket(product, quantity);
         shoppingBasketRepository.saveBasket(shoppingBasket);
-
     }
 
     public ShoppingBasket basketFor(UserID userID) {

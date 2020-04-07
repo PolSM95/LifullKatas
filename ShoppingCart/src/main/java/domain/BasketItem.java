@@ -3,8 +3,8 @@ package domain;
 import java.util.Objects;
 
 public class BasketItem {
-    private final Product product;
-    private final int quantity;
+    private Product product;
+    private int quantity;
 
     public BasketItem(Product product, int quantity) {
 
@@ -32,5 +32,13 @@ public class BasketItem {
                 "product=" + product +
                 ", quantity=" + quantity +
                 '}';
+    }
+
+    public void addQuantity(BasketItem basketItem) {
+        this.quantity += basketItem.quantity;
+    }
+
+    public boolean isSameProduct(BasketItem basketItem) {
+        return this.product == basketItem.product;
     }
 }

@@ -27,7 +27,6 @@ public class ShoppingBasket
         BasketItem basketItem = new BasketItem(product, quantity);
 
         basketItemList.addBasketItemToAList(basketItem);
-
     }
 
     @Override
