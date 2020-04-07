@@ -16,6 +16,7 @@ public class BankAccount {
     }
 
     public void printStatement() {
+
         formatTransaction.printListTransaction(transactions.getTransactionList());
     }
 

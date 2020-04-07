@@ -1,8 +1,7 @@
-package acceptance;
+package unit;
 
 import domain.*;
 import infraestructure.ProductRespository;
-import infraestructure.ShoppingCartController;
 import infraestructure.ShoppingCartRepository;
 import service.ShoppingCartService;
 import org.junit.jupiter.api.Test;
@@ -10,32 +9,32 @@ import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
 
 
-public class ShoppingCartAcceptanceTest {
+
+public class ShoppingCartServiceShould {
 
     @Test
-    public void AcceptanceTest(){
+    public void  test(){
         ShoppingCartRepository shoppingCartRepository = mock(ShoppingCartRepository.class);
         ProductRespository productRespository = mock(ProductRespository.class);
         UserRepository userRepository = mock(UserRepository.class);
         ShoppingCartService shoppingCartService = new ShoppingCartService(shoppingCartRepository, productRespository);
-        ShoppingCartController shoppingCartController = new ShoppingCartController(shoppingCartService);
 
-        String input = "30001\n2,10002\n5,20110";
+        UserID userID = new UserID(30001);
+        ProductID productID1 = new ProductID(10002);
 
-        shoppingCartController.post(input);
+        Product hobbit = new Product(productID1, "The Hobbit", 5.00);
 
-        Product hobbit = new Product(new ProductID(10002), "The Hobbit", 5.00);
-        Product breakingBad = new Product(new ProductID(20110), "Breaking Bad", 7.00);
+        when(productRespository.getProductById(any(ProductID.class))).thenReturn(hobbit);
+
+        shoppingCartService.addItem(userID, productID1, 2);
 
         BasketItem basketItemHobbit = new BasketItem(hobbit,2);
-        BasketItem basketItemBreakingBad = new BasketItem(breakingBad,5);
-
         ShoppingBasket shoppingBasket = new ShoppingBasket();
         shoppingBasket.addBasketItem(basketItemHobbit);
-        shoppingBasket.addBasketItem(basketItemBreakingBad);
 
         verify(shoppingCartRepository).saveBasket(shoppingBasket);
     }
+
 
 
 }

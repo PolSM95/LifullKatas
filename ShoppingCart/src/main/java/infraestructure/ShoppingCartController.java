@@ -1,8 +1,8 @@
 package infraestructure;
 
 import domain.ProductID;
-import domain.ShoppingCartRepository;
 import domain.UserID;
+import service.ShoppingCartService;
 
 public class ShoppingCartController {
     private ShoppingCartService shoppingCartService;
