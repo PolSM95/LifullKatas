@@ -37,4 +37,13 @@ public class ShoppingBasket
     public int hashCode() {
         return Objects.hash(userID, dateString, basketItemList);
     }
+
+    @Override
+    public String toString() {
+        return "ShoppingBasket{" +
+                "userID=" + userID +
+                ", dateString='" + dateString + '\'' +
+                ", basketItemList=" + basketItemList +
+                '}';
+    }
 }

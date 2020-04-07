@@ -25,4 +25,12 @@ public class BasketItem {
     public int hashCode() {
         return Objects.hash(product, quantity);
     }
+
+    @Override
+    public String toString() {
+        return "BasketItem{" +
+                "product=" + product +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

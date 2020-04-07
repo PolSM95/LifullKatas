@@ -29,4 +29,11 @@ public class BasketItemList {
     public int hashCode() {
         return Objects.hash(basketItemList);
     }
+
+    @Override
+    public String toString() {
+        return "BasketItemList{" +
+                "basketItemList=" + basketItemList +
+                '}';
+    }
 }

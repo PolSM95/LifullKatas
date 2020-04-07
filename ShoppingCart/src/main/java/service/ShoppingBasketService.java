@@ -8,13 +8,14 @@ public class ShoppingBasketService {
 
     private ShoppingBasketRepository shoppingBasketRepository;
     private ProductRespository productRespository;
+    private BasketDate basketDate;
 
 
-    public ShoppingBasketService(ShoppingBasketRepository shoppingBasketRepository, ProductRespository productRespository) {
+    public ShoppingBasketService(ShoppingBasketRepository shoppingBasketRepository, ProductRespository productRespository, BasketDate basketDate) {
 
         this.shoppingBasketRepository = shoppingBasketRepository;
         this.productRespository = productRespository;
-
+        this.basketDate = basketDate;
     }
 
     public void addItem(UserID userID, ProductID productID, int quantity) {
@@ -22,7 +23,7 @@ public class ShoppingBasketService {
         ShoppingBasket  shoppingBasket = shoppingBasketRepository.getBasketByUserId(userID);
 
         if(shoppingBasket == null){
-            shoppingBasket = new ShoppingBasket(userID,"07/04/2020");
+            shoppingBasket = new ShoppingBasket(userID, basketDate.getDate());
         }
 
         Product product = productRespository.getProductById(productID);
