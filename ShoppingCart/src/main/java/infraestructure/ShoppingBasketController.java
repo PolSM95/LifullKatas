@@ -2,13 +2,13 @@ package infraestructure;
 
 import domain.ProductID;
 import domain.UserID;
-import service.ShoppingCartService;
+import service.ShoppingBasketService;
 
-public class ShoppingCartController {
-    private ShoppingCartService shoppingCartService;
+public class ShoppingBasketController {
+    private ShoppingBasketService shoppingBasketService;
 
-    public ShoppingCartController(ShoppingCartService shoppingCartService) {
-        this.shoppingCartService = shoppingCartService;
+    public ShoppingBasketController(ShoppingBasketService shoppingBasketService) {
+        this.shoppingBasketService = shoppingBasketService;
     }
 
     public void post(String input) {
@@ -23,7 +23,7 @@ public class ShoppingCartController {
             int quantity = Integer.parseInt(splitBasketItem[0]);
             ProductID productID = new ProductID(Integer.parseInt(splitBasketItem[1]));
 
-            shoppingCartService.addItem(userID, productID, quantity);
+            shoppingBasketService.addItem(userID, productID, quantity);
         }
     }
 }
