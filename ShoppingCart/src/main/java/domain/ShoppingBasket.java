@@ -1,6 +1,7 @@
 package domain;
 
 import exception.ProductDoesNotExistException;
+import exception.ProductNegativeQuantityException;
 
 import java.util.Objects;
 
@@ -22,6 +23,9 @@ public class ShoppingBasket
 
         if (product == null){
             throw new ProductDoesNotExistException("Product does not exist");
+        }
+        if(quantity<=0){
+            throw new ProductNegativeQuantityException("Quantity can not be negative");
         }
 
         BasketItem basketItem = new BasketItem(product, quantity);

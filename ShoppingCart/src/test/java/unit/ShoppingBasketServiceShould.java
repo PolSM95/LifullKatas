@@ -2,6 +2,7 @@ package unit;
 
 import domain.*;
 import exception.ProductDoesNotExistException;
+import exception.ProductNegativeQuantityException;
 import infraestructure.ProductRespository;
 import infraestructure.ShoppingBasketRepository;
 import org.junit.Before;
@@ -22,7 +23,7 @@ public class ShoppingBasketServiceShould {
     InOrder inOrder;
 
     @BeforeEach
-    public void init(){
+    public void init() {
         shoppingBasketRepository = mock(ShoppingBasketRepository.class);
         productRespository = mock(ProductRespository.class);
         basketDate = mock(BasketDate.class);
@@ -33,7 +34,7 @@ public class ShoppingBasketServiceShould {
     }
 
     @Test
-    public void raise_error_when_trying_to_add_an_item_that_does_not_exist(){
+    public void raise_error_when_trying_to_add_an_item_that_does_not_exist() {
 
         when(basketDate.getDate()).thenReturn("07/04/2020");
 
@@ -46,7 +47,7 @@ public class ShoppingBasketServiceShould {
     }
 
     @Test
-    public void adding_items_to_a_user_basket_and_saving_the_basket(){
+    public void adding_items_to_a_user_basket_and_saving_the_basket() {
 
         UserID userID = new UserID(30001);
         ProductID productID1 = new ProductID(10002);
@@ -57,14 +58,14 @@ public class ShoppingBasketServiceShould {
 
         shoppingBasketService.addItem(userID, productID1, 2);
 
-        ShoppingBasket shoppingBasket = new ShoppingBasket(userID,basketDate.getDate());
-        shoppingBasket.addProductToShoppingBasket(hobbit, 2 );
+        ShoppingBasket shoppingBasket = new ShoppingBasket(userID, basketDate.getDate());
+        shoppingBasket.addProductToShoppingBasket(hobbit, 2);
 
         verify(shoppingBasketRepository).saveBasket(shoppingBasket);
     }
 
     @Test
-    public void adding_quantity_when_introducing_the_same_product_into_the_basket_multiple_times(){
+    public void adding_quantity_when_introducing_the_same_product_into_the_basket_multiple_times() {
         UserID userID = new UserID(30001);
         ProductID productID1 = new ProductID(10002);
         Product hobbit = new Product(productID1, "The Hobbit", 5.00);
@@ -87,7 +88,16 @@ public class ShoppingBasketServiceShould {
         inOrder.verify(shoppingBasketRepository).saveBasket(shoppingBasket);
     }
 
-    //Añadir un BasketItem con cantidad negativa
+    @Test
+    public void raise_error_when_trying_to_add_item_with_negative_quantity() {
+        UserID userID = new UserID(30001);
+        ProductID productID = new ProductID(10002);
+        Product hobbit = new Product(productID, "The Hobbit", 5.00);
 
+        when(basketDate.getDate()).thenReturn("07/04/2020");
+        when(productRespository.getProductById(productID)).thenReturn(hobbit);
 
+        assertThrows(ProductNegativeQuantityException.class,
+                () -> shoppingBasketService.addItem(userID, productID, -1));
+    }
 }
