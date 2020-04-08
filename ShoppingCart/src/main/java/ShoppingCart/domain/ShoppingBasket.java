@@ -1,7 +1,7 @@
-package domain;
+package ShoppingCart.domain;
 
-import exception.ProductDoesNotExistException;
-import exception.ProductNegativeQuantityException;
+import ShoppingCart.exception.ProductDoesNotExistException;
+import ShoppingCart.exception.ProductNegativeQuantityException;
 
 import java.util.Objects;
 

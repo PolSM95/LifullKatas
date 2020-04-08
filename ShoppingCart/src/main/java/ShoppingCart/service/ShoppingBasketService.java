@@ -1,9 +1,9 @@
-package service;
+package ShoppingCart.service;
 
-import domain.*;
-import exception.BasketNotExistsException;
-import infraestructure.ProductRespository;
-import infraestructure.ShoppingBasketRepository;
+import ShoppingCart.domain.*;
+import ShoppingCart.exception.BasketNotExistsException;
+import ShoppingCart.infraestructure.ProductRespository;
+import ShoppingCart.infraestructure.ShoppingBasketRepository;
 
 
 public class ShoppingBasketService {

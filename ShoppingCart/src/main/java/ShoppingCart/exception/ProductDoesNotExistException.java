@@ -1,4 +1,4 @@
-package exception;
+package ShoppingCart.exception;
 
 public class ProductDoesNotExistException extends RuntimeException{
     public ProductDoesNotExistException(String message) {

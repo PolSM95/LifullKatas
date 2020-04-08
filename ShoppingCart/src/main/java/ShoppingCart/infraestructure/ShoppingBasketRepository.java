@@ -1,7 +1,7 @@
-package infraestructure;
+package ShoppingCart.infraestructure;
 
-import domain.ShoppingBasket;
-import domain.UserID;
+import ShoppingCart.domain.ShoppingBasket;
+import ShoppingCart.domain.UserID;
 
 public interface ShoppingBasketRepository {
 

@@ -1,4 +1,4 @@
-package domain;
+package ShoppingCart.domain;
 
 import java.util.Objects;
 

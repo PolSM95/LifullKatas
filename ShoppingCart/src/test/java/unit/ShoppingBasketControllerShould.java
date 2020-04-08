@@ -1,9 +1,9 @@
 package unit;
 
-import domain.ProductID;
-import domain.UserID;
-import infraestructure.ShoppingBasketController;
-import service.ShoppingBasketService;
+import ShoppingCart.domain.ProductID;
+import ShoppingCart.domain.UserID;
+import ShoppingCart.infraestructure.ShoppingBasketController;
+import ShoppingCart.service.ShoppingBasketService;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.*;

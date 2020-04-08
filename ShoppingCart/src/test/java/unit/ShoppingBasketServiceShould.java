@@ -1,16 +1,16 @@
 package unit;
 
-import domain.*;
-import exception.BasketNotExistsException;
-import exception.ProductDoesNotExistException;
-import exception.ProductNegativeQuantityException;
-import infraestructure.ProductRespository;
-import infraestructure.ShoppingBasketRepository;
+import ShoppingCart.domain.*;
+import ShoppingCart.exception.BasketNotExistsException;
+import ShoppingCart.exception.ProductDoesNotExistException;
+import ShoppingCart.exception.ProductNegativeQuantityException;
+import ShoppingCart.infraestructure.ProductRespository;
+import ShoppingCart.infraestructure.ShoppingBasketRepository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InOrder;
-import service.BasketDate;
-import service.ShoppingBasketService;
+import ShoppingCart.service.BasketDate;
+import ShoppingCart.service.ShoppingBasketService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

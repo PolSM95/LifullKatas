@@ -1,4 +1,4 @@
-package service;
+package ShoppingCart.service;
 
 public class BasketDate {
 
