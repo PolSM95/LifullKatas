@@ -2,9 +2,11 @@ package acceptance;
 
 import domain.*;
 import exception.ProductDoesNotExistException;
+import exception.ProductNegativeQuantityException;
 import infraestructure.ProductRespository;
 import infraestructure.ShoppingBasketController;
 import infraestructure.ShoppingBasketRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InOrder;
 import service.BasketDate;
 import service.ShoppingBasketService;
@@ -16,17 +18,26 @@ import static org.mockito.Mockito.*;
 
 
 public class ShoppingBasketAcceptanceTest {
+    ShoppingBasketRepository shoppingBasketRepository;
+    ProductRespository productRespository;
+    BasketDate basketDate;
+    ShoppingBasketService shoppingBasketService;
+    ShoppingBasketController shoppingBasketController;
+
+
+    @BeforeEach
+    public void Init(){
+        shoppingBasketRepository = mock(ShoppingBasketRepository.class);
+        productRespository = mock(ProductRespository.class);
+        basketDate = mock(BasketDate.class);
+        shoppingBasketService = new ShoppingBasketService(shoppingBasketRepository, productRespository, basketDate);
+        shoppingBasketController = new ShoppingBasketController(shoppingBasketService);
+
+    }
 
     @Test
     public void AcceptanceTest(){
-        ShoppingBasketRepository shoppingBasketRepository = mock(ShoppingBasketRepository.class);
-        ProductRespository productRespository = mock(ProductRespository.class);
-        BasketDate basketDate = mock(BasketDate.class);
-
         when(basketDate.getDate()).thenReturn("07/04/2020");
-
-        ShoppingBasketService shoppingBasketService = new ShoppingBasketService(shoppingBasketRepository, productRespository, basketDate);
-        ShoppingBasketController shoppingBasketController = new ShoppingBasketController(shoppingBasketService);
 
         String input = "30001\n2,10002\n5,20110";
 
@@ -56,14 +67,7 @@ public class ShoppingBasketAcceptanceTest {
     @Test
     public void raise_error_when_sending_a_product_Id_that_does_not_exist(){
 
-        ShoppingBasketRepository shoppingBasketRepository = mock(ShoppingBasketRepository.class);
-        ProductRespository productRespository = mock(ProductRespository.class);
-        BasketDate basketDate = mock(BasketDate.class);
-
         when(basketDate.getDate()).thenReturn("07/04/2020");
-
-        ShoppingBasketService shoppingBasketService = new ShoppingBasketService(shoppingBasketRepository, productRespository, basketDate);
-        ShoppingBasketController shoppingBasketController = new ShoppingBasketController(shoppingBasketService);
 
         String input = "30001\n3,20040";
 
@@ -76,5 +80,20 @@ public class ShoppingBasketAcceptanceTest {
         when(shoppingBasketRepository.getBasketByUserId(any(UserID.class))).thenReturn(shoppingBasket);
 
         assertThrows(ProductDoesNotExistException.class, () -> shoppingBasketController.post(input));
+    }
+    @Test
+    public void raise_error_when_sendingn_a_product_with_negative_quantity(){
+        when(basketDate.getDate()).thenReturn("07/04/2020");
+        String input = "30001\n-1,10002";
+
+        UserID userID = new UserID(30001);
+        Product hobbit = new Product(new ProductID(10002), "The Hobbit", 5.00);
+
+        when(productRespository.getProductById(any(ProductID.class))).thenReturn(hobbit);
+
+        when(shoppingBasketRepository.getBasketByUserId(any(UserID.class))).thenReturn(null);
+
+        assertThrows(ProductNegativeQuantityException.class, () -> shoppingBasketController.post(input));
+
     }
 }
