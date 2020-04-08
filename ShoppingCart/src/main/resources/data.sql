@@ -1,21 +1,10 @@
-DROP TABLE IF EXISTS Product;
+SET MODE MySQL;
 
-CREATE TABLE Product (
-  idProduct INT AUTO_INCREMENT  PRIMARY KEY,
-  product_name VARCHAR(250) NOT NULL,
-  product_price DOUBLE NOT NULL,
-);
+INSERT IGNORE INTO Product values
+    (10001, 'Lord of The Rings', 10.00),
+    (10002, 'Hobbit', 5.00),
+    (20001, 'Game of Thrones', 5.00),
+    (20110, 'Breaking Bad', 7.00);
 
-CREATE TABLE BasketItem (
-  idBasketItem INT AUTO_INCREMENT  PRIMARY KEY,
-  idProduct INT NOT NULL,
-  idShoppingBasket INT NOT NULL,
-  quantity DOUBLE NOT NULL,
-);
 
-CREATE TABLE ShoppingBasket (
-  idShoppingBasket INT AUTO_INCREMENT  PRIMARY KEY,
-  userId INT NOT NULL,
-  creationDate VARCHAR(250) NOT NULL,
-);
 
