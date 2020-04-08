@@ -1,4 +1,4 @@
-package ShoppingCart.infraestructure;
+package ShoppingCart.domain;
 
 import ShoppingCart.domain.Product;
 import ShoppingCart.domain.ProductID;

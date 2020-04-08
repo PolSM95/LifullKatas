@@ -4,8 +4,8 @@ import ShoppingCart.domain.*;
 import ShoppingCart.exception.BasketNotExistsException;
 import ShoppingCart.exception.ProductDoesNotExistException;
 import ShoppingCart.exception.ProductNegativeQuantityException;
-import ShoppingCart.infraestructure.ProductRespository;
-import ShoppingCart.infraestructure.ShoppingBasketRepository;
+import ShoppingCart.domain.ProductRespository;
+import ShoppingCart.domain.ShoppingBasketRepository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InOrder;

@@ -22,5 +22,10 @@ public class ProductID {
     public int hashCode() {
         return Objects.hash(productID);
     }
+
+    @Override
+    public String toString() {
+        return Integer.toString(productID);
+    }
 }
 
