@@ -1,6 +1,7 @@
 package service;
 
 import domain.*;
+import exception.BasketNotExistsException;
 import infraestructure.ProductRespository;
 import infraestructure.ShoppingBasketRepository;
 
@@ -34,6 +35,11 @@ public class ShoppingBasketService {
 
     public ShoppingBasket basketFor(UserID userID) {
 
-       return shoppingBasketRepository.getBasketByUserId(userID);
+        ShoppingBasket shoppingBasket = shoppingBasketRepository.getBasketByUserId(userID);
+        if(shoppingBasket == null){
+            throw new BasketNotExistsException("There is no basket for that user");
+        }
+       return  shoppingBasket;
+
     }
 }

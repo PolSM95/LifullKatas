@@ -1,11 +1,12 @@
 package unit;
 
 import domain.*;
+import exception.BasketNotExistsException;
 import exception.ProductDoesNotExistException;
 import exception.ProductNegativeQuantityException;
 import infraestructure.ProductRespository;
 import infraestructure.ShoppingBasketRepository;
-import org.junit.Before;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.InOrder;
 import service.BasketDate;
@@ -130,5 +131,16 @@ public class ShoppingBasketServiceShould {
 
         assertEquals(outputExpected,shoppingBasketExpected.toString());
 
+    }
+
+    @Test
+    public void raise_error_when_asking_for_not_existing_basket(){
+
+        UserID userID = new UserID(30001);
+
+        when(shoppingBasketRepository.getBasketByUserId(userID)).thenReturn(null);
+
+        assertThrows(BasketNotExistsException.class,
+                () -> shoppingBasketService.basketFor(userID));
     }
 }
