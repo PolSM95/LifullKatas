@@ -43,8 +43,25 @@ public class BasketItemList {
 
     @Override
     public String toString() {
-        return "BasketItemList{" +
-                "basketItemList=" + basketItemList +
-                '}';
+
+        String output = "";
+
+        for (BasketItem basketItem: basketItemList) {
+            output += basketItem.toString();
+        }
+
+        return output;
+    }
+
+    public double totalPrice() {
+
+        double total = 0;
+
+        for (BasketItem basketItem: basketItemList) {
+
+            total += basketItem.totalPrice();
+        }
+
+        return total;
     }
 }

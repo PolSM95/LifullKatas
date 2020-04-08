@@ -50,10 +50,10 @@ public class ShoppingBasket
 
     @Override
     public String toString() {
-        return "ShoppingBasket{" +
-                "userID=" + userID +
-                ", dateString='" + dateString + '\'' +
-                ", basketItemList=" + basketItemList +
-                '}';
+        return "Creation date : " +dateString +"\n"+
+                basketItemList.toString()+
+                "Total: €"+basketItemList.totalPrice();
     }
+
+
 }

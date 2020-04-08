@@ -12,6 +12,7 @@ import service.BasketDate;
 import service.ShoppingBasketService;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
@@ -99,5 +100,35 @@ public class ShoppingBasketServiceShould {
 
         assertThrows(ProductNegativeQuantityException.class,
                 () -> shoppingBasketService.addItem(userID, productID, -1));
+    }
+
+    @Test
+    public void checking_that_shoppingBasket_is_printed_with_the_correct_format(){
+
+        UserID userID = new UserID(30001);
+
+        when(basketDate.getDate()).thenReturn("07/04/2020");
+        ShoppingBasket shoppingBasket = new ShoppingBasket(userID,basketDate.getDate());
+
+        ProductID productID1 = new ProductID(10002);
+        ProductID productID2 = new ProductID(20110);
+
+        Product hobbit = new Product(productID1, "The Hobbit", 5.00);
+        Product breakingBad = new Product(productID2, "Breaking Bad", 7.00);
+
+        shoppingBasket.addProductToShoppingBasket(hobbit,2);
+        shoppingBasket.addProductToShoppingBasket(breakingBad,5);
+
+        when(shoppingBasketRepository.getBasketByUserId(userID)).thenReturn(shoppingBasket);
+
+        ShoppingBasket shoppingBasketExpected = shoppingBasketService.basketFor(userID);
+
+        String outputExpected = "Creation date : 07/04/2020\n" +
+                                "2 x The Hobbit // 2 x 5.0 = €10.0\n" +
+                                 "5 x Breaking Bad // 5 x 7.0 = €35.0\n" +
+                                "Total: €45.0";
+
+        assertEquals(outputExpected,shoppingBasketExpected.toString());
+
     }
 }

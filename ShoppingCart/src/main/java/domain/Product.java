@@ -27,4 +27,17 @@ public class Product {
     public int hashCode() {
         return Objects.hash(productID, productName, productPrice);
     }
+
+    public String itemDescription(int quantity) {
+
+        return quantity + " x " + productName + " // " + quantity + " x " +
+                productPrice + " = €" +calculateTotalByQuantity(quantity) + "\n";
+
+    }
+
+    public double calculateTotalByQuantity(int quantity) {
+
+        return quantity * productPrice;
+
+    }
 }

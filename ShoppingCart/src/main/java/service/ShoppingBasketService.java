@@ -34,6 +34,6 @@ public class ShoppingBasketService {
 
     public ShoppingBasket basketFor(UserID userID) {
 
-        throw new UnsupportedOperationException();
+       return shoppingBasketRepository.getBasketByUserId(userID);
     }
 }

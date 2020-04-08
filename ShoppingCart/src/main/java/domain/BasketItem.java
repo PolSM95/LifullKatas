@@ -28,11 +28,11 @@ public class BasketItem {
 
     @Override
     public String toString() {
-        return "BasketItem{" +
-                "product=" + product +
-                ", quantity=" + quantity +
-                '}';
+
+        return product.itemDescription(quantity);
     }
+
+
 
     public void addQuantity(BasketItem basketItem) {
         this.quantity += basketItem.quantity;
@@ -40,5 +40,9 @@ public class BasketItem {
 
     public boolean isSameProduct(BasketItem basketItem) {
         return this.product == basketItem.product;
+    }
+
+    public double totalPrice() {
+        return product.calculateTotalByQuantity(quantity);
     }
 }
