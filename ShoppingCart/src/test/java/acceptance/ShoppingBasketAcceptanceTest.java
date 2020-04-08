@@ -48,7 +48,6 @@ public class ShoppingBasketAcceptanceTest {
 
         when(productRespository.getProductById(any(ProductID.class))).thenReturn(hobbit,breakingBad);
 
-
         ShoppingBasket shoppingBasket = new ShoppingBasket(userID,basketDate.getDate());
         shoppingBasket.addProductToShoppingBasket(hobbit, 2 );
 
@@ -81,12 +80,12 @@ public class ShoppingBasketAcceptanceTest {
 
         assertThrows(ProductDoesNotExistException.class, () -> shoppingBasketController.post(input));
     }
+
     @Test
-    public void raise_error_when_sendingn_a_product_with_negative_quantity(){
+    public void raise_error_when_sending_a_product_with_negative_quantity(){
         when(basketDate.getDate()).thenReturn("07/04/2020");
         String input = "30001\n-1,10002";
 
-        UserID userID = new UserID(30001);
         Product hobbit = new Product(new ProductID(10002), "The Hobbit", 5.00);
 
         when(productRespository.getProductById(any(ProductID.class))).thenReturn(hobbit);
@@ -96,4 +95,24 @@ public class ShoppingBasketAcceptanceTest {
         assertThrows(ProductNegativeQuantityException.class, () -> shoppingBasketController.post(input));
 
     }
+
+    @Test
+    public void test(){
+        //Tenemos un input de un numero de User ID que Si existe esa Basket
+        String input = "30001";
+        //LLamamos a basket for con este USer ID para que nos de LA BASKETShopping
+        //El controlador debera traducir esta BasketShopping
+
+        //coger el carrito del usuario para que nos imprima todo esto :
+        /*Creation date : 01/03/2020
+        2 x The Hobbit // 2 x 5.00 = €10.00
+        5 x Breaking Bad // 5 x 7.00 = €35.00
+        Total: €45.00*/
+
+
+        //verificar
+
+    }
+
+    //Tenemos un input de un numero de User ID que NO existe
 }

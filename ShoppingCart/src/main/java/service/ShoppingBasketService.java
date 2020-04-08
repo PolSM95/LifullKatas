@@ -33,6 +33,7 @@ public class ShoppingBasketService {
     }
 
     public ShoppingBasket basketFor(UserID userID) {
-      throw new UnsupportedOperationException();
+
+        throw new UnsupportedOperationException();
     }
 }
