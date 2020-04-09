@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
-
 @Component
 public class ProductRepositoryDBH2 implements ProductRespository {
     @Autowired
@@ -26,7 +24,7 @@ public class ProductRepositoryDBH2 implements ProductRespository {
                              resultSet.getDouble("product_price")
                      ));
             return product;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
