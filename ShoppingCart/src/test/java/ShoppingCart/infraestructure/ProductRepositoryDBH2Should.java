@@ -30,5 +30,4 @@ public class ProductRepositoryDBH2Should {
         ProductID productID = new ProductID(10005);
         assertEquals(null, productRepository.getProductById(productID));
     }
-
 }

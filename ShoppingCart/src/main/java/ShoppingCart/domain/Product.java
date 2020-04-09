@@ -40,4 +40,12 @@ public class Product {
         return quantity * productPrice;
 
     }
+
+    public ProductMemento createProductMemento() {
+        ProductMemento productMemento = new ProductMemento();
+        productMemento.productPrice = productPrice;
+        productMemento.productName = productName;
+        productMemento.productIDMemento = productID.createProductIdMemento();
+        return productMemento;
+    }
 }

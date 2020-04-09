@@ -22,4 +22,10 @@ public class UserID {
     public int hashCode() {
         return Objects.hash(userID);
     }
+
+    public UserIDMemento createUserIdMemento() {
+        UserIDMemento userIDMemento = new UserIDMemento();
+        userIDMemento.userId = userID;
+        return userIDMemento;
+    }
 }

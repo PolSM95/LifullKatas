@@ -45,4 +45,11 @@ public class BasketItem {
     public double totalPrice() {
         return product.calculateTotalByQuantity(quantity);
     }
+
+    public BasketItemMemento createBasketItemMemento() {
+        BasketItemMemento basketItemMemento = new BasketItemMemento();
+        basketItemMemento.quantity = quantity;
+        basketItemMemento.productMemento = product.createProductMemento();
+        return basketItemMemento;
+    }
 }

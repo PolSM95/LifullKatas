@@ -64,4 +64,17 @@ public class BasketItemList {
 
         return total;
     }
+
+    public BasketItemListMemento createBasketItemListMemento() {
+
+        List<BasketItemMemento> basketItemMementoList = new ArrayList<>();
+
+        for(BasketItem basketItem : basketItemList){
+            basketItemMementoList.add(basketItem.createBasketItemMemento());
+        }
+        BasketItemListMemento basketItemListMemento = new BasketItemListMemento();
+        basketItemListMemento.basketItemMementoList = basketItemMementoList;
+
+        return basketItemListMemento;
+    }
 }

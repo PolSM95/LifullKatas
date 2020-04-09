@@ -27,5 +27,11 @@ public class ProductID {
     public String toString() {
         return Integer.toString(productID);
     }
+
+    public ProductIDMemento createProductIdMemento() {
+        ProductIDMemento productIDMemento = new ProductIDMemento();
+        productIDMemento.productIDMemento = productID;
+        return productIDMemento;
+    }
 }
 

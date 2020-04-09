@@ -55,5 +55,11 @@ public class ShoppingBasket
                 "Total: €"+basketItemList.totalPrice();
     }
 
-
+    public ShoppingBasketMemento createShoppingBasketMemento(){
+        ShoppingBasketMemento shoppingBasketMemento = new ShoppingBasketMemento();
+        shoppingBasketMemento.userID = userID.createUserIdMemento();
+        shoppingBasketMemento.dateString = dateString;
+        shoppingBasketMemento.basketItemList = basketItemList.createBasketItemListMemento();
+        return shoppingBasketMemento;
+    }
 }
