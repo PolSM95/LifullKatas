@@ -1,6 +1,9 @@
 package ShoppingCart.service;
 
-import ShoppingCart.domain.*;
+import ShoppingCart.domain.Product.Product;
+import ShoppingCart.domain.Product.ProductID;
+import ShoppingCart.domain.ShoppingBasket.ShoppingBasket;
+import ShoppingCart.domain.ShoppingBasket.UserID;
 import ShoppingCart.exception.BasketNotExistsException;
 import ShoppingCart.domain.ProductRespository;
 import ShoppingCart.domain.ShoppingBasketRepository;

@@ -1,4 +1,6 @@
-package ShoppingCart.domain;
+package ShoppingCart.domain.BasketItem;
+
+import ShoppingCart.domain.Product.Product;
 
 import java.util.Objects;
 
@@ -10,6 +12,25 @@ public class BasketItem {
 
         this.product = product;
         this.quantity = quantity;
+    }
+
+    public void addQuantity(BasketItem basketItem) {
+        this.quantity += basketItem.quantity;
+    }
+
+    public boolean isSameProduct(BasketItem basketItem) {
+        return this.product == basketItem.product;
+    }
+
+    public double totalPrice() {
+        return product.calculateTotalByQuantity(quantity);
+    }
+
+    public BasketItemMemento createBasketItemMemento() {
+        BasketItemMemento basketItemMemento = new BasketItemMemento();
+        basketItemMemento.quantity = quantity;
+        basketItemMemento.productMemento = product.createProductMemento();
+        return basketItemMemento;
     }
 
     @Override
@@ -34,22 +55,5 @@ public class BasketItem {
 
 
 
-    public void addQuantity(BasketItem basketItem) {
-        this.quantity += basketItem.quantity;
-    }
 
-    public boolean isSameProduct(BasketItem basketItem) {
-        return this.product == basketItem.product;
-    }
-
-    public double totalPrice() {
-        return product.calculateTotalByQuantity(quantity);
-    }
-
-    public BasketItemMemento createBasketItemMemento() {
-        BasketItemMemento basketItemMemento = new BasketItemMemento();
-        basketItemMemento.quantity = quantity;
-        basketItemMemento.productMemento = product.createProductMemento();
-        return basketItemMemento;
-    }
 }

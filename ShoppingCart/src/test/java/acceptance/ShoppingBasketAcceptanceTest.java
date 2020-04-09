@@ -1,6 +1,9 @@
 package acceptance;
 
-import ShoppingCart.domain.*;
+import ShoppingCart.domain.Product.Product;
+import ShoppingCart.domain.Product.ProductID;
+import ShoppingCart.domain.ShoppingBasket.ShoppingBasket;
+import ShoppingCart.domain.ShoppingBasket.UserID;
 import ShoppingCart.exception.ProductDoesNotExistException;
 import ShoppingCart.exception.ProductNegativeQuantityException;
 import ShoppingCart.domain.ProductRespository;

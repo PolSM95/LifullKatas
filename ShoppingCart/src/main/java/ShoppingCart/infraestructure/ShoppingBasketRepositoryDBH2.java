@@ -1,6 +1,14 @@
 package ShoppingCart.infraestructure;
 
 import ShoppingCart.domain.*;
+import ShoppingCart.domain.BasketItem.BasketItemListMemento;
+import ShoppingCart.domain.BasketItem.BasketItemMemento;
+import ShoppingCart.domain.Product.ProductIDMemento;
+import ShoppingCart.domain.Product.ProductMemento;
+import ShoppingCart.domain.ShoppingBasket.ShoppingBasket;
+import ShoppingCart.domain.ShoppingBasket.ShoppingBasketMemento;
+import ShoppingCart.domain.ShoppingBasket.UserID;
+import ShoppingCart.domain.ShoppingBasket.UserIDMemento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -53,7 +61,7 @@ public class ShoppingBasketRepositoryDBH2 implements ShoppingBasketRepository {
         int userID = userIDMemento.userId;
 
         ShoppingBasketMemento shoppingBasketMemento = jdbcTemplate.queryForObject("SELECT * FROM SHOPPINGBASKET WHERE userId = ? ",
-                new Object[userID], ((resultSet, rowNumber) -> {
+                new Object[]{userID}, ((resultSet, rowNumber) -> {
                     ShoppingBasketMemento shoppingBasketMementoQuery = new ShoppingBasketMemento();
                     shoppingBasketMementoQuery.dateString = resultSet.getString("creationDate");
                     UserIDMemento userIDMementoQuery = new UserIDMemento();
@@ -64,8 +72,8 @@ public class ShoppingBasketRepositoryDBH2 implements ShoppingBasketRepository {
                     return shoppingBasketMementoQuery;
                 }));
         BasketItemListMemento basketItemListMemento = new BasketItemListMemento();
-        jdbcTemplate.queryForObject("SELECT * FROM BASKETITEM b, PRODUCT p WHERE idShoppingBasket = ? AND b.idproduct = p.idproduct",
-                new Object[shoppingBasketMemento.idShoppingBasket], (resultSet, rowNumber) -> {
+        jdbcTemplate.query("SELECT * FROM BASKETITEM b, PRODUCT p WHERE idShoppingBasket = ? AND b.idproduct = p.idproduct",
+                new Object[]{shoppingBasketMemento.idShoppingBasket}, (resultSet, rowNumber) -> {
 
                     BasketItemMemento basketItemMemento = new BasketItemMemento();
                     ProductMemento productMemento = new ProductMemento();

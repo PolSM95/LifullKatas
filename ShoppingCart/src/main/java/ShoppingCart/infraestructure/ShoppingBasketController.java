@@ -1,12 +1,8 @@
 package ShoppingCart.infraestructure;
 
-import ShoppingCart.domain.ProductID;
-import ShoppingCart.domain.UserID;
+import ShoppingCart.domain.Product.ProductID;
+import ShoppingCart.domain.ShoppingBasket.UserID;
 import ShoppingCart.service.ShoppingBasketService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 public class ShoppingBasketController {
     private ShoppingBasketService shoppingBasketService;

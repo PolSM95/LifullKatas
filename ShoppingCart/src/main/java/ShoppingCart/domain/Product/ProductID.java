@@ -1,4 +1,4 @@
-package ShoppingCart.domain;
+package ShoppingCart.domain.Product;
 
 import java.util.Objects;
 

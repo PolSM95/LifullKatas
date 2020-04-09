@@ -1,4 +1,6 @@
-package ShoppingCart.domain;
+package ShoppingCart.domain.BasketItem;
+
+import ShoppingCart.domain.Product.ProductMemento;
 
 public class BasketItemMemento {
 

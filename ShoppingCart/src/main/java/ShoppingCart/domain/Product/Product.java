@@ -1,4 +1,4 @@
-package ShoppingCart.domain;
+package ShoppingCart.domain.Product;
 
 import java.util.Objects;
 
@@ -18,6 +18,18 @@ public class Product {
         String productName = productMemento.productName;
         double productPrice = productMemento.productPrice;
         return new Product(productID, productName, productPrice);
+    }
+
+    public double calculateTotalByQuantity(int quantity) {
+        return quantity * productPrice;
+    }
+
+    public ProductMemento createProductMemento() {
+        ProductMemento productMemento = new ProductMemento();
+        productMemento.productPrice = productPrice;
+        productMemento.productName = productName;
+        productMemento.productIDMemento = productID.createProductIdMemento();
+        return productMemento;
     }
 
     @Override
@@ -42,17 +54,5 @@ public class Product {
 
     }
 
-    public double calculateTotalByQuantity(int quantity) {
 
-        return quantity * productPrice;
-
-    }
-
-    public ProductMemento createProductMemento() {
-        ProductMemento productMemento = new ProductMemento();
-        productMemento.productPrice = productPrice;
-        productMemento.productName = productName;
-        productMemento.productIDMemento = productID.createProductIdMemento();
-        return productMemento;
-    }
 }

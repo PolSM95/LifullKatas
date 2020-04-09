@@ -1,4 +1,4 @@
-package ShoppingCart.domain;
+package ShoppingCart.domain.BasketItem;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package unit;
 
-import ShoppingCart.domain.ProductID;
-import ShoppingCart.domain.UserID;
+import ShoppingCart.domain.Product.ProductID;
+import ShoppingCart.domain.ShoppingBasket.UserID;
 import ShoppingCart.infraestructure.ShoppingBasketController;
 import ShoppingCart.service.ShoppingBasketService;
 import org.junit.jupiter.api.Test;

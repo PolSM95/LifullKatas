@@ -1,6 +1,9 @@
 package unit;
 
-import ShoppingCart.domain.*;
+import ShoppingCart.domain.Product.Product;
+import ShoppingCart.domain.Product.ProductID;
+import ShoppingCart.domain.ShoppingBasket.ShoppingBasket;
+import ShoppingCart.domain.ShoppingBasket.UserID;
 import ShoppingCart.exception.BasketNotExistsException;
 import ShoppingCart.exception.ProductDoesNotExistException;
 import ShoppingCart.exception.ProductNegativeQuantityException;

@@ -1,4 +1,4 @@
-package ShoppingCart.domain;
+package ShoppingCart.domain.BasketItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +27,28 @@ public class BasketItemList {
             basketItemList.add(basketItem);
         }
     }
+    public double totalPrice() {
+        double total = 0;
+
+        for (BasketItem basketItem: basketItemList) {
+            total += basketItem.totalPrice();
+        }
+
+        return total;
+    }
+
+    public BasketItemListMemento createBasketItemListMemento() {
+
+        List<BasketItemMemento> basketItemMementoList = new ArrayList<>();
+
+        for(BasketItem basketItem : basketItemList){
+            basketItemMementoList.add(basketItem.createBasketItemMemento());
+        }
+        BasketItemListMemento basketItemListMemento = new BasketItemListMemento();
+        basketItemListMemento.basketItemMementoList = basketItemMementoList;
+
+        return basketItemListMemento;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -53,28 +75,5 @@ public class BasketItemList {
         return output;
     }
 
-    public double totalPrice() {
 
-        double total = 0;
-
-        for (BasketItem basketItem: basketItemList) {
-
-            total += basketItem.totalPrice();
-        }
-
-        return total;
-    }
-
-    public BasketItemListMemento createBasketItemListMemento() {
-
-        List<BasketItemMemento> basketItemMementoList = new ArrayList<>();
-
-        for(BasketItem basketItem : basketItemList){
-            basketItemMementoList.add(basketItem.createBasketItemMemento());
-        }
-        BasketItemListMemento basketItemListMemento = new BasketItemListMemento();
-        basketItemListMemento.basketItemMementoList = basketItemMementoList;
-
-        return basketItemListMemento;
-    }
 }

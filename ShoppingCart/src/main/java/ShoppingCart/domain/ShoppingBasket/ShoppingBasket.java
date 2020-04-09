@@ -1,5 +1,9 @@
-package ShoppingCart.domain;
+package ShoppingCart.domain.ShoppingBasket;
 
+import ShoppingCart.domain.BasketItem.BasketItem;
+import ShoppingCart.domain.BasketItem.BasketItemList;
+import ShoppingCart.domain.BasketItem.BasketItemMemento;
+import ShoppingCart.domain.Product.Product;
 import ShoppingCart.exception.ProductDoesNotExistException;
 import ShoppingCart.exception.ProductNegativeQuantityException;
 
@@ -46,6 +50,14 @@ public class ShoppingBasket
         basketItemList.addBasketItemToAList(basketItem);
     }
 
+    public ShoppingBasketMemento createShoppingBasketMemento(){
+        ShoppingBasketMemento shoppingBasketMemento = new ShoppingBasketMemento();
+        shoppingBasketMemento.userID = userID.createUserIdMemento();
+        shoppingBasketMemento.dateString = dateString;
+        shoppingBasketMemento.basketItemList = basketItemList.createBasketItemListMemento();
+        return shoppingBasketMemento;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -66,13 +78,5 @@ public class ShoppingBasket
         return "Creation date : " +dateString +"\n"+
                 basketItemList.toString()+
                 "Total: €"+basketItemList.totalPrice();
-    }
-
-    public ShoppingBasketMemento createShoppingBasketMemento(){
-        ShoppingBasketMemento shoppingBasketMemento = new ShoppingBasketMemento();
-        shoppingBasketMemento.userID = userID.createUserIdMemento();
-        shoppingBasketMemento.dateString = dateString;
-        shoppingBasketMemento.basketItemList = basketItemList.createBasketItemListMemento();
-        return shoppingBasketMemento;
     }
 }

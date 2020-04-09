@@ -1,13 +1,11 @@
 package ShoppingCart.infraestructure;
 
-import ShoppingCart.domain.Product;
-import ShoppingCart.domain.ProductID;
+import ShoppingCart.domain.Product.Product;
+import ShoppingCart.domain.Product.ProductID;
 import ShoppingCart.domain.ProductRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-
-import java.sql.ResultSet;
 
 @Component
 public class ProductRepositoryDBH2 implements ProductRespository {

@@ -1,8 +1,6 @@
 package ShoppingCart.infraestructure;
 
-import ShoppingCart.domain.ProductID;
-import ShoppingCart.domain.UserID;
-import ShoppingCart.service.ShoppingBasketService;
+import ShoppingCart.domain.Product.ProductID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

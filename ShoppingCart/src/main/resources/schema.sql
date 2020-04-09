@@ -4,18 +4,19 @@ CREATE TABLE IF NOT EXISTS Product (
   product_price DECIMAL NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS BasketItem (
-  idBasketItem INTEGER PRIMARY KEY AUTO_INCREMENT,
-  idProduct INTEGER NOT NULL,
-  idShoppingBasket INTEGER NOT NULL,
-  quantity DECIMAL NOT NULL,
-    FOREIGN KEY (idShoppingBasket) REFERENCES ShoppingBasket (idShoppingBasket) ON DELETE CASCADE
-
-);
-
 CREATE TABLE IF NOT EXISTS ShoppingBasket (
   idShoppingBasket INTEGER PRIMARY KEY AUTO_INCREMENT ,
   userId INTEGER NOT NULL UNIQUE,
   creationDate VARCHAR(250) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS BasketItem (
+  idBasketItem INTEGER PRIMARY KEY AUTO_INCREMENT,
+  idProduct INTEGER NOT NULL,
+  idShoppingBasket INTEGER NOT NULL,
+  quantity DECIMAL NOT NULL,
+  FOREIGN KEY (idShoppingBasket) REFERENCES ShoppingBasket (idShoppingBasket) ON DELETE CASCADE
+
+);
+
 
