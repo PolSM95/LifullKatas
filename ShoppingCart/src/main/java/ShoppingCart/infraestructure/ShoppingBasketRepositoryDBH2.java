@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -26,22 +27,22 @@ public class ShoppingBasketRepositoryDBH2 implements ShoppingBasketRepository {
 
         String date = shoppingBasketMemento.dateString;
 
-        jdbcTemplate.update("DELETE FROM SHOPPINGBASKET WHERE userID = ?",userID);
+        jdbcTemplate.update("DELETE FROM SHOPPINGBASKET WHERE userID = ?", userID);
 
-        jdbcTemplate.update("INSERT INTO SHOPPINGBASKET (userId,creationDate) VALUES (?,?)",userID,date);
+        jdbcTemplate.update("INSERT INTO SHOPPINGBASKET (userId,creationDate) VALUES (?,?)", userID, date);
 
-        BasketItemListMemento basketItemListMemento =  shoppingBasketMemento.basketItemList;
+        BasketItemListMemento basketItemListMemento = shoppingBasketMemento.basketItemList;
 
         List<BasketItemMemento> basketItemMementoList = basketItemListMemento.basketItemMementoList;
 
         int IDShoppingBasket = jdbcTemplate.queryForObject("SELECT * FROM SHOPPINGBASKET WHERE userId = ?",
-                new Object[]{userID},((resultSet, i) -> resultSet.getInt("idShoppingBasket")));
+                new Object[]{userID}, ((resultSet, i) -> resultSet.getInt("idShoppingBasket")));
 
         for (BasketItemMemento basketItemMemento : basketItemMementoList) {
             int productID = basketItemMemento.productMemento.productIDMemento.productIDMemento;
             int quantity = basketItemMemento.quantity;
             jdbcTemplate.update("INSERT INTO BASKETITEM (idproduct,idShoppingBasket,quantity) VALUES (?,?,?)",
-                    productID,IDShoppingBasket,quantity);
+                    productID, IDShoppingBasket, quantity);
         }
     }
 
@@ -52,7 +53,7 @@ public class ShoppingBasketRepositoryDBH2 implements ShoppingBasketRepository {
         int userID = userIDMemento.userId;
 
         ShoppingBasketMemento shoppingBasketMemento = jdbcTemplate.queryForObject("SELECT * FROM SHOPPINGBASKET WHERE userId = ? ",
-                new Object[userID],((resultSet, i) -> {
+                new Object[userID], ((resultSet, rowNumber) -> {
                     ShoppingBasketMemento shoppingBasketMementoQuery = new ShoppingBasketMemento();
                     shoppingBasketMementoQuery.dateString = resultSet.getString("creationDate");
                     UserIDMemento userIDMementoQuery = new UserIDMemento();
@@ -61,9 +62,32 @@ public class ShoppingBasketRepositoryDBH2 implements ShoppingBasketRepository {
                     shoppingBasketMementoQuery.idShoppingBasket = resultSet.getInt("idShoppingBasket");
 
                     return shoppingBasketMementoQuery;
+                }));
+        BasketItemListMemento basketItemListMemento = new BasketItemListMemento();
+        jdbcTemplate.queryForObject("SELECT * FROM BASKETITEM b, PRODUCT p WHERE idShoppingBasket = ? AND b.idproduct = p.idproduct",
+                new Object[shoppingBasketMemento.idShoppingBasket], (resultSet, rowNumber) -> {
 
-                } ));
+                    BasketItemMemento basketItemMemento = new BasketItemMemento();
+                    ProductMemento productMemento = new ProductMemento();
+                    ProductIDMemento productIDMemento = new ProductIDMemento();
 
-        return null;
+                    productIDMemento.productIDMemento = resultSet.getInt("idProduct");
+
+                    productMemento.productIDMemento = productIDMemento;
+                    productMemento.productName = resultSet.getString("product_name");
+                    productMemento.productPrice = resultSet.getDouble("product_price");
+
+                    basketItemMemento.productMemento = productMemento;
+                    basketItemMemento.quantity = resultSet.getInt("quantity");
+
+                    basketItemListMemento.basketItemMementoList.add(basketItemMemento);
+
+                    return null;
+                });
+        shoppingBasketMemento.basketItemList = basketItemListMemento;
+
+        ShoppingBasket shoppingBasket = ShoppingBasket.createFromMemento(shoppingBasketMemento);
+
+        return shoppingBasket;
     }
-    }
+}

@@ -19,7 +19,7 @@ public class ShoppingBasketRepositoryDBH2Should {
         UserID userId = new UserID(30002);
         ShoppingBasket shoppingBasket = new ShoppingBasket(userId,"09/04/2020");
 
-        assertEquals(null, null);
+        //assertEquals(null, null);
     }
 
 

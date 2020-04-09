@@ -19,6 +19,19 @@ public class ShoppingBasket
         this.basketItemList = new BasketItemList();
     }
 
+    public static ShoppingBasket createFromMemento(ShoppingBasketMemento shoppingBasketMemento) {
+        int userIDNumber = shoppingBasketMemento.userID.userId;
+        UserID userID = new UserID(userIDNumber);
+        ShoppingBasket shoppingBasket = new ShoppingBasket(userID, shoppingBasketMemento.dateString);
+        for (BasketItemMemento basketItemMemento : shoppingBasketMemento.basketItemList.basketItemMementoList){
+            Product currentProduct = Product.createFromMemento(basketItemMemento.productMemento);
+            int quantity = basketItemMemento.quantity;
+            shoppingBasket.addProductToShoppingBasket(currentProduct, quantity);
+        }
+        return shoppingBasket;
+
+    }
+
     public void addProductToShoppingBasket(Product product, int quantity) {
 
         if (product == null){

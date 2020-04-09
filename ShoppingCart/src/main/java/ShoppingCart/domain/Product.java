@@ -13,6 +13,13 @@ public class Product {
         this.productPrice = productPrice;
     }
 
+    public static Product createFromMemento(ProductMemento productMemento) {
+        ProductID productID = new ProductID(productMemento.productIDMemento.productIDMemento);
+        String productName = productMemento.productName;
+        double productPrice = productMemento.productPrice;
+        return new Product(productID, productName, productPrice);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
