@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.sql.ResultSet;
+
 @Component
 public class ProductRepositoryDBH2 implements ProductRespository {
     @Autowired
@@ -17,16 +19,19 @@ public class ProductRepositoryDBH2 implements ProductRespository {
         try{
 
             Product product = jdbcTemplate.queryForObject("SELECT * FROM PRODUCT WHERE idProduct = ?",
-                    new Object[]{productID.toString()}, (resultSet, i) ->
-                     new Product(
-                            new ProductID(resultSet.getInt("idProduct")),
-                            resultSet.getString("product_name"),
-                             resultSet.getDouble("product_price")
-                     ));
+                    new Object[]{productID.toString()}, (resultSet, rowNum) -> {
+                    return new Product(
+                                new ProductID(resultSet.getInt("idProduct")),
+                                resultSet.getString("product_name"),
+                                resultSet.getDouble("product_price")
+                        );
+                    });
             return product;
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return null;
     }
+
+
 }

@@ -16,12 +16,19 @@ public class ProductRepositoryDBH2Should {
     private ProductRepositoryDBH2 productRepository;
 
     @Test
-    public void test(){
+    public void retrieve_product_from_database_with_productId(){
         //ProductRepositoryDBH2 productRepository = new ProductRepositoryDBH2();
         ProductID productID = new ProductID(10001);
         Product productExpected = new Product(productID, "Lord of The Rings", 10.00);
 
         assertEquals(productExpected, productRepository.getProductById(productID));
+    }
+
+    @Test
+    public void raise_error_when_try_to_retrieve_a_product_with_invalid_productId(){
+
+        ProductID productID = new ProductID(10005);
+        assertEquals(null, productRepository.getProductById(productID));
     }
 
 }
