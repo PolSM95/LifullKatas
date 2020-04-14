@@ -70,12 +70,7 @@ public class ShoppingBasketWebControllerShould {
         assertEquals(expectedShoppingBasket, ShoppingBasket.createFromMemento(responseEntity.getBody()));
 
     }
-    //POST USE CASES
-    /*
-    -ProductID que no existe
-    -Cantidad negativa
-    -OK
-     */
+
     @Test
     public void post_item_to_shoppingBasketRepository(){
         MockitoAnnotations.initMocks(this);
@@ -97,6 +92,44 @@ public class ShoppingBasketWebControllerShould {
         verify(shoppingBasketRepositoryDBH2).saveBasket(shoppingBasketExpected);
         assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
 
+    }
+
+    @Test
+    public void raise_http_message_BAD_REQUEST_when_quantity_is_negative(){
+        MockitoAnnotations.initMocks(this);
+        PostItemRequest postItemRequest = new PostItemRequest(30001, 10002, -2);
+        UserID userID = new UserID(30001);
+        ProductID productID1 = new ProductID(10002);
+        Product hobbit = new Product(productID1, "The Hobbit", 5.00);
+
+
+        when(productRepositoryDBH2.getProductById(productID1)).thenReturn(hobbit);
+        when(basketDate.getDate()).thenReturn("14/04/2020");
+        when(shoppingBasketRepositoryDBH2.getBasketByUserId(userID)).thenReturn(null);
+
+
+
+        ResponseEntity<Object> responseEntity = shoppingBasketWebController.postItem(postItemRequest);
+
+        assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
+        assertEquals("Quantity cannot be negative", responseEntity.getBody());
+
+    }
+
+    @Test
+    public void raise_http_message_bad_request_when_product_does_not_exist(){
+        MockitoAnnotations.initMocks(this);
+        PostItemRequest postItemRequest = new PostItemRequest(30001, 324535, -2);
+        ProductID productID = new ProductID(324535);
+        UserID userID = new UserID(30001);
+        when(productRepositoryDBH2.getProductById(productID)).thenReturn(null);
+        when(basketDate.getDate()).thenReturn("14/04/2020");
+        when(shoppingBasketRepositoryDBH2.getBasketByUserId(userID)).thenReturn(null);
+
+        ResponseEntity<Object> responseEntity = shoppingBasketWebController.postItem(postItemRequest);
+
+        assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
+        assertEquals("Product not found", responseEntity.getBody());
     }
 
 }

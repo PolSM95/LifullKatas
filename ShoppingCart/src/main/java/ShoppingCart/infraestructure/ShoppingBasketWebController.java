@@ -4,6 +4,8 @@ import ShoppingCart.domain.Product.ProductID;
 import ShoppingCart.domain.ShoppingBasket.ShoppingBasketMemento;
 import ShoppingCart.domain.ShoppingBasket.UserID;
 import ShoppingCart.exception.BasketNotExistsException;
+import ShoppingCart.exception.ProductDoesNotExistException;
+import ShoppingCart.exception.ProductNegativeQuantityException;
 import ShoppingCart.service.BasketDate;
 import ShoppingCart.service.ShoppingBasketService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,8 +50,14 @@ public class ShoppingBasketWebController {
         shoppingBasketService = new ShoppingBasketService(shoppingBasketRepositoryDBH2, productRepositoryDBH2, basketDate);
         UserID userID = new UserID(itemRequest.userID);
         ProductID productID = new ProductID(itemRequest.productID);
-        shoppingBasketService.addItem(userID,productID, itemRequest.quantity);
-        return new ResponseEntity<Object>("Item succesfully added.", HttpStatus.CREATED);
+        try{
+            shoppingBasketService.addItem(userID,productID, itemRequest.quantity);
+            return new ResponseEntity<Object>("Item succesfully added.", HttpStatus.CREATED);
+        }catch (ProductNegativeQuantityException e){
+            return new ResponseEntity<Object>("Quantity cannot be negative",HttpStatus.BAD_REQUEST);
+        } catch (ProductDoesNotExistException e){
+            return new ResponseEntity<Object>("Product not found", HttpStatus.BAD_REQUEST);
+        }
         //throw new UnsupportedOperationException();
     }
 }
