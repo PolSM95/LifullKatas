@@ -19,7 +19,7 @@ public class BasketItem {
     }
 
     public boolean isSameProduct(BasketItem basketItem) {
-        return this.product == basketItem.product;
+        return this.product.equals(basketItem.product);
     }
 
     public double totalPrice() {
