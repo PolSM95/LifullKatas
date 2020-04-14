@@ -1,12 +1,15 @@
 package ShoppingCart.service;
 
-public class BasketDate {
+import org.springframework.stereotype.Component;
 
+@Component
+public class BasketDate {
 
     public BasketDate() {
     }
 
     public String getDate(){
-        throw new UnsupportedOperationException();
+
+       return "14/04/2020";
     }
 }

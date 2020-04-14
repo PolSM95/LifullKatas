@@ -1,4 +1,4 @@
-package acceptance;
+package ShoppingCart.acceptance;
 
 import ShoppingCart.domain.Product.Product;
 import ShoppingCart.domain.Product.ProductID;
@@ -7,14 +7,13 @@ import ShoppingCart.domain.ShoppingBasket.ShoppingBasket;
 import ShoppingCart.domain.ShoppingBasket.ShoppingBasketMemento;
 import ShoppingCart.domain.ShoppingBasket.UserID;
 import ShoppingCart.domain.ShoppingBasketRepository;
-import ShoppingCart.infraestructure.PostItemRequest;
-import ShoppingCart.infraestructure.ShoppingBasketController;
-import ShoppingCart.infraestructure.ShoppingBasketWebController;
+import ShoppingCart.infraestructure.*;
 import ShoppingCart.service.BasketDate;
 import ShoppingCart.service.ShoppingBasketService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -22,6 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@SpringBootTest
 
 public class ShoppingBasketAcceptanceTest {
 
@@ -29,27 +29,19 @@ public class ShoppingBasketAcceptanceTest {
     ShoppingBasketRepository shoppingBasketRepository;
     @Autowired
     ProductRespository productRespository;
+    @Autowired
+    ShoppingBasketWebController shoppingBasketWebController;
 
     BasketDate basketDate;
     ShoppingBasketService shoppingBasketService;
-    ShoppingBasketController shoppingBasketController;
-    ShoppingBasketWebController shoppingBasketWebController;
 
 
     @BeforeEach
     public void init(){
         basketDate = mock(BasketDate.class);
-        shoppingBasketWebController = new ShoppingBasketWebController();
         shoppingBasketService = new ShoppingBasketService(shoppingBasketRepository, productRespository, basketDate);
-        shoppingBasketController = new ShoppingBasketController(shoppingBasketService);
-
     }
 
-    /*
-        post = (Command) Añadir items en la Shopping Basket
-        +
-        get = (Query) Recibir Shopping Basket
-    */
     @Test
     void acceptanceTest(){
         UserID userID = new UserID(30001);
@@ -73,7 +65,4 @@ public class ShoppingBasketAcceptanceTest {
         assertEquals(HttpStatus.OK, responseShoppingBasketMemento.getStatusCode());
         assertEquals(expectedShoppingBasket, ShoppingBasket.createFromMemento(responseShoppingBasketMemento.getBody()));
     }
-
-
-
 }

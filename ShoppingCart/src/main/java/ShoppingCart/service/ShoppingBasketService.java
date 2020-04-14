@@ -7,8 +7,9 @@ import ShoppingCart.domain.ShoppingBasket.UserID;
 import ShoppingCart.exception.BasketNotExistsException;
 import ShoppingCart.domain.ProductRespository;
 import ShoppingCart.domain.ShoppingBasketRepository;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class ShoppingBasketService {
 
     private ShoppingBasketRepository shoppingBasketRepository;
