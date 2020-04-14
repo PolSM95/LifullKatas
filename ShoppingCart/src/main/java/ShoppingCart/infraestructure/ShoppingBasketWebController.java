@@ -17,6 +17,7 @@ public class ShoppingBasketWebController {
     ProductRepositoryDBH2 productRepositoryDBH2;
     @Autowired
     ShoppingBasketRepositoryDBH2 shoppingBasketRepositoryDBH2;
+    @Autowired
     ShoppingBasketService shoppingBasketService;
 
     @GetMapping("/products/{id}")
