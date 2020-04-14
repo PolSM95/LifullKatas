@@ -1,11 +1,11 @@
 package unit;
 
+import ShoppingCart.domain.Product.Product;
+import ShoppingCart.domain.Product.ProductID;
+import ShoppingCart.domain.ShoppingBasket.ShoppingBasket;
 import ShoppingCart.domain.ShoppingBasket.ShoppingBasketMemento;
 import ShoppingCart.domain.ShoppingBasket.UserID;
-import ShoppingCart.infraestructure.ProductRepositoryDBH2;
-import ShoppingCart.infraestructure.ShoppingBasketController;
-import ShoppingCart.infraestructure.ShoppingBasketRepositoryDBH2;
-import ShoppingCart.infraestructure.ShoppingBasketWebController;
+import ShoppingCart.infraestructure.*;
 import ShoppingCart.service.BasketDate;
 import ShoppingCart.service.ShoppingBasketService;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,10 +14,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class ShoppingBasketWebControllerShould {
 
@@ -44,6 +44,59 @@ public class ShoppingBasketWebControllerShould {
         ResponseEntity<ShoppingBasketMemento> basketResponse = shoppingBasketWebController.getBasket(30001);
         assertEquals(HttpStatus.NOT_FOUND, basketResponse.getStatusCode());
         assertEquals(null, basketResponse.getBody());
+    }
+
+    @Test
+    public void return_an_existing_basket(){
+        MockitoAnnotations.initMocks(this);
+        UserID userID = new UserID(30001);
+        ProductID productID1 = new ProductID(10002);
+        ProductID productID2 = new ProductID(20110);
+        Product hobbit = new Product(productID1, "The Hobbit", 5.00);
+        Product breakingBad = new Product(productID2, "Breaking Bad", 7.00);
+
+        when(basketDate.getDate()).thenReturn("14/04/2020");
+
+        ShoppingBasket expectedShoppingBasket = new ShoppingBasket(userID,basketDate.getDate());
+
+        expectedShoppingBasket.addProductToShoppingBasket(hobbit,5);
+        expectedShoppingBasket.addProductToShoppingBasket(breakingBad,2);
+
+        when(shoppingBasketRepositoryDBH2.getBasketByUserId(userID)).thenReturn(expectedShoppingBasket);
+
+        ResponseEntity<ShoppingBasketMemento> responseEntity = shoppingBasketWebController.getBasket(30001);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(expectedShoppingBasket, ShoppingBasket.createFromMemento(responseEntity.getBody()));
+
+    }
+    //POST USE CASES
+    /*
+    -ProductID que no existe
+    -Cantidad negativa
+    -OK
+     */
+    @Test
+    public void post_item_to_shoppingBasketRepository(){
+        MockitoAnnotations.initMocks(this);
+        PostItemRequest postItemRequest = new PostItemRequest(30001, 10002, 2);
+        UserID userID = new UserID(30001);
+        ProductID productID1 = new ProductID(10002);
+        Product hobbit = new Product(productID1, "The Hobbit", 5.00);
+
+
+        when(productRepositoryDBH2.getProductById(productID1)).thenReturn(hobbit);
+        when(basketDate.getDate()).thenReturn("14/04/2020");
+        when(shoppingBasketRepositoryDBH2.getBasketByUserId(userID)).thenReturn(null);
+
+        ShoppingBasket shoppingBasketExpected = new ShoppingBasket(userID,basketDate.getDate());
+        shoppingBasketExpected.addProductToShoppingBasket(hobbit,2);
+
+        ResponseEntity<Object> responseEntity = shoppingBasketWebController.postItem(postItemRequest);
+
+        verify(shoppingBasketRepositoryDBH2).saveBasket(shoppingBasketExpected);
+        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
+
     }
 
 }

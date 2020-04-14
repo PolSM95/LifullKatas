@@ -20,6 +20,8 @@ public class ShoppingBasketWebController {
     ShoppingBasketRepositoryDBH2 shoppingBasketRepositoryDBH2;
     @Autowired
     ShoppingBasketService shoppingBasketService;
+    @Autowired
+    BasketDate basketDate;
 
     @GetMapping("/products/{id}")
     public ResponseEntity<Object> getProduct(@PathVariable int id) {
@@ -43,6 +45,11 @@ public class ShoppingBasketWebController {
 
     @PostMapping(value = "/cart", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Object> postItem(@RequestBody PostItemRequest itemRequest) {
+        shoppingBasketService = new ShoppingBasketService(shoppingBasketRepositoryDBH2, productRepositoryDBH2, basketDate);
+        UserID userID = new UserID(itemRequest.userID);
+        ProductID productID = new ProductID(itemRequest.productID);
+        shoppingBasketService.addItem(userID,productID, itemRequest.quantity);
         return new ResponseEntity<Object>("Item succesfully added.", HttpStatus.CREATED);
+        //throw new UnsupportedOperationException();
     }
 }
