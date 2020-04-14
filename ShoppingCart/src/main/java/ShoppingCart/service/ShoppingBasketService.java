@@ -42,7 +42,7 @@ public class ShoppingBasketService {
         if(shoppingBasket == null){
             throw new BasketNotExistsException("There is no basket for that user");
         }
-       return  shoppingBasket;
+       return shoppingBasket;
 
     }
 }

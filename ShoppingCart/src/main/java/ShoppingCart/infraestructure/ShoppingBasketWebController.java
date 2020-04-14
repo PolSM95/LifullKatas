@@ -1,16 +1,14 @@
 package ShoppingCart.infraestructure;
 
 import ShoppingCart.domain.Product.ProductID;
+import ShoppingCart.domain.ShoppingBasket.ShoppingBasketMemento;
 import ShoppingCart.domain.ShoppingBasket.UserID;
 import ShoppingCart.service.BasketDate;
 import ShoppingCart.service.ShoppingBasketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 
@@ -32,10 +30,13 @@ public class ShoppingBasketWebController {
     }
 
     @GetMapping("/cart/{id}")
-    public ResponseEntity<Object> getBasket(@PathVariable int id) {
-        shoppingBasketService = new ShoppingBasketService(shoppingBasketRepositoryDBH2,productRepositoryDBH2,new BasketDate());
-        return new ResponseEntity<>(shoppingBasketService.basketFor(new UserID(id)), HttpStatus.OK);
+    public ResponseEntity<ShoppingBasketMemento> getBasket(@PathVariable int id) {
+        shoppingBasketService = new ShoppingBasketService(shoppingBasketRepositoryDBH2, productRepositoryDBH2, new BasketDate());
+        return new ResponseEntity<ShoppingBasketMemento>(shoppingBasketService.basketFor(new UserID(id)).createShoppingBasketMemento(), HttpStatus.OK);
     }
 
-
+    @PostMapping(value = "/cart", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Object> postItem(@RequestBody PostItemRequest itemRequest) {
+        return new ResponseEntity<Object>("Item succesfully added.", HttpStatus.CREATED);
+    }
 }
