@@ -3,6 +3,7 @@ package ShoppingCart.infraestructure;
 import ShoppingCart.domain.Product.ProductID;
 import ShoppingCart.domain.ShoppingBasket.ShoppingBasketMemento;
 import ShoppingCart.domain.ShoppingBasket.UserID;
+import ShoppingCart.exception.BasketNotExistsException;
 import ShoppingCart.service.BasketDate;
 import ShoppingCart.service.ShoppingBasketService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,11 @@ public class ShoppingBasketWebController {
     @GetMapping("/cart/{id}")
     public ResponseEntity<ShoppingBasketMemento> getBasket(@PathVariable int id) {
         shoppingBasketService = new ShoppingBasketService(shoppingBasketRepositoryDBH2, productRepositoryDBH2, new BasketDate());
-        return new ResponseEntity<ShoppingBasketMemento>(shoppingBasketService.basketFor(new UserID(id)).createShoppingBasketMemento(), HttpStatus.OK);
+        try{
+            return new ResponseEntity<ShoppingBasketMemento>(shoppingBasketService.basketFor(new UserID(id)).createShoppingBasketMemento(), HttpStatus.OK);
+        }catch (BasketNotExistsException e){
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping(value = "/cart", consumes = "application/json", produces = "application/json")
