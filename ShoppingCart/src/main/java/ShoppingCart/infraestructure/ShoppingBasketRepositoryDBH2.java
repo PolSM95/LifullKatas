@@ -59,18 +59,29 @@ public class ShoppingBasketRepositoryDBH2 implements ShoppingBasketRepository {
 
         UserIDMemento userIDMemento = userId.createUserIdMemento();
         int userID = userIDMemento.userId;
+        ShoppingBasketMemento shoppingBasketMemento;
 
-        ShoppingBasketMemento shoppingBasketMemento = jdbcTemplate.queryForObject("SELECT * FROM SHOPPINGBASKET WHERE userId = ? ",
-                new Object[]{userID}, ((resultSet, rowNumber) -> {
-                    ShoppingBasketMemento shoppingBasketMementoQuery = new ShoppingBasketMemento();
-                    shoppingBasketMementoQuery.dateString = resultSet.getString("creationDate");
-                    UserIDMemento userIDMementoQuery = new UserIDMemento();
-                    userIDMementoQuery.userId = resultSet.getInt("userId");
-                    shoppingBasketMementoQuery.userID = userIDMementoQuery;
-                    shoppingBasketMementoQuery.idShoppingBasket = resultSet.getInt("idShoppingBasket");
+        try {
+             shoppingBasketMemento = jdbcTemplate.queryForObject("SELECT * FROM SHOPPINGBASKET WHERE userId = ? ",
+                    new Object[]{userID}, ((resultSet, rowNumber) -> {
 
-                    return shoppingBasketMementoQuery;
-                }));
+                        ShoppingBasketMemento shoppingBasketMementoQuery = new ShoppingBasketMemento();
+                        shoppingBasketMementoQuery.dateString = resultSet.getString("creationDate");
+                        UserIDMemento userIDMementoQuery = new UserIDMemento();
+                        userIDMementoQuery.userId = resultSet.getInt("userId");
+                        shoppingBasketMementoQuery.userID = userIDMementoQuery;
+                        shoppingBasketMementoQuery.idShoppingBasket = resultSet.getInt("idShoppingBasket");
+
+                        return shoppingBasketMementoQuery;
+
+
+                    }));
+
+        }catch (Exception e){
+
+            return null;
+        }
+
         BasketItemListMemento basketItemListMemento = new BasketItemListMemento();
         jdbcTemplate.query("SELECT * FROM BASKETITEM b, PRODUCT p WHERE idShoppingBasket = ? AND b.idproduct = p.idproduct",
                 new Object[]{shoppingBasketMemento.idShoppingBasket}, (resultSet, rowNumber) -> {

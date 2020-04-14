@@ -33,6 +33,14 @@ public class ShoppingBasketRepositoryDBH2Should {
         assertEquals(shoppingBasket, shoppingBasketRepository.getBasketByUserId(userId));
     }
 
+    @Test
+
+    public void returning_null_when_there_is_no_shopping_basket_for_an_specific_user(){
+        UserID userID = new UserID(99999);
+
+        assertEquals(null,shoppingBasketRepository.getBasketByUserId(userID));
+    }
+
 
 
 
