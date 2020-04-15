@@ -12,6 +12,9 @@ import ShoppingCart.service.BasketDate;
 import ShoppingCart.service.ShoppingBasketService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
@@ -25,21 +28,17 @@ import static org.mockito.Mockito.when;
 
 public class ShoppingBasketAcceptanceTest {
 
-    @Autowired
-    ShoppingBasketRepository shoppingBasketRepository;
-    @Autowired
-    ProductRespository productRespository;
+    @InjectMocks
     @Autowired
     ShoppingBasketWebController shoppingBasketWebController;
 
+    @Mock
     BasketDate basketDate;
-    ShoppingBasketService shoppingBasketService;
 
 
     @BeforeEach
     public void init(){
-        basketDate = mock(BasketDate.class);
-        shoppingBasketService = new ShoppingBasketService(shoppingBasketRepository, productRespository, basketDate);
+        MockitoAnnotations.initMocks(this);
     }
 
     @Test

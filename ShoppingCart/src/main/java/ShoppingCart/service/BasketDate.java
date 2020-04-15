@@ -9,7 +9,6 @@ public class BasketDate {
     }
 
     public String getDate(){
-
-       return "14/04/2020";
+        throw new UnsupportedOperationException();
     }
 }
